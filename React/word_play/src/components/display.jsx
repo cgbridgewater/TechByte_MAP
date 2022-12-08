@@ -20,9 +20,10 @@ return (
                     height: myWords.size,
                     width: myWords.size,
                     padding:"5px",
-                    backgroundColor: myWords.size
+                    backgroundColor: myWords.color,
+                    
                 }}>
-                    {myWords}
+                {myWords.myWords}
                 </div>
             ))
         }

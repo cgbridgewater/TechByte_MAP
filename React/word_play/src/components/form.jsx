@@ -20,14 +20,14 @@ const Form = (props) => {
     setWordArray( [ ...wordArray, 
         // add an object to the end of the array
         {
-            myWords: myWords,
-            color:color,
+            myWords,
+            color,
             size:size + "px"
         }
     ] );
     setMyWords("");
-    setColor("");
-    setSize("");
+    setColor("grey");
+    setSize("50");
     }
 
 
