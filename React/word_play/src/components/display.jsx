@@ -23,7 +23,7 @@ return (
                     backgroundColor: myWords.color,
                     
                 }}>
-                {myWords.myWords}
+                <p style={{}} >{myWords.myWords}</p>
                 </div>
             ))
         }
