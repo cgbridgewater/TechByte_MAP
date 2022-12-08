@@ -28,6 +28,8 @@ const Form = (props) => {
     setMyWords("");
     setColor("grey");
     setSize("50");
+    alert(`you chose a ${size}x${size}px box with ${color} color and ${myWords} displayed in the box!`)
+    alert(`P.S. - I ain't no holla back guuuuurl`)
     }
 
 
