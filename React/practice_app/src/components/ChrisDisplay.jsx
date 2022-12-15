@@ -18,7 +18,6 @@ return (
                     backgroundColor: myWords.color,
                     border: "2px solid black", 
                     borderColor: myWords.border
-                    
                 }}>
                 {myWords.myWords}
                 </div>

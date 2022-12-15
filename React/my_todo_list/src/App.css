@@ -1,0 +1,90 @@
+/*App.js page */
+.App {
+  text-align: center;
+  background-color: darkseagreen;
+  min-height: 1000px;
+}
+
+h1 {
+  color: darkolivegreen;
+}
+
+
+/* Form.jsx page */
+.ErrorText {
+  color: red;
+  font-weight: 900;
+}
+
+.TodoForm {
+  border: 2px solid darkolivegreen;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin: auto;
+}  
+
+.TodoLabel {
+  color: darkolivegreen;
+  font-weight: 700;
+}
+
+.TodoInput {
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+.TodoButton {
+  background-color: lightBlue;
+  border-color: blue;
+  border-radius: 5px;
+}
+
+
+/* Display.jsx page */
+.DisplayContainer{
+  border: 2px solid darkolivegreen;
+  border-radius: 10px;
+  padding: 10px;
+  width: 500px;
+  margin: 20px auto;
+}
+
+th {
+  color: darkolivegreen;
+  font-weight: 700;
+}
+
+td {
+  color: darkolivegreen;
+}
+
+.UpdateInput {
+  background-color: lightgrey;
+  border-radius: 5px;
+  width: 100px;
+  margin-left: 20px;
+}
+
+.SubmitButton {
+  background-color: lightBlue;
+  border-color: blue;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.DeleteButton {
+  background-color: lightBlue;
+  border-color: blue;
+  border-radius: 5px;
+  margin-left: 40px;
+}
+
+.Checkbox:focus {
+  outline: max(2px, 0.15em) solid blue;
+  outline-offset: max(2px, 0.15em);
+}
+
+.NotComplete {
+  text-decoration: line-through;
+}
