@@ -1,6 +1,6 @@
 import './App.css';
-// import data from "./api_stuff/data.json"
-import {useEffect} from 'react';
+import data from "./api_stuff/data.json"
+// import {useEffect} from 'react';
 
 function App() {
 
@@ -11,9 +11,9 @@ function App() {
   //   .catch( err => console.log(err) )
   // }
 
-  useEffect(() => {
-    console.log("i'm running");
-  }, []);
+  // useEffect(() => {
+  //   console.log("i'm running");
+  // }, []);
 
 
   return (
@@ -21,8 +21,8 @@ function App() {
 
       {/* <button onClick={getData}>Fetch</button> */}
 
-      {/* <h1>{data.name}</h1>
-      <h1>{JSON.stringify(data)}</h1> */}
+      <h1>{data.name}</h1>
+      <h1>{JSON.stringify(data)}</h1>
 
     </div>
   );
