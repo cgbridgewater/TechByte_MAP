@@ -22,6 +22,7 @@ function App() {
       {/* <button onClick={getData}>Fetch</button> */}
 
       <h1>{data.name}</h1>
+      <p>{data.order}</p>
       <h1>{JSON.stringify(data)}</h1>
 
     </div>
