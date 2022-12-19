@@ -54,7 +54,6 @@ function App() {
       </TabPanel>
     </TabPanelContainer>
 
-
     </div>
   );
 }

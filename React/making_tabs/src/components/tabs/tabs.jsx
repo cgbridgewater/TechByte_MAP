@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-// import styled from "styled-components";
 
 import {
     TabHeaderContainer,
@@ -9,7 +8,6 @@ import {
     inactiveTab,
     TabSlider
 } from "./styles";
-
 
 export const Tab = ({label, active, onClick}) => {
 
@@ -40,7 +38,6 @@ export const Tabs = ({selectedTab, onChange, children}) => {
         const handleClick= (e) => {
             onChange(e, child.props.value);
         }
-
         return React.cloneElement(child, {
             key: child.props.value,
             active: child.props.value === selectedTab,
