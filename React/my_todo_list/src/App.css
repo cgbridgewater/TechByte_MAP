@@ -80,11 +80,21 @@ td {
   margin-left: 40px;
 }
 
-.Checkbox:focus {
+/* .Checkbox:focus {
   outline: max(2px, 0.15em) solid blue;
   outline-offset: max(2px, 0.15em);
+} */
+
+/* .Bold {
+  font-weight:500;
 }
 
-.NotComplete {
-  text-decoration: line-through;
+.Italic {
+  font-style: italic;
 }
+
+.Line-through {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px;
+} */

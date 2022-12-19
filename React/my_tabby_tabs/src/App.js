@@ -13,17 +13,15 @@ function App() {
     { label: "Piggy 5", content: "This little piggy went ...  Wee, wee, wee...  all the way home!" },
   ];
 
-  // create state that can hold our array of items
-  //    technically we will never use setAllTabs since it is set when we initialize it
-  //    and we do not need to ever change it
+  // an array of items
   const [ allTabs, setAllTabs ] = useState(tabsArray);
 
+  
   const [ currentTabIndex, setCurrentTabIndex ] = useState(0);
 
   return (
     <div className="App">
-      {/* When the line gets really long, you can break it out over multiple lines */}
-      {/*   to make it more readable */}
+
       <MyTabs 
         allTabs={ allTabs } 
         currentTabIndex={ currentTabIndex }

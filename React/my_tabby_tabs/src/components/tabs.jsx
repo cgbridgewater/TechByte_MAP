@@ -3,7 +3,7 @@ import React from 'react';
 const MyTabs = (props) => {
   const { allTabs, currentTabIndex, setCurrentTabIndex } = props;
 
-  // conditionally styling the tabs with classes in CSS
+  // toggle styling based on the ID of the tab selected
   const tabStyle = (index) => {
     if (index === currentTabIndex) {
       return "selectedTab";

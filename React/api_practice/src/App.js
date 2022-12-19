@@ -1,5 +1,6 @@
 import './App.css';
 import data from "./api_stuff/data.json"
+import pika from "./api_stuff/pika.json"
 // import {useEffect} from 'react';
 
 function App() {
@@ -21,8 +22,13 @@ function App() {
 
       {/* <button onClick={getData}>Fetch</button> */}
 
-      <h1>{data.name}</h1>
-      <p>{data.order}</p>
+      <h1>Name: {data.name}</h1>
+      <img src={data.sprites["front_default"]} alt="..." />
+
+      <h1>Name: {pika.name}</h1>
+      <img src={pika.sprites["front_default"]} alt="..." />
+
+      
       {/* <h1>{JSON.stringify(data)}</h1> */}
 
     </div>
