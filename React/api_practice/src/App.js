@@ -23,7 +23,7 @@ function App() {
 
       <h1>{data.name}</h1>
       <p>{data.order}</p>
-      <h1>{JSON.stringify(data)}</h1>
+      {/* <h1>{JSON.stringify(data)}</h1> */}
 
     </div>
   );
