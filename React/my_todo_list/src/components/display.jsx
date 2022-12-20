@@ -1,12 +1,29 @@
 import { useState } from "react";
+import TodoForm from "./form";
 
-const DisplayTodoList = (props) => {
-    const { list, removeTodoTask, updateList } = props;
+const DisplayTodoList = ({list, removeTodoTask, updateList, setTodoList, errors}) => {
+
     const [ todo, setTodo] = useState("");
-    const [ completed, setCompleted] = useState(true)
+    // const [ completed, setCompleted] = useState(true)
+    // const [ updateForm, setUpdateForm] = useState("")
+
+    // const [checked, setChecked] = useState(false);
+
+    const handleChecked = (e,i) => {
+        const copiedList = [...list];
+        copiedList[i].checked = e.target.checked;
+        setTodoList(copiedList);
+    }
+
+
 
     return(
         <div className="DisplayContainer">
+                    {errors.map((err, i) => (
+                        <p className="ErrorText" key={i}>
+                            {err}
+                        </p>
+                    ))}
             <table className="Display Table"> 
                 <thead>
                     <tr>
@@ -22,7 +39,7 @@ const DisplayTodoList = (props) => {
                         <tr>
                             <td>{item.id}</td>
                             {
-                            completed?
+                            item.checked?
                             <td className="Complete" >{item.todo}</td> :
                             <td className="NotComplete" disabled>{item.todo}</td>
                             }
@@ -30,32 +47,38 @@ const DisplayTodoList = (props) => {
                                 <input 
                                     className="Checkbox"
                                     type="checkbox" 
-                                    name="checkbox" 
-                                    id="" 
+                                    name="checkbox"
+                                    checked={TodoForm.checked}
                                     onChange={(e) => 
-                                        setCompleted(e.target.value)
+                                        handleChecked(e,i)
                                     }
-                                    />
-
+                                />
                             </td>
                             <td>
-                                <form onSubmit={(e) => updateList(e, todo, i)}>
+                                <form onSubmit={(e) => updateList(e, todo, i, item.id)}>
                                     <input 
-                                    className="UpdateInput"
-                                    type="text" 
-                                    onChange={(e) =>
-                                    setTodo(e.target.value)
-                                    }
+                                        className="UpdateInput"
+                                        type="text" 
+                                        name="updateForm"
+                                        onChange={(e) =>
+                                            setTodo(e.target.value)
+                                        }
+                                    />        
+                                    <input 
+                                        className="SubmitButton" 
+                                        type="submit" 
+                                        value="Update" 
                                     />
-                                    <input className="SubmitButton" type="submit" value="Update" />
                                 </form>
                             </td>
                             <td>
                                 <button
-                                onClick={() => removeTodoTask(item.id)}
-                                className="DeleteButton"
+                                    onClick={() => 
+                                        removeTodoTask(item.id)
+                                    }
+                                    className="DeleteButton"
                                 >
-                                    Delete
+                                Delete
                                 </button>
                             </td>
                         </tr>
@@ -63,6 +86,7 @@ const DisplayTodoList = (props) => {
                 </tbody>
             </table>
         </div>
+
     );
 };
 

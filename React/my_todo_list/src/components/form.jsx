@@ -1,13 +1,7 @@
 import { useState } from "react";
 
-const TodoForm = ({ addToList, list}) => {
-    const initialForm = {
-        id: 1,
-        todo: "",
-    };
+const TodoForm = ({ addToList, list, todoForm, setTodoForm, initialForm}) => {
 
-    // const { todoList, setTodoList } = props;
-    const [ todoForm, setTodoForm] = useState(initialForm)
     const [ errors, setErrors ] = useState([])
 
     const submitHandler = (e) => {
@@ -68,7 +62,6 @@ const TodoForm = ({ addToList, list}) => {
             </div>
         </div>
     )
-
 }
 
 export default TodoForm
