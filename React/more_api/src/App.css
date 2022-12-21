@@ -17,7 +17,7 @@
   border: 3px solid darkblue;
   border-radius: 20px;
   margin: 20px auto;
-  width: 400px;
+  width: 550px;
   text-align: center;
   padding: 30px;
 }
@@ -35,7 +35,8 @@
   border: 5px double orangered;
   border-radius: 20px;
   padding: 10px;
-  margin: 20px;
+  width: 700px;
+  margin: 20px auto;
 }
 
 h1 {
@@ -80,10 +81,14 @@ h5 {
   padding: 8px 5px 8px 5px;
 }
 
+.MovieButton:active {
+  box-shadow: 4px 4px 8px lightskyblue;
+}
+
 .Movie {
   color: white;
   font-size: larger;
-  font-weight: 600;
+  font-weight: 700;
   
 }
 
@@ -93,4 +98,17 @@ input {
   font-size: 20px;
   text-align: center;
   color: darkblue;
+}
+
+.ChuckButton {
+  border: 2px solid orange;
+  background-color: orangered;
+  border-radius: 10px;
+  color: silver;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.ChuckButton:active {
+  box-shadow: 4px 4px 8px #fc894d;
 }
