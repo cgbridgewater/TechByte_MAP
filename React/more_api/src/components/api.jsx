@@ -6,16 +6,15 @@ const Example = (props) => {
     // empty array to hold the objects
     const [pokemon, setPokemon] = useState([]);
 
-
     // runs when JSX is rendered
     useEffect(() => {
+        console.log("Hello, I'm working to get your API!")
         fetch('https://pokeapi.co/api/v2/pokemon/?limit=807')
             // return the data from response into a json format
             .then(response => response.json())
             // store json data in state to be displayed 
             .then(response => setPokemon(response.results))
     }, []);
-
 
     return (
         <ul>
@@ -28,4 +27,3 @@ const Example = (props) => {
     );
 }
 export default Example;
-
