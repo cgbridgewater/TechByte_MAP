@@ -1,23 +1,96 @@
 .App {
   text-align: center;
-  background-color: darkgray;
+  background-color: slategrey;
   padding: 30px;
 }
 
 .Container {
   border: 3px solid gold;
+  border-radius: 20px;
   width: 250px;
   margin: 0 auto;
-  padding: 5px;
+  padding-left: 5px;
   background-color:darkslategrey;
 }
 
+.Axios {
+  border: 3px solid darkblue;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: 400px;
+  text-align: center;
+  padding: 30px;
+}
+
+.Time {
+  border: 3px solid gold;
+  border-radius: 20px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 5px;
+  color: gold;
+}
+
+.ChuckNorris {
+  border: 5px double orangered;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px;
+}
+
 h1 {
-  margin-top: 10px;
+  text-align: center;
+  padding: 0;
+  margin-top: 30px;
+  text-decoration: underline gold;
 }
 
 li {
   color: whitesmoke;
   font-size: 20px;
   font-weight: 600;  
+  text-align: start;
+}
+
+h3 {
+  margin: 10px;
+  color: darkorange;
+}
+
+p {
+  margin: 10px;
+  color: darkorange;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h5 {
+  margin: 5px;
+  font-size: larger;
+  color: darkblue;
+}
+
+.MovieButton {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  background-color: darkblue;
+  border: 2px solid lightblue;
+  margin-top: 5px;
+  padding: 8px 5px 8px 5px;
+}
+
+.Movie {
+  color: white;
+  font-size: larger;
+  font-weight: 600;
+  
+}
+
+input {
+  background-color: darkgrey;
+  border-color: blue ;
+  font-size: 20px;
+  text-align: center;
+  color: darkblue;
 }

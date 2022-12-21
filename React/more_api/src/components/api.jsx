@@ -17,6 +17,8 @@ const Example = (props) => {
     }, []);
 
     return (
+        <div className='Container'>
+            <h1>All the Pokies</h1> 
         <ul>
             {
             pokemon.length > 0 && pokemon.map((pokeObj, index)=>{
@@ -24,6 +26,7 @@ const Example = (props) => {
             })
             }
         </ul>
+        </div>
     );
 }
 export default Example;
