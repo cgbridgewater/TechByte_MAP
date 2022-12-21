@@ -3,17 +3,12 @@ import Example from './components/api';
 
 function App() {
   
-  // const [pieceOfState, setPieceOfState] = useState('initial value here');
-
-
-
   return (
     <div className="App">
-
-
-      <Example />
-
-
+          <h1>All the Pokies</h1> 
+      <div className='Container'>
+          <Example />
+      </div>
     </div>
   );
 }
