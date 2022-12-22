@@ -16,7 +16,9 @@ const GetChuck = (props) => {
 
     return (
         <div className="ChuckNorris">
-            <h3>Feeling Lucky On The ChuckNorris API?</h3>
+            <h2>WARNING!!!</h2> 
+            <h3>The ChuckNorris API May Or May Not Be Safe For Work...</h3>
+            <h3>Do You Still Want To Get A Joke?</h3>
             <button className="ChuckButton"
             onClick={getData}
             type="button"

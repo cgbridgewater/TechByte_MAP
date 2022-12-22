@@ -46,16 +46,21 @@ h1 {
   text-decoration: underline gold;
 }
 
-li {
-  color: whitesmoke;
-  font-size: 20px;
-  font-weight: 600;  
-  text-align: start;
+h2 {
+  color: red;
+  font-size: 30px;
+  font-weight: 900;
 }
 
 h3 {
   margin: 10px;
   color: darkorange;
+}
+
+h5 {
+  margin: 5px;
+  font-size: larger;
+  color: darkblue;
 }
 
 p {
@@ -65,10 +70,11 @@ p {
   font-weight: 700;
 }
 
-h5 {
-  margin: 5px;
-  font-size: larger;
-  color: darkblue;
+li {
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 600;  
+  text-align: start;
 }
 
 .MovieButton {
