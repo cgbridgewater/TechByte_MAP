@@ -1,21 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 const HelloColors = (props) => {
+    const { name } = useParams();
+    const { hello } = useParams();
+    const { red } = useParams();
+    const { blue  } = useParams();
     return(
     <div>
-        <h1 style={{color: "red" }}>
-            Hello Red and Blue Component Page
-        </h1>
+
+        <div className='Result' style={{color: (red), background: (blue), padding:"50px" }}>
+            { name } says,  "{ hello }"
+        </div>
+            {/* <h3>this is hello colors</h3>  */}
+            {/* <h3>
+                color 1 : { red }
+            </h3>
+            <h3>
+            color 2 : { blue }
+            </h3> */}
+        <div style={{display:"flex", justifyContent:"space-evenly"}}>
         <Link to={"/"}>Go To Index</Link>
-        <br />
         <Link to={"/home"}>Go To Home</Link>
-        <br />
+        </div>
+        {/* <br />
         <Link to={"/4"}>Go To 4</Link>
         <br />
         <Link to={"/hello"}>Go To Hello</Link>
-        <br />
-
+        <br /> */}
     </div>
     )
 }
