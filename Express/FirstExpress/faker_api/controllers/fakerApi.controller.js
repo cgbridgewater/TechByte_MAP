@@ -1,10 +1,10 @@
 const { response } = require("express");
-// const { newCompany, newUser } = require("../data/fakerData");
+
 
 let testList = [test1, test2, test3];
-
 let usersList = []
 let companyList = []
+let user_company = []
 
 
 module.exports = {
@@ -19,11 +19,13 @@ module.exports = {
     createUser: (req,res) => {
         console.log(req);
         const newUser = newUserObj;
+        usersList.push(newUser)
         res.json( newUser )
     },
     createCompany: (req,res) => {
         console.log(req);
         const newCompany = newCompanyObj;
+        companyList.push(newCompany)
         res.json( newCompany)
     },
     createUserAndCompany: (req,res) => {
@@ -34,43 +36,22 @@ module.exports = {
             user: newUser,
             company: newCompany,
         };
+        user_company.push(userAndCompany)
         res.json(userAndCompany)
     },
+    getUsersList: (req,res) => {
+        console.log(req);
+        res.json(usersList)
+    },
+    getCompaniesList: (req,res) => {
+        console.log(req);
+        res.json(companyList)
+    },
+    getUser_CompanyList: (req,res) => {
+        console.log(req);
+        res.json(user_company)
+    }
 };
-    // createUser: (req,res) => {
-    //     const newUser = {
-    //         password: faker.internet.password(20, true, /[A-Z]/),
-    //         email: faker.internet.email(),
-    //         phoneNumber: faker.phone.number(),
-    //         lastName: faker.name.lastName(),
-    //         firstName: faker.name.firstName(),
-    //         id: faker.finance.account(5),
-    //     };
-    //     const newFakeUser = createUser();
-    //     console.log(newFakeUser);
-    //     res.json({ message: "successfull created new company"})
-    //     return newUser;
-
-    // },
-    // createCompany: (req,res) => {
-    //     const newFakeCompany = {
-    //         id: faker.finance.account(6),   
-    //         companyName: faker.company.name(),
-    //         address: [
-    //             faker.address.streetAddress(true),
-    //             faker.address.city(),
-    //             faker.address.state(),
-    //             faker.address.zipCodeByState(),
-    //             faker.address.country()
-    //         ]        
-    //     };
-    //     const newFakePlace = createCompany();
-    //     console.log(newFakePlace);
-    //     res.json({ message: "successfull created new company"})
-    //     return newFakeCompany;
-
-    // }
-
 
 
 //add CRUD as needed!!!!
