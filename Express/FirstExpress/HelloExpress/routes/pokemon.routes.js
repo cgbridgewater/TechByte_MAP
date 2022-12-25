@@ -1,4 +1,7 @@
 const PokemonController = require("../controllers/pokemon.controller");
+
+
+
 module.exports = (app) => {
     app.get("/", PokemonController.index);
     app.get("/pokemon", PokemonController.getPokemon)
