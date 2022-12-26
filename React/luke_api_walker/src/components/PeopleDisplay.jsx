@@ -19,34 +19,42 @@ const APIWalkerPeopleDisplay = (props) => {
 
     useEffect(() => {
         axios
-            .get(`https://swapi.dev/api/people/${_id}`, {timeout: 5000})
+            .get(`https://swapi.dev/api/people/${_id}`)
             .then(res => {
+                setError("");
+                setError2("");
+                setAxiosHomeWorld(res.data.homeworld);
                 console.log(res.data);
                 setAxiosName(res.data.name);
                 setAxiosHeight(res.data.height);
                 setAxiosMass(res.data.mass);
                 setAxiosGender(res.data.gender);
-                setAxiosHomeWorld(res.data.homeworld);
-                setError("");
-                setError2("")
+                axios
+                    .get(`${axiosHomeWorld}`) 
+                    .then(res => {
+                        console.log("AAAAAAAA")
+                        console.log(res.data.name);
+                        setHomeWorld(res.data.name);
+                    })
+                    .catch((err) => console.log("I didn't work!!!!"), console.log("DDDDDD"));
             })
             .catch((err) => 
             console.log("HELLLLLOOOOO"),
             setError("Error, This Item Does Not Exist!"),
             setError2("https://media.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif")
             );
-        }, [_id]); 
-        
-        useEffect(() => {
-            axios
-            .get(`${axiosHomeWorld}`, {timeout: 50000}) 
-            .then(res => {
-                console.log("AAAAAAAA")
-                console.log(res.data.name);
-                setHomeWorld(res.data.name);
-            })
-            .catch((err) => console.log("I didn't work!!!!"), console.log("DDDDDD"));
         }, [axiosHomeWorld]); 
+        
+        // useEffect(() => {
+        //     axios
+        //     .get(`${axiosHomeWorld}`, {timeout: 50000}) 
+        //     .then(res => {
+        //         console.log("AAAAAAAA")
+        //         console.log(res.data.name);
+        //         setHomeWorld(res.data.name);
+        //     })
+        //     .catch((err) => console.log("I didn't work!!!!"), console.log("DDDDDD"));
+        // }, [axiosHomeWorld]); 
 
     return(
         <div>

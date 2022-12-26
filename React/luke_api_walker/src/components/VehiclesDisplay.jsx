@@ -31,7 +31,7 @@ const APIWalkerVehiclesDisplay = (props) => {
             .catch((err) => 
             console.log(err),
             setError("Error, This Item Does Not Exist!"),
-            setError2("https://media.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif")
+            setError2("https://media3.giphy.com/media/3ohuPel436qciQZ8fC/giphy.gif")
             );
         }, []); 
         

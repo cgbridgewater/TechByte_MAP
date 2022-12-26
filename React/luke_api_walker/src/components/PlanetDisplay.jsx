@@ -33,7 +33,7 @@ const APIWalkerPlanetsDisplay = (props) => {
             .catch((err) => 
             console.log(err),
             setError("Error, This Item Does Not Exist!"),
-            setError2("https://media.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif")
+            setError2("https://media.tenor.com/dDspMfyVGBMAAAAM/star-wars-millenium-falcon.gif")
             );
     }, []); 
 

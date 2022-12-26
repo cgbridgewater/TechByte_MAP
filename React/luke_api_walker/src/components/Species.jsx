@@ -28,7 +28,7 @@ const APIWalkerSpeciesDisplay = (props) => {
             .catch((err) => 
             console.log(err),
             setError("Error, This Item Does Not Exist!"),
-            setError2("https://media.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif")
+            setError2("https://media.tenor.com/S51dshrrk7QAAAAC/darth-vader-you-have.gif")
             );
     }, []); 
 
@@ -38,7 +38,7 @@ const APIWalkerSpeciesDisplay = (props) => {
         <div>
         <div style={{textAlign:"left"}} className='Result'>
             <h1 style={{textAlign:"center", marginBottom:0}}> Luke APIWalker Search Results</h1>
-            <h3 style={{textAlign:"center", marginTop: 0 }}> Vehicle Results</h3>
+            <h3 style={{textAlign:"center", marginTop: 0 }}> Species Results</h3>
             <hr />
             <img style={{ marginLeft:"15%"}} src={error2} />
             <p style={{marginLeft:"30%"}}>
