@@ -3,6 +3,7 @@ import Example from './components/api';
 import AxiosAPI from './components/dojoAxios';
 import GetChuck from './components/axiosapi';
 import MyTime from './components/time';
+import GetPokemons from './components/codeholder';
 
 function App() {
 
@@ -21,7 +22,12 @@ function App() {
 
       <div>
         <div>
-            <Example />
+            {/* <Example /> */}
+        </div>
+      </div>
+      <div>
+        <div>
+            <GetPokemons />
         </div>
       </div>
     </div>

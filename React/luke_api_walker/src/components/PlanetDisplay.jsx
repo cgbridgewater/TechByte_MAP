@@ -35,7 +35,7 @@ const APIWalkerPlanetsDisplay = (props) => {
             setError("Error, This Item Does Not Exist!"),
             setError2("https://media.tenor.com/dDspMfyVGBMAAAAM/star-wars-millenium-falcon.gif")
             );
-    }, []); 
+    }, [_id]); 
 
 
 
@@ -45,7 +45,7 @@ const APIWalkerPlanetsDisplay = (props) => {
             <h1 style={{textAlign:"center", marginBottom: 0}}> Luke APIWalker Search Results</h1>
             <h3 style={{textAlign:"center", marginTop: 0 }}> Planet Results</h3>
             <hr />
-            <img style={{ marginLeft:"15%"}} src={error2} />
+            <img style={{ marginLeft:"15%"}} src={error2} alt=""/>
             <p style={{marginLeft:"30%"}}>
                 Planet: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {axiosName} {error}
             </p>

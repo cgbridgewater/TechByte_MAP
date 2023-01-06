@@ -10,7 +10,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.Form, .Result, .Home, .GuessForm, .Guess {
+.Result {
   width: 50%;
   margin: 10px auto;
   padding: 20px;
@@ -19,6 +19,22 @@ h1 {
   border: 4px solid brown;
   border-radius: 15px;
 }
+
+.Form {
+  width: 640px;
+  height: 640px;
+  margin: 10px auto;
+  padding: 20px;
+  background-image: url(https://media.tenor.com/C6qR8z_eVGEAAAAd/star-wars-galaxy.gif);
+  background-color: burlywood;
+  color: brown;
+  border: 4px solid brown;
+  border-radius: 15px;
+}
+
+
+
+
 
   select {
     background-color: blanchedalmond;

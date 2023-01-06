@@ -31,9 +31,9 @@ const APIWalkerStarshipsDisplay = (props) => {
             .catch((err) => 
             console.log(err),
             setError("Error, This Item Does Not Exist!"),
-            setError2("https://media.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif")
+            setError2("https://i.makeagif.com/media/12-06-2015/vsoe85.gif")
             );
-    }, []); 
+    }, [_id]); 
 
 
 
@@ -43,7 +43,7 @@ const APIWalkerStarshipsDisplay = (props) => {
         <h1 style={{textAlign:"center", marginBottom:0}}> Luke APIWalker Search Results</h1>
             <h3 style={{textAlign:"center", marginTop: 0 }}> Starship Results</h3>
             <hr />
-            <img style={{ marginLeft:"15%"}} src={error2} />
+            <img style={{ marginLeft:"27%"}} src={error2} alt=""/>
             <p style={{marginLeft:"30%"}}>
                 Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName} {error}
             </p>
@@ -56,7 +56,7 @@ const APIWalkerStarshipsDisplay = (props) => {
             <p style={{marginLeft:"30%"}}>
                 Cost (in credits): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {axiosCost}
             </p>
-            <p>
+            <p style={{marginLeft:"30%"}}>
                 Passengers: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosPassengers}
             </p>
             

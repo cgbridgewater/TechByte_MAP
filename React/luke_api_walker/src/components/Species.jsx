@@ -30,7 +30,7 @@ const APIWalkerSpeciesDisplay = (props) => {
             setError("Error, This Item Does Not Exist!"),
             setError2("https://media.tenor.com/S51dshrrk7QAAAAC/darth-vader-you-have.gif")
             );
-    }, []); 
+    }, [_id]); 
 
 
 
@@ -40,7 +40,7 @@ const APIWalkerSpeciesDisplay = (props) => {
             <h1 style={{textAlign:"center", marginBottom:0}}> Luke APIWalker Search Results</h1>
             <h3 style={{textAlign:"center", marginTop: 0 }}> Species Results</h3>
             <hr />
-            <img style={{ marginLeft:"15%"}} src={error2} />
+            <img style={{ marginLeft:"15%"}} src={error2} alt="" />
             <p style={{marginLeft:"30%"}}>
                 Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName} {error}
             </p>

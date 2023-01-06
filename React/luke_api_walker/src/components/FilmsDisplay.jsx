@@ -29,9 +29,9 @@ const APIWalkerFilmsDisplay = (props) => {
             .catch((err) => 
             console.log(err),
             setError("Error, This Item Does Not Exist!"),
-            setError2("https://media.tenor.com/TlfAvuz0tLMAAAAC/obi-wan-kenobi-these-are-not-the-droids.gif")
+            setError2("https://cdn.wallpapersafari.com/13/18/BcdxbM.gif")
             );
-    }, []); 
+    }, [_id]); 
 
 
 
@@ -41,7 +41,7 @@ const APIWalkerFilmsDisplay = (props) => {
             <h1 style={{textAlign:"center", marginBottom:0}}> Luke APIWalker Search Results</h1>
             <h3 style={{textAlign:"center", marginTop:0}}>Film Result</h3>
             <hr />
-            <img style={{ marginLeft:"15%"}} src={error2} />
+            <img style={{ marginLeft:"15%"}} src={error2} alt="" />
             <p style={{marginLeft:"30%"}}>
                 Title:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosTitle} {error}
             </p>

@@ -33,7 +33,7 @@ const APIWalkerVehiclesDisplay = (props) => {
             setError("Error, This Item Does Not Exist!"),
             setError2("https://media3.giphy.com/media/3ohuPel436qciQZ8fC/giphy.gif")
             );
-        }, []); 
+        }, [_id]); 
         
         
         
@@ -43,7 +43,7 @@ const APIWalkerVehiclesDisplay = (props) => {
             <h1 style={{textAlign:"center", marginBottom:0}}> Luke APIWalker Search Results</h1>
             <h3 style={{textAlign:"center", marginTop: 0 }}> Vehicle Results</h3>
             <hr />
-            <img style={{ marginLeft:"15%"}} src={error2} />
+            <img style={{ marginLeft:"15%"}} src={error2} alt="" />
             <p style={{marginLeft:"30%"}}>
                 Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName} {error}
             </p>
@@ -60,14 +60,7 @@ const APIWalkerVehiclesDisplay = (props) => {
                 Vehicle Class:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosVehicleClass}
             </p>
             
-            {/* <p>
-                {
-                axiosResult.length > 0 && axiosResult.map((axiosObj, index)=>{
-                    return (<li key={index}>{axiosObj.name}</li>)
-                })}
-            </p> */}
-
-            </div>
+        </div>
 
             <hr />
             <div style={{display:"flex", justifyContent:"space-evenly"}}>
