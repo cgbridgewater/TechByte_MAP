@@ -124,9 +124,16 @@ p {
 
 }
 
+.Tab2{
+  
+background-image: url("./components/tabDisplays/images/pokeball.png");
+
+}
+
+
 
 .Spinner{
-  margin-top: 14%;
+  margin-top: -35%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -145,7 +152,7 @@ p {
 }
 
 .PokeLogo{
-  height:75px;
+  height:100px;
 }
 
 .Examples{
@@ -171,4 +178,43 @@ p {
 .Pika {
   height: 400px;
   display: flex;
+}
+
+.PokeDexTitle{
+  color: #84d1f5;
+}
+
+.PokedexHr {
+  background-color:  #84d1f5;
+  height: 3px;
+}
+
+.RandomPick {
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: yellow;
+  border: 5px double silver;
+  border-radius: 10px;
+}
+.FormInput {
+  width: 250px;
+  font-size: 25px;
+  background-color: #84d1f5;
+  opacity: 75%;
+}
+
+label {
+  color: #84d1f5;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.FormButton {
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: yellow;
+  border: 5px double silver;
+  border-radius: 10px;
 }

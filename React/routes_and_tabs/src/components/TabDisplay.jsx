@@ -3,14 +3,14 @@ import Tab from './tabholder/Tab'
 import Tabs from './tabholder/Tabs';
 import TabPanel from './tabholder/TabPanel';
 import Tab1 from './tabDisplays/TapPage1';
-// import Tab2 from './components/TabPage2';
+import Tab2 from './tabDisplays/TabPage2';
 import Tab3 from './tabDisplays/TabPage3';
-import APIWalkerPeopleDisplay from './tabDisplays/PeopleDisplay'
-import LukeAPIForm from './tabDisplays/apiWalkerForm'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import PokeDexForm from './tabDisplays/PokeDexForm'
+import PokeDexDisplay from './tabDisplays/PeopleDisplay';
+// import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
-const TabDisplay = (props) => {
+  const TabDisplay = (props) => {
 
   const [activeTab, setActiveTab] = useState(1);
 
@@ -21,7 +21,6 @@ const TabDisplay = (props) => {
   return (
     <div className="TabDisplay">
       {/* <BrowserRouter>  */}
-      
         <div className='TabsContainer' >
         <Tabs selectedTab={activeTab} onChange={handleChange} >
           <Tab label="What is Pokémon" value={1}/>
@@ -33,29 +32,27 @@ const TabDisplay = (props) => {
         <div className='TabPanelContainer'>
           
               <TabPanel value={activeTab} selectedIndex={1}>
-              <Tab1/>
- 
-
+                  <Tab1/>
               </TabPanel>
 
 
               <TabPanel value={activeTab} selectedIndex={2}>
-
-                {/* <Tab2/> */}
-                <LukeAPIForm/>
+                  <Tab2/>
                 
                 {/* <Routes> /*}
                   {/* <Route path='/results' element={<Results/>} />  */}
                   {/* <Route path='/people/:_id' element={<APIWalkerPeopleDisplay /> }/> */}
                   {/* <Route /> /*}
                   {/* <Route /> /*}
-                {/* </Routes> */}
+                  {/* </Routes> */}
 
               </TabPanel>
+
+
               <TabPanel value={activeTab} selectedIndex={3}>
-
-                <Tab3/>
-
+                  <PokeDexForm/>
+                  <PokeDexDisplay/>
+                  <Tab3/>
               </TabPanel>
 
         </div>

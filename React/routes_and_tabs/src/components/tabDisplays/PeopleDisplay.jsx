@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 
-const APIWalkerPeopleDisplay = (props) => {
+const PokeDexDisplay = (props) => {
     
     const { _id } = useParams();
     const [ axiosName, setAxiosName ] = useState("");
@@ -101,4 +101,4 @@ const APIWalkerPeopleDisplay = (props) => {
     }
 };
 
-export default APIWalkerPeopleDisplay;
+export default PokeDexDisplay;
