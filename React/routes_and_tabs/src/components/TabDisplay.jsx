@@ -7,7 +7,6 @@ import Tab2 from './tabDisplays/TabPage2';
 import Tab3 from './tabDisplays/TabPage3';
 import PokeDexForm from './tabDisplays/PokeDexForm'
 import PokeDexDisplay from './tabDisplays/PeopleDisplay';
-// import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
   const TabDisplay = (props) => {
@@ -20,7 +19,6 @@ import PokeDexDisplay from './tabDisplays/PeopleDisplay';
 
   return (
     <div className="TabDisplay">
-      {/* <BrowserRouter>  */}
         <div className='TabsContainer' >
         <Tabs selectedTab={activeTab} onChange={handleChange} >
           <Tab label="What is Pokémon" value={1}/>
@@ -38,14 +36,6 @@ import PokeDexDisplay from './tabDisplays/PeopleDisplay';
 
               <TabPanel value={activeTab} selectedIndex={2}>
                   <Tab2/>
-                
-                {/* <Routes> /*}
-                  {/* <Route path='/results' element={<Results/>} />  */}
-                  {/* <Route path='/people/:_id' element={<APIWalkerPeopleDisplay /> }/> */}
-                  {/* <Route /> /*}
-                  {/* <Route /> /*}
-                  {/* </Routes> */}
-
               </TabPanel>
 
 
@@ -56,7 +46,6 @@ import PokeDexDisplay from './tabDisplays/PeopleDisplay';
               </TabPanel>
 
         </div>
-      {/* </BrowserRouter> */}
     </div>
   );
 }
