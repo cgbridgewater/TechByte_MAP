@@ -63,3 +63,4 @@ export const TabPanel = ({children, value, selectedIndex}) => {
         </StylizedTabPanel>
     );
 };
+
