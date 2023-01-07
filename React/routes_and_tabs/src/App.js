@@ -1,7 +1,8 @@
 import './App.css';
-import APIWalkerPeopleDisplay from './components/tabDisplays/PeopleDisplay'
+import PokedexDisplay from './components/tabDisplays/PokeDexDisplay'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import TabDisplay from './components/TabDisplay';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
                 <Routes> 
 
                   <Route path='/' element={<TabDisplay /> }/>
-                  <Route path='/people/:_id' element={<APIWalkerPeopleDisplay /> }/>
+                  <Route path='/people/:_id' element={<PokedexDisplay /> }/>
                   <Route /> 
                   <Route /> 
 

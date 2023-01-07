@@ -6,7 +6,8 @@ import Tab1 from './tabDisplays/TapPage1';
 import Tab2 from './tabDisplays/TabPage2';
 import Tab3 from './tabDisplays/TabPage3';
 import PokeDexForm from './tabDisplays/PokeDexForm'
-import PokeDexDisplay from './tabDisplays/PeopleDisplay';
+import PokeDexDisplay from './tabDisplays/PokeDexDisplay';
+import Footer from './Footer';
 
 
   const TabDisplay = (props) => {
@@ -45,6 +46,7 @@ import PokeDexDisplay from './tabDisplays/PeopleDisplay';
                   <Tab3/>
               </TabPanel>
 
+        <Footer/>
         </div>
     </div>
   );
