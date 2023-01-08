@@ -1,5 +1,5 @@
 import './App.css';
-import PokedexDisplay from './components/tabDisplays/PokeDexDisplay'
+// import PokedexDisplay from './components/tabDisplays/PokeDexDisplay'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import TabDisplay from './components/TabDisplay';
 
@@ -13,7 +13,7 @@ function App() {
                 <Routes> 
 
                   <Route path='/' element={<TabDisplay /> }/>
-                  <Route path='/pokemon/:input' element={<PokedexDisplay /> }/>
+                  {/* <Route path='/pokemon/:input' element={<PokedexDisplay /> }/> */}
                   <Route /> 
                   <Route /> 
 

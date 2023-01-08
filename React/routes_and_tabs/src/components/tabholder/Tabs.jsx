@@ -7,7 +7,7 @@ const Tabs = ({selectedTab, onChange, children}) => {
     const [containerWidth, setContainerWidth] = useState(0);
 
     useEffect(() => {
-        setContainerWidth(containerRef.current.getBoundingClientRect().width);
+        setContainerWidth((containerRef.current.getBoundingClientRect().width));
     }, [containerRef])
     
     const sliderWidth = containerWidth / children.length;

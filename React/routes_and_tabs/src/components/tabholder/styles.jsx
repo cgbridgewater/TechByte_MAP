@@ -39,7 +39,7 @@ export const inactiveTab = {
 
 
 export const TabSlider = styled.div`
-    width: 33.3%;
+    width: 20%;
     height: 4px;
     background-color: Yellow;
     transition: .5s;
