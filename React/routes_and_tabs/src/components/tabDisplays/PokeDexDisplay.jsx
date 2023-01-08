@@ -1,104 +1,59 @@
-import { Link, useParams } from 'react-router-dom';
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+// import { Link, useParams } from 'react-router-dom';
+// // import axios from "axios";
+// import React, { useEffect, useState } from "react";
 
 
-const PokeDexDisplay = (props) => {
+// const PokeDexDisplay = (props) => {
     
-    const { _id } = useParams();
-    const [ axiosName, setAxiosName ] = useState("");
-    const [ axiosHeight, setAxiosHeight ] = useState("");
-    const [ axiosMass, setAxiosMass ] = useState("");
-    const [ axiosGender, setAxiosGender ] = useState("");
-    const [ axiosHomeWorld, setAxiosHomeWorld ] = useState([  ]);
-    const [ homeWorld, setHomeWorld ] = useState("");
-    const [ error, setError] = useState("")
-    const [ error2, setError2] = useState("")
-    const [ isError, setIsError] = useState(false)
+//     // const { input } = useParams();
+//     const [ axiosName, setAxiosName] = useState("")
+//     const [ error2, setError2] = useState("")
+//     const [ isError, setIsError] = useState(false)
     
-    const link = `http://localhost:3000/planetByName/`
-
-    useEffect(() => {
-        axios
-            .get(`https://swapi.dev/api/people/${_id}`)
-            .then(res => {
-                setError("");
-                setError2("");
-                setIsError(false)
-                setAxiosHomeWorld(res.data.homeworld);
-                console.log(res.data);
-                setAxiosName(res.data.name);
-                setAxiosHeight(res.data.height);
-                setAxiosMass(res.data.mass);
-                setAxiosGender(res.data.gender);
-                // axios
-                //     .get(`${axiosHomeWorld}`) 
-                //     .then(res => {
-                //         console.log("AAAAAAAA")
-                //         console.log(res.data.name);
-                //         setHomeWorld(res.data.name);
-                //     })
-                //     .catch((err) => console.log("I didn't work!!!!"), console.log("DDDDDD"));
-            })
-            .catch((err) => 
-            console.log("HELLLLLOOOOO"),
-            setError("Fetching your data....."),
-            setError2("https://thumbs.gfycat.com/LightShabbyLamprey-size_restricted.gif"),
-            setIsError(true)
-            );
-        }, [_id]); 
-        
-        useEffect(() => {
-            axios
-            .get(`${axiosHomeWorld}`) 
-            .then(res => {
-                console.log("AAAAAAAA")
-                console.log(res.data.name);
-                setHomeWorld(res.data.name);
-            })
-            .catch((err) => console.log("I didn't work!!!!"), console.log("DDDDDD"));
-        }, [axiosHomeWorld]); 
 
 
-    if(!isError){
-    return(
-    <div>
-        <div style={{textAlign:"left"}} className='Result'>
-            <h1 style={{textAlign:"center", marginBottom:0}}> Luke APIWalker Search Results</h1>
-            <h3 style={{textAlign:"center", marginTop: 0 }}> Charactor Results</h3>
-            <hr />
-            <p style={{marginLeft:"30%"}}>
-                Name:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName}  {error}
-            </p>
-            <p style={{marginLeft:"30%"}}>
-                Height:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosHeight}
-            </p>
-            <p style={{marginLeft:"30%"}}>
-                Mass:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosMass}
-            </p>
-            <p style={{marginLeft:"30%"}}>
-                Gender:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosGender}
-            </p>
-            <p style={{marginLeft:"30%"}}>
-                Home World Info: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href={link + homeWorld} alt="Home World" >{homeWorld}</a>
-            </p>
 
-        </div>
+//     if(!isError){
+//     return(
+//     <div>
+//         <div style={{textAlign:"left"}} className='Result'>
+//             <h1 style={{textAlign:"center", paddingTop:"20px", marginBottom:0, color:"yellow"}}> Pokemon Search Results</h1>
 
-            <hr />
-            <div style={{display:"flex", justifyContent:"space-evenly"}}>
-                <Link to={"/"}>Search Again</Link>
-            </div>
+//             <hr />
+//             {/* <p style={{marginLeft:"30%", color:"yellow"}}>
+//                 ID:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName.id} 
+//                 <br />
+//                 Name:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName.name} 
+//                 <br />
+//                 Weight:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName.weight} 
+//                 <br />
+//                 Height:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName.height} 
+//                 <br />
+//                 Species:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName.species.name} 
+//                 <br />
+//                 Base Experience:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {axiosName.base_experience} 
+//                 <br />
+//                 <img src={axiosName.sprites.other.home.front_default} alt="" />
+//             </p> */}
+//         </div>
 
-    </div>
-    )
-    } else {
-    return(
-            <div >
-                <img style={{ marginLeft:"5%", marginTop:"15%"}} alt="" src={error2}/>
-            </div>
-    )
-    }
-};
+//             <hr />
+//             <div style={{display:"flex", justifyContent:"space-evenly"}}>
+//                 <Link to={"/"}>Search Again</Link>
+//             </div>
 
-export default PokeDexDisplay;
+//     </div>
+//     )
+//     } 
+    
+//     else {
+//     return(
+//         <div >
+//                 i'm here{/* remove after testing!! */}
+//                 <img style={{ borderRadius:"20px",marginTop:"15%"}} alt="" src={error2}/>
+//             </div>
+//     )
+//     }
+// };
+
+// export default PokeDexDisplay;

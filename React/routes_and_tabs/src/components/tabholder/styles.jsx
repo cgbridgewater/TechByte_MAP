@@ -24,6 +24,7 @@ const inset = keyframes`
 
 export const StylizedTabPanel = styled.div`
     display: ${(p) => (p.active ? "flex" : "none")};
+    isolation:isolate;
     font-size: 4rem;
     background: #393e46;
     flex-direction: column;
