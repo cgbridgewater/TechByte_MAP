@@ -19,7 +19,8 @@ const Tab2 = () => {
         return (
                 <div className="Container">
 
-                        <h1>TESTING Tab 2</h1>
+                        <h4>Pikachu says:</h4>
+                        <h1>"I'm Sleepy, Go AWAY"</h1>
 
 
 

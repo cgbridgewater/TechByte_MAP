@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Tab from './tabholder/Tab'
 import Tabs from './tabholder/Tabs';
 import TabPanel from './tabholder/TabPanel';
-import Tab2 from './tabDisplays/TabPage2';
-import Footer from './Footer';
 import WhatIsPokemon from './tabDisplays/WhatIsPokemon';
+import Tab2 from './tabDisplays/TabPage2';
 import Pokedex from './tabDisplays/Pokedex';
+import Footer from './tabDisplays/Footer';
 
   const TabDisplay = (props) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -20,9 +20,9 @@ import Pokedex from './tabDisplays/Pokedex';
       <div className='TabsContainer' >
       <Tabs selectedTab={activeTab} onChange={handleChange} >
         <Tab label="What is Pokémon" value={1}/>
-        <Tab label="PlaceHolder for Pokemon" value={2}/>
-        <Tab label="Tab 3" value={3}/>
-        <Tab label="Tab 4" value={4}/>
+        <Tab label="Sleeping Pikachu" value={2}/>
+        <Tab label="Pokémon Games" value={3}/>
+        <Tab label="Pokémon Cards" value={4}/>
         <Tab label="Pokédex" value={5}/>
       </Tabs>
       </div>
