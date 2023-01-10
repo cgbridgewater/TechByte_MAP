@@ -1,0 +1,168 @@
+As you create the documents for this assignment, be sure to include students who have:
+
+home_state of California or Washington
+lucky_number ranging from 1 to 15
+If you read through all tasks, you will understand these requirements better
+
+To complete this assignment, copy your console text from the MongoDB shell into a text document and upload it to the platform
+
+1 -   Create a database called 'my_first_db'.
+
+>>>> use my_first_db
+
+
+
+2 -  Create students collection.
+
+>>>> db.createCollection("Students_Collection")
+
+
+
+3 -  Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+
+
+
+
+
+4 -  Create 5 students with the appropriate info.
+
+>>>> db.Students_Collection.insert({ name: "Fresh Prince",home_state:"California", lucky_number: 2, birthdate:{month:6, day:19, year:1979}})
+>>>> db.Students_Collection.insert({ name: "William Gates",home_state:"Washington", lucky_number: 15, birthdate:{month:2, day:31, year:1955}})
+>>>> db.Students_Collection.insert({ name: "Gary Payton",home_state:"Washington", lucky_number: 8, birthdate:{month:9, day:2, year:1972}})
+>>>> db.Students_Collection.insert({ name: "Shawn Kemp",home_state:"Washington", lucky_number: 13, birthdate:{month:12, day:22, year:1971}})
+>>>> db.Students_Collection.insert({ name: "Kobe Bryant",home_state:"California", lucky_number: 14, birthdate:{month:1, day:14, year:1972}})
+>>>> db.Students_Collection.insert({ name: "Jackie Moon",home_state:"California", lucky_number: 7, birthdate:{month:10, day:23, year:1966}})
+
+5 -  Get all students.
+
+>>>> db.Students_Collection.find({}).pretty()  
+
+
+
+6 -  Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo).
+
+>>>> db.Students_Collection.find({home_state: "Washington" })
+>>>> db.Students_Collection.find({home_state: "California" })
+
+
+
+7 -  Get all students whose lucky number is greater than 3
+
+>>>> db.Students_Collection.find({lucky_number: {$gt:3}})    
+
+
+
+8 -  Get all students whose lucky number is less than or equal to 10
+
+>>>> db.Students_Collection.find({lucky_number: {$lte:10}})         
+
+
+
+9 -  Get all students whose lucky number is between 1 and 9 (inclusive)
+
+>>>> db.Students_Collection.find({lucky_number: {$gte:1 , $lte:9}}) 
+
+
+
+10 -  Add a field named 'interests' to all student documents in the collection. The field should be an array and contain the following entries: 'coding', 'brunch', MongoDB'. Add this field to all documents using a single command.
+
+>>>> db.Students_Collection.updateMany({}, {$set: {interests :[ "coding", "brunch", "MongoDB"]}})
+
+
+
+11 -  Add some unique interests for each particular student into each of their interest arrays.
+
+>>>> db.Students_Collection.update({name: "Jackie Moon"}, {$push : {interests: "basketball"}})
+>>>> db.Students_Collection.update({name: "Kobe Bryant"}, {$push : {interests: "Mambas"}})    
+>>>> db.Students_Collection.update({name: "Shawn Kemp"}, {$push : {interests: "Sports"}})     
+>>>> db.Students_Collection.update({name: "Gary Payton"}, {$push : {interests: "The Glove"}}) 
+>>>> db.Students_Collection.update({name: "William Gates"}, {$push : {interests: "Windows"}}) 
+>>>> db.Students_Collection.update({name: "Fresh Prince"}, {$push : {interests: "shootin hoops"}})
+
+
+12 -  Add the interest 'taxes' into someone's interest array.
+
+>>>> db.Students_Collection.update({name: "William Gates"}, {$push : {interests: "taxes"}})       
+
+
+
+13 -  Remove the 'taxes' interest you just added.
+
+>>>> db.Students_Collection.update({name: "William Gates"}, {$pop : {interests: 1}})              
+
+
+
+14 -  Remove all students who are from California.
+
+>>>> db.Students_Collection.deleteMany({home_state : "California"})                              
+
+
+
+15 -  Remove a student by name.
+
+>>>> db.Students_Collection.remove({name : "Shawn Kemp"})                                         
+
+
+
+16 -  Remove a student whose lucky number is greater than 5 (JUST ONE)
+
+>>>> db.Students_Collection.remove({lucky_number :{$gt:5}},true)                                  
+
+
+
+17 -  Add a field to each student document called 'number_of_belts' and set it to 0.
+
+>>>> db.Students_Collection.updateMany({}, {$set: {number_of_belts :0 }})                         
+
+
+
+18 -  Increment this field by 1 for all students in Washington (Seattle Dojo).
+
+>>>> db.Students_Collection.update({home_state: "Washington"}, {$inc: {number_of_belts: 1}})      
+
+
+
+19 -  Rename the 'number_of_belts' field to 'belts_earned'
+
+>>>> db.Students_Collection.updateMany({}, { $rename: { "number_of_belts": "belts_earned"}})      
+
+
+
+20 -  Remove the 'lucky_number' field.
+
+>>>> db.Students_Collection.updateMany({}, { $unset: { lucky_number: ""}})                        
+
+
+
+21 -  Add a 'updated_on' field, and set the value as the current date.
+
+>>>> db.Students_Collection.updateMany({}, {$set: {updated_on : {month:1 , day: 9, year: 2023}}}) 
+
+
+
+Whats left????
+
+>>>> db.Students_Collection.find({}).pretty()                                                     
+
+{
+        "_id" : ObjectId("63bd0b374dc8610e6fdf486e"),
+        "name" : "Gary Payton",
+        "home_state" : "Washington",
+        "birthdate" : {
+                "month" : 9,
+                "day" : 2,
+                "year" : 1972
+        },
+        "interests" : [
+                "coding",
+                "brunch",
+                "MongoDB",
+                "The Glove"
+        ],
+        "belts_earned" : 2,
+        "updated_on" : {
+                "month" : 1,
+                "day" : 9,
+                "year" : 2023
+        }
+}
