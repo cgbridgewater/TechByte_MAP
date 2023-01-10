@@ -131,8 +131,10 @@ background-image: url("./components/tabDisplays/images/pokeball.png");
 }
 
 .Spinner{
+  aspect-ratio: 50%;
+  width: 90%;
   max-height: 800;
-  max-width: 1200;
+  max-width: 1100;
   z-index: -9999;
 }
 
@@ -142,7 +144,7 @@ background-image: url("./components/tabDisplays/images/pokeball.png");
   bottom: 0;
   left: 0;
   right: 0;
-  min-height: 800px;
+  min-height: 950px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -171,8 +173,6 @@ background-image: url("./components/tabDisplays/images/pokeball.png");
   height:400px;
   width: 80%;
 }
-
-
 
 .Examples{
   display: flex;
@@ -208,6 +208,11 @@ background-image: url("./components/tabDisplays/images/pokeball.png");
   height: 3px;
 }
 
+form {
+  position: relative;
+  z-index: 1;
+}
+
 /* .RandomPick {
   padding: 15px;
   font-size: 20px;
@@ -220,8 +225,11 @@ background-image: url("./components/tabDisplays/images/pokeball.png");
 .FormInput {
   width: 250px;
   font-size: 25px;
-  background-color: #84d1f5;
-  opacity: 75%;
+  border: 3px solid #84d1f5;
+  background-color: grey;
+  color: yellow;
+  font-weight: 600;
+  opacity: 80%;
 }
 
 label {
@@ -230,7 +238,7 @@ label {
   font-weight: 800;
 }
 
-.FormButton {
+/* .FormButton {
   padding: 15px;
   font-size: 20px;
   font-weight: 600;
@@ -246,7 +254,7 @@ label {
   border: 5px double silver;
   border-radius: 10px;
   box-shadow: 3px 2px 22px 1px #ebe010;
-}
+} */
 
 .ResultShell {
   margin-top: -745px;
@@ -262,11 +270,13 @@ label {
   justify-content: space-evenly;
 }
 .Result {
+  border: 5px solid #84d1f5;
+  background-color: grey;
+  opacity: 80%;
   color: yellow;
   font-size: 30px;
   text-align: start;
   padding: 0 10px 0 10px ;
-  border: 5px solid #84d1f5;
   border-radius: 20px;
   height: 200px;
 }
@@ -274,6 +284,8 @@ label {
 .Name {
   padding: 30px 10px 0 10px ;
   border: 5px solid #84d1f5;
+  background-color: grey;
+  opacity: 80%;
   border-radius: 20px;
   height: 160px;
 }
@@ -281,6 +293,8 @@ label {
 .ID {
   padding-bottom: 50px;
   border: 5px solid #84d1f5;
+  background-color: grey;
+  opacity: 80%;
   border-radius: 20px;
   height: 70px;
   width: 200px;
@@ -351,14 +365,14 @@ label {
 
 #ShakingButton {
   height: 50px;
-  width: 200px;
+  width: 250px;
   border: 5px solid yellow;
   border-radius: 10px;
   background-color: lightyellow;
   color:brown;
   font-size: 20px;
   font-weight: 800;
-
+opacity: 80%;
 }
 
 .shake.shake{
@@ -377,3 +391,4 @@ label {
 90% { transform: translate(2px, 2px)   rotate(0deg);  }
 100%{ transform: translate(1px, -2px)  rotate(-1deg); }
 }
+

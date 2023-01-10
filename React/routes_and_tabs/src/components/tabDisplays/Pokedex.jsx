@@ -7,8 +7,8 @@ const Pokedex = (props) => {
     const animate = () => {
             // Button begins to shake
             setShake(true);
-            // Button stops shake after 2 seconds
-            setTimeout(() => setShake(false),2000);
+            // Button stops shake after 'n' seconds
+            setTimeout(() => setShake(false),1500);
     }
     const pokedexLogo = require('./images/pokedex.png')
     const [ input , setInput ] = useState([]); //form input
@@ -33,22 +33,22 @@ const Pokedex = (props) => {
             axios
             .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
             .then(res => {
-                setError("");
+                setError(null);
                 // setIsError(false)
                 console.log("fetch single pokemon",res.data);
                 setAxiosName(res.data);
             })    
             .catch((err) => 
             console.log("HELLLLLOOOOO",err),
-            setError("https://i.pinimg.com/originals/5a/c0/f4/5ac0f4d991159670000f0eeb1136e3cb.gif"),
+            setError("https://i.pinimg.com/originals/1f/08/ca/1f08ca64f7e378a4e50f78cab8b854b0.png"),
             // setIsError(true)
+            setAxiosName(null)
             )
             setInput("");
         }}
 
 
 return (
-
     <div className='Container'>
         {/* pokedex logo */}
         <img className='PokedexLogo' src={pokedexLogo} alt="pokedex logo" />
