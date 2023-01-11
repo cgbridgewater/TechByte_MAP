@@ -1,13 +1,14 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
 const port = 8000;
 
-// req is short for request
-// res is short for response
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+require("./config/mongoose.config");
+
+app.use(express.json(), express.urlencoded({ extended: true }));
+
+const AllMyUserRoutes = require("./routes/user.routes");
+AllMyUserRoutes(app);
+
 
 // this needs to be below the other code blocks
 app.listen( port, () => console.log(`Listening on port: ${port}`) );
