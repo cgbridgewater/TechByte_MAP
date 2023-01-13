@@ -80,6 +80,11 @@ To complete this assignment, copy your console text from the MongoDB shell into 
 >>>> db.Students_Collection.update({name: "Fresh Prince"}, {$push : {interests: "shootin hoops"}})
 
 
+
+>>>> add multiple items into an array      { $push: { scores: { $each: [ 90, 92, 85 ] } } }
+
+
+
 12 -  Add the interest 'taxes' into someone's interest array.
 
 >>>> db.Students_Collection.update({name: "William Gates"}, {$push : {interests: "taxes"}})       
