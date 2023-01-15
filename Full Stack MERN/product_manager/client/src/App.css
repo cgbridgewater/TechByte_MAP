@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  background-color: darkslateblue;
+  height: 100vh;
+}
+
+h1{
+  padding:20px;
+  margin:0
+}
+
+.Index {
+  padding: 20px;
+  background-color:slategray;
+  height:100vh
+}
+
+.EnterButton {
+    text-decoration: none;
+    padding: 12px 40px;
+    font-size: 16px;
+    border:3px solid darkBlue; 
+    background-color: lightgrey;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+/* Adding transformation when the button is active */
+  
+.EnterButton:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+.Mongo {
+  border: 3px solid green;
+  border-radius: 20px;
+  height: 60%;
+}
+
+form {
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  font-size:"20px";
+  font-weight:800;
+  border: 3px solid darkblue;
+  border-radius: 20px;
+  background-color:lightslategray;
+}
+
+.DeleteButton {
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: red;
+  
+}
