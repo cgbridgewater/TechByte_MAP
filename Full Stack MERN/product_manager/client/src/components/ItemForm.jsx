@@ -46,6 +46,7 @@ const ItemForm = (props) => {
                     <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
                     type="Number" 
                     step="0.01" 
+                    min="0.01"
                     onChange={(e) => 
                     setPrice(e.target.value)}
                     value={price}
