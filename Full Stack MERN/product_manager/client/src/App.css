@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   background-color: darkslateblue;
-  height: 100vh;
+  padding: 15px;
+  min-height: 100vh;
 }
 
 h1{
@@ -61,15 +62,43 @@ form {
   background-color: red;
   cursor: pointer;
   color: whitesmoke;
+  
+}
+
+.EditButton {
+  margin:0 10px;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: blue;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.ViewButton {
+  margin:0 10px;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: green;
+  cursor: pointer;
 }
 
 .ListContainer {
+  width: 30%;
+  margin: 10px auto;
+  padding: 20px;
   background-color: silver;
-  min-height: 35vh;
-  display: flex;
-  flex-wrap: wrap-reverse;
+  border: 3px solid darkblue;
+  border-radius: 20px;
 }
 
+table {
+  margin:  auto;
+}
+
+
+/* 
 .ItemCard {
   margin: 10px auto;
   padding: 5px;
@@ -77,4 +106,4 @@ form {
   border: solid 2px black;
   border-radius: 20px;
   background-color: darkseagreen;
-}
+} */

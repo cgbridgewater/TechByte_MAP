@@ -30,34 +30,36 @@ const ItemList = (props) => {
     return (
         <div className='ListContainer'>
 
-            
-
-
-
-
-
-
-
-
-
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    {/* <th>Description</th> */}
+                    <th>Actions</th>
+                    
+                </tr>
 
             {
                 item.map((item, index) => {
-                    return(
-                        <div className="ItemCard" key={index}>
-                            <p style={{margin:0}} > {item.title} </p>
-                            <p style={{margin:0}} > ${item.price} </p>
-                            {/* <p style={{margin:0}} > {item.description} </p> */}
-                            <Link style={{textDecoration:"none"}} to={`/item/${item._id}`}> View the {item.title}'s Info Page</Link>
-                            <br />
-                            <Link style={{textDecoration:"none"}} to={"/item/edit/" +item._id}> Edit  "{item.title}"</Link>
-                            <br />
-                            <button className='DeleteButton'
-                            onClick={(e) =>{deleteItem(item._id)}}>
-                            Delete Item</button>
-                        </div>
+                    return( 
+
+
+                <tr key={index}>
+                    <td style={{ textAlign:"start",color:"darkRed", fontSize:"30px",fontWeight:700}}>{item.title}</td>
+                    <td style={{fontWeight:700, fontSize:"20px"}}>${item.price}</td>
+                    {/* <td>{item.description}</td> */}
+                    <td>
+                        <button className='ViewButton'><Link style={{textDecoration:"none", color:"white"}} to={`/item/${item._id}`}> View Info</Link></button>
+                        <button className='EditButton'><Link style={{textDecoration:"none", color:"white"}} to={"/item/edit/" +item._id}> Edit</Link></button>
+                        <button className='DeleteButton'
+                        onClick={(e) =>{deleteItem(item._id)}}>
+                        Delete Item</button>
+                    </td>
+                    <td></td>
+                </tr>
                 )})
             }
+            </table>
         </div>
     );
 }

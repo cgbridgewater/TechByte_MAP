@@ -44,13 +44,6 @@ const Update = (props) => {
             .catch(err => console.log(err))
     }
 
-
-
-
-
-
-
-
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"70vh"}}>
             <h1>Update an Item</h1>
@@ -89,18 +82,16 @@ const Update = (props) => {
                 <input style={{backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} 
                 type="submit"/>
             </form>
-            <div style={{display:"flex", justifyContent:"space-evenly"}}>
-            <button 
-            className='DeleteButton'
-                onClick={(e) =>{deleteItem(id)}}>
-                Delete Item</button>
-                <button className='DeleteButton'>
-                    <Link to="/home" style={{  textDecoration: "none", color: "whitesmoke"}}> Home Page</Link>
+            <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"10px"}}>
+                <button 
+                    className='DeleteButton'
+                    onClick={(e) =>{deleteItem(id)}}>
+                    Delete Item
                 </button>
-            
+                <button className='ViewButton'>
+                        <Link to="/home" style={{  textDecoration: "none", color: "whitesmoke"}}> Home Page</Link>
+                </button>
             </div>
-            
-            
         </div>
     )
 }

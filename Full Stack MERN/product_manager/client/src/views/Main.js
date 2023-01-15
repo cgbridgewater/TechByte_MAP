@@ -13,7 +13,7 @@ const Main = () => {
     return(
         <div>
             <ItemForm item= {item} setItem={setItem}/>
-            <hr style={{height:"10px", margin: 0, backgroundColor:"darkGrey"}} />
+            <hr style={{width:"80%",height:"10px", margin:"0 auto", backgroundColor:"darkGrey", borderRadius:"10px"}} />
             <ItemList item= {item} setItem={setItem} removeFromDom={removeFromDom}/>
             </div>
     )

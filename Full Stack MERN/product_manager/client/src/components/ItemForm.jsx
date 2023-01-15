@@ -30,7 +30,7 @@ const ItemForm = (props) => {
 
 
     return(
-        <div style={{backgroundColor:"darkslateblue", minHeight:"70vh"}}>
+        <div style={{backgroundColor:"darkslateblue", minHeight:"60vh"}}>
             <h1>Add New Product Into Database</h1>
             <form style={{ fontSize:"20px", fontWeight:800}} onSubmit={onSubmitHandler}>
                 <p>
@@ -60,7 +60,7 @@ const ItemForm = (props) => {
                     value= {description}
                     ></textarea>
                 </p>
-                <input style={{    cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} type="submit"/>
+                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} type="submit"/>
             </form>
             
             {/* { isadded ?
