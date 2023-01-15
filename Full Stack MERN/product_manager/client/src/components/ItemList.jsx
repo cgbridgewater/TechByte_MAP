@@ -28,11 +28,11 @@ const ItemList = (props) => {
     }, [setItem])
 
     return (
-        <div style={{backgroundColor:"silver", minHeight:"35vh"}}>
+        <div className='ListContainer'>
             {
                 item.map((item, index) => {
                     return(
-                        <div style={{padding:"5px", border:"2px solid black"}} key={index}>
+                        <div className="ItemCard" key={index}>
                             <p style={{margin:0}} > {item.title} </p>
                             <p style={{margin:0}} > ${item.price} </p>
                             {/* <p style={{margin:0}} > {item.description} </p> */}

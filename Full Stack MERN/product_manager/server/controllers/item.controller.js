@@ -44,7 +44,3 @@ module.exports.deleteItem = (req,res) => {
         .then(deleteConfirmation => res.json(deleteConfirmation))
         .catch(err => res.json(err))
 } 
-
-
-
-sdfasdfadsf
