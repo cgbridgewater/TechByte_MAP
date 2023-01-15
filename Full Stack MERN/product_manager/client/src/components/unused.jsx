@@ -14,8 +14,6 @@ const ItemList = (props) => {
     }
 
 
-
-
     useEffect(() => {
         axios.get("http://localhost:8000/api/item")
         .then((res) => {
@@ -29,16 +27,6 @@ const ItemList = (props) => {
 
     return (
         <div className='ListContainer'>
-
-            
-
-
-
-
-
-
-
-
 
 
             {
@@ -56,6 +44,7 @@ const ItemList = (props) => {
                             onClick={(e) =>{deleteItem(item._id)}}>
                             Delete Item</button>
                         </div>
+
                 )})
             }
         </div>
