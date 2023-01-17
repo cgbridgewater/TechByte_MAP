@@ -32,7 +32,7 @@ const ItemForm = (props) => {
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"60vh"}}>
             <h1>Add New Product Into Database</h1>
-            <form style={{ fontSize:"20px", fontWeight:800}} onSubmit={onSubmitHandler}>
+            <form className="Form" style={{ fontSize:"20px", fontWeight:800}} onSubmit={onSubmitHandler}>
                 <p>
                     <label> Title </label><br />
                     <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 

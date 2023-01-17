@@ -13,9 +13,6 @@ const ItemList = (props) => {
             .catch(err => console.log(err))
     }
 
-
-
-
     useEffect(() => {
         axios.get("http://localhost:8000/api/item")
         .then((res) => {
@@ -27,8 +24,10 @@ const ItemList = (props) => {
         })
     }, [setItem])
 
+
+
     return (
-        <div className='ListContainer'>
+        <div style={{width:'700px'}} className='ListContainer'>
 
             <table>
                 <tr>
@@ -38,7 +37,7 @@ const ItemList = (props) => {
                     <th>Actions</th>
                     
                 </tr>
-
+{/* start mapping */}
             {
                 item.map((item, index) => {
                     return( 
@@ -59,6 +58,7 @@ const ItemList = (props) => {
                 </tr>
                 )})
             }
+{/* end mapping */}
             </table>
         </div>
     );

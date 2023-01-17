@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 import { useNavigate, useParams, Link } from "react-router-dom";
+import Navibar from "./Navibar";
 
 const Update = (props) => {
     const {id} = useParams();
@@ -46,6 +47,7 @@ const Update = (props) => {
 
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"70vh"}}>
+            <Navibar/>
             <h1>Update an Item</h1>
 
             <form onSubmit={updateItem}>
