@@ -32,7 +32,7 @@ const ItemForm = (props) => {
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"60vh"}}>
             <h1>Add New Product Into Database</h1>
-            <form className="Form" style={{ fontSize:"20px", fontWeight:800}} onSubmit={onSubmitHandler}>
+            <form className="Form" style={{ fontSize:"20px", fontWeight:800,boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} onSubmit={onSubmitHandler}>
                 <p>
                     <label> Title </label><br />
                     <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
@@ -61,7 +61,7 @@ const ItemForm = (props) => {
                     value= {description}
                     ></textarea>
                 </p>
-                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} type="submit"/>
+                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} type="submit"/>
             </form>
             
             {/* { isadded ?

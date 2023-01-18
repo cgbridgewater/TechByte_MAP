@@ -12,7 +12,7 @@ const Navibar = () => {
   return (
     <div>
       {/* navbar container */}
-      <nav style={{height:"100px", background:"grey", display:"flex", justifyContent:"space-between", alignItems:"center", paddingLeft:"2%", paddingRight:"2%", borderBottom:"10px double darkred"}}>
+      <nav style={{height:"100px",background:"grey", display:"flex", justifyContent:"space-between", alignItems:"center", paddingLeft:"2%", paddingRight:"2%", borderBottom:"10px double darkred"}}>
         {/* left side of navbar */}
         <div style={{width:"30%", textAlign:"start"}} className='LeftNav'>
           <h1 style={{color:"darkred"}}>Product Manager</h1>

@@ -8,7 +8,7 @@ module.exports.index = (req, res) => {
 module.exports.createItem = (req,res) => {
     Item.create(req.body)
         .then(item => res.json(item))
-        .catch(err => res.json(err));
+        .catch(err => res.json({message: "Something went wrong with Create",err}));
 }
 
 
@@ -20,7 +20,7 @@ module.exports.getAllItems = (req,res) => {
         })
         .catch(err => {
             console.log(err)
-            res.json(err)
+            res.json({message: "Something went wrong with Get All",err});
         })
 }
 
@@ -28,19 +28,19 @@ module.exports.getAllItems = (req,res) => {
 module.exports.getOneItem = (req, res) => {
     Item.findOne({_id: req.params.id})
         .then(item => res.json(item))
-        .catch(err => res.json(err));
+        .catch(err => res.json({message: "Something went wrong with Get One",err}));
 }
 
 
 module.exports.updateItem = (req,res) => {
     Item.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
         .then(updatedItem => res.json(updatedItem))
-        .catch(err => res.json(err))
+        .catch(err => res.json({message: "Something went wrong with Update",err}))
 }
 
 
 module.exports.deleteItem = (req,res) => {
     Item.deleteOne({ _id: req.params.id})
         .then(deleteConfirmation => res.json(deleteConfirmation))
-        .catch(err => res.json(err))
+        .catch(err => res.json({message: "Something went wrong with Delete",err}))
 } 

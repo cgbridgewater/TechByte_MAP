@@ -6,9 +6,7 @@ const Indexpage = () => {
         <div className='Index'>
             <h1>Welcome To The Product Manager App</h1>
             <h4>Click below to enter products into the database</h4>
-            <button className='EnterButton' >
-            <Link style={{textDecoration:"none"}} to={`/home`}> Product Input Page</Link>
-            </button>
+            <Link  style={{textDecoration:"none"}} to={`/home`}><button className='EnterButton' > Product Input Page</button></Link>
             <br />
             <br />
             <br />

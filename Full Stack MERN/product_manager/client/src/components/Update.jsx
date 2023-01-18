@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 import { useNavigate, useParams, Link } from "react-router-dom";
-import Navibar from "./Navibar";
+// import Navibar from "./Navibar";
 
 const Update = (props) => {
     const {id} = useParams();
@@ -18,7 +18,6 @@ const Update = (props) => {
             setTitle(res.data.title);
             setPrice(res.data.price);
             setDescription(res.data.description);
-            
         })
         .catch( err => console.log(err) );
     }, []);
@@ -47,7 +46,7 @@ const Update = (props) => {
 
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"70vh"}}>
-            <Navibar/>
+            {/* <Navibar/> */}
             <h1>Update an Item</h1>
 
             <form onSubmit={updateItem}>
@@ -81,18 +80,19 @@ const Update = (props) => {
                     value= {description}
                     ></textarea>
                 </p>
-                <input style={{backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} 
+                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} 
                 type="submit"/>
             </form>
+
             <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"10px"}}>
                 <button 
                     className='DeleteButton'
                     onClick={(e) =>{deleteItem(id)}}>
                     Delete Item
                 </button>
-                <button className='ViewButton'>
-                        <Link to="/home" style={{  textDecoration: "none", color: "whitesmoke"}}> Home Page</Link>
-                </button>
+
+                <Link to="/home" style={{  textDecoration: "none", color: "whitesmoke"}}><button className='ViewButton'> Home Page </button></Link>
+
             </div>
         </div>
     )
