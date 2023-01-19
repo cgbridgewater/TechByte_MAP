@@ -61,7 +61,7 @@ const ItemForm = (props) => {
                     ></textarea>
                 </p>
                 <input 
-                    style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} 
+                    style={{ cursor: "pointer" ,backgroundColor:"darkblue",color:"whitesmoke", padding:"8px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} 
                     type="submit"/>
             </form>
         </div>

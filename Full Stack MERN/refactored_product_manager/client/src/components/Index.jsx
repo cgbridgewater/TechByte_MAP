@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Indexpage = () => {
     return(
         <div className='Index'>
-            <h1>Welcome To The Product Manager App</h1>
-            <h4>Click below to enter products into the database</h4>
+            <h2 style={{fontSize:"40px", fontWeight:"800", color:"darkblue"}}>Welcome To The Product Manager App</h2>
+            <h4 style={{color:"darkblue"}}>Click below to enter products into the database</h4>
             <Link  style={{textDecoration:"none"}} to={`/home`}><button className='EnterButton' > Product Input Page</button></Link>
             <br />
             <br />

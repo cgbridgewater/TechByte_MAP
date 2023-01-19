@@ -37,8 +37,8 @@ const ItemList2 = (props) => {
 
         <div>
             <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}} >
-                <label style={{fontSize:"18px", fontWeight:700, color:"white", marginRight:"10px"}} htmlFor="">Sort:</label>
-                <select onChange={(e) => setSort(e.target.value)} style={{border:"3px solid darkblue", fontSize:"18px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"   }}>
+                <label style={{fontSize:"18px", fontWeight:800, color:"lightgrey", marginRight:"10px"}} htmlFor="">Sort:</label>
+                <select onChange={(e) => setSort(e.target.value)} style={{border:"3px solid darkblue", fontSize:"18px",backgroundColor:"lightgray",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"}}>
                     <option value="NONE">Recently Added</option>
                     <option value="ATOZ">A to Z</option>
                     <option value="ZTOA">Z to A</option>

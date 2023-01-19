@@ -12,6 +12,7 @@ const DeleteButton = (props) =>  {
 
     return(
         <button 
+            className="DeleteButton"
             style={{backgroundColor:"red", color:"white"}}
             onClick={ deleteItem }
         >Delete!        
