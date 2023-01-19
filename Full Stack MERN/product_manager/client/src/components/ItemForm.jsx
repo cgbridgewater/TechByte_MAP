@@ -6,8 +6,7 @@ const ItemForm = (props) => {
     const[ title, setTitle ] = useState("");
     const[ price, setPrice ] = useState("");
     const[ description, setDescription ] = useState("");
-    // const[ isadded, setIsadded ] = useState(null)
-
+    const [errors, setErrors] = useState({});
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -19,13 +18,16 @@ const ItemForm = (props) => {
         .then( res => {
             console.log(res);
             console.log(res.data) 
-            // setIsadded(true)
             setItem([...item, res.data])
             setTitle("")
             setPrice("")
             setDescription("")
+            setErrors({})
         })
-        .catch( err => console.log(err))
+        .catch((err) => {
+            console.log(err) 
+                setErrors(err.response.data.errors); //Set Errors
+        })
     }
 
 
@@ -34,7 +36,12 @@ const ItemForm = (props) => {
             <h1>Add New Product Into Database</h1>
             <form className="Form" style={{ fontSize:"20px", fontWeight:800,boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} onSubmit={onSubmitHandler}>
                 <p>
-                    <label> Title </label><br />
+                    <label>
+                    { errors.title ? 
+                        <h3 style={{color:"red"}}>{errors.title.message}</h3>
+                        : <h3>Title</h3>
+                    }
+                    </label>
                     <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
                     type="text" 
                     onChange={(e) => setTitle(e.target.value)}
@@ -42,7 +49,12 @@ const ItemForm = (props) => {
                     />
                 </p>
                 <p>
-                    <label> Price </label><br />
+                    <label>
+                    { errors.price ? 
+                        <h3 style={{color:"red"}}>{errors.price.message}</h3>
+                        : <h3>Price</h3>
+                    }
+                    </label>
                     <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
                     type="Number" 
                     step="0.01" 
@@ -53,7 +65,12 @@ const ItemForm = (props) => {
                     />
                 </p>
                 <p>
-                    <label> Description </label><br />
+                    <label>
+                    { errors.description ? 
+                        <h3 style={{color:"red"}}>{errors.description.message}</h3>
+                        : <h3>Description</h3>
+                    }
+                    </label>
                     <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
                     cols="40" 
                     rows="7"  
@@ -63,15 +80,6 @@ const ItemForm = (props) => {
                 </p>
                 <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} type="submit"/>
             </form>
-            
-            {/* { isadded ?
-                <div>
-                    <h1>"{title}" has been added to the database!</h1>
-                    <img src="https://media.tenor.com/2y6XTN-gDUIAAAAC/borat-great.gif" alt="error"/>
-                </div>
-                :
-                null
-            } */}
         </div>
     )
 }

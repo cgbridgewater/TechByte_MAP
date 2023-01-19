@@ -35,7 +35,7 @@ const ItemList2 = (props) => {
 
     return (
 
-        <div>
+        <div style={{paddingBottom:"15px"}}>
             <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}} >
                 <label style={{fontSize:"18px", fontWeight:800, color:"lightgrey", marginRight:"10px"}} htmlFor="">Sort:</label>
                 <select onChange={(e) => setSort(e.target.value)} style={{border:"3px solid darkblue", fontSize:"18px",backgroundColor:"lightgray",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"}}>
@@ -47,32 +47,32 @@ const ItemList2 = (props) => {
                 </select>
             </div>
             <br />
-        <div className='Main' style={{marginLeft:"3vw", display:'flex',justifyContent:"center"}}>
-            <div className='Boxes' 
-            style={{display:"flex", flexWrap:"wrap"}}>
-                {item.length > 0 && [...item]
-                    .sort(sortType[sort])
-                    .map((item, index) => {
-                        return(
-                        <div className='CardContainer'>
-                            <div key={index} className="Card">
-                                <h1>{item.title}</h1>
-                                <p className="price" style={{color:"grey", fontSize:"22px"}}>${item.price.toFixed(2)}</p>
-                                <p>
-                                    <Link style={{textDecoration:"none", color:"white"}} to={`/item/${item._id}`}><button className='ViewButton'>View Item</button></Link>
-                                </p>
-                                <p>
-                                    <Link style={{textDecoration:"none", color:"white"}} to={"/item/edit/" +item._id}><button className='EditButton'>Edit</button></Link>
+            <div className='Main' style={{marginLeft:"3vw", display:'flex',justifyContent:"center"}}>
+                <div className='Boxes' 
+                style={{display:"flex", flexWrap:"wrap"}}>
+                    {item.length > 0 && [...item]
+                        .sort(sortType[sort])
+                        .map((item, index) => {
+                            return(
+                            <div className='CardContainer'>
+                                <div key={index} className="Card">
+                                    <h1>{item.title}</h1>
+                                    <p className="price" style={{color:"grey", fontSize:"22px"}}>${item.price.toFixed(2)}</p>
+                                    <p>
+                                        <Link style={{textDecoration:"none", color:"white"}} to={`/item/${item._id}`}><button className='ViewButton'>View Item</button></Link>
                                     </p>
-                                <p> 
-                                    <DeleteButton itemId={item._id} successCallback={() => removeFromDom(item._id)}/>
-                                </p>
+                                    <p>
+                                        <Link style={{textDecoration:"none", color:"white"}} to={"/item/edit/" +item._id}><button className='EditButton'>Edit</button></Link>
+                                        </p>
+                                    <p> 
+                                        <DeleteButton itemId={item._id} successCallback={() => removeFromDom(item._id)}/>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    )})
-                }
+                        )})
+                    }
+                </div>
             </div>
-        </div>
         </div>
     );
 }

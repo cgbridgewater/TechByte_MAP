@@ -108,10 +108,13 @@ table {
 
 .CardContainer{
   padding: 0;
-  margin: 0;
+  margin: 0.5%;
+  width: 23%;
+  min-width: 275px;
+  height: 325px;
   list-style: none;
   border: 2px solid darkblue;
-  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.70);
+  box-shadow: 0 10px 20px 0 rgb(0, 0, 0, 1);
   background-color: darkgray;
   border-radius: 10px;
   -ms-box-orient: horizontal;
@@ -124,24 +127,9 @@ table {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   justify-content: center;
-  width: 23%;
-  min-width: 275px;
-  margin:.5%  ;
-  height: 325px;
 
 }
 
-/* .Card{
-  background: tomato;
-  padding: 5px;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
-  
-  line-height: 100px;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-  box-shadow:  8px 12px 0 rgba(0, 0, 0, 0.70)
-} */
+.Card{
+  width: 100%;
+}

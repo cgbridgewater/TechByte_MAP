@@ -10,16 +10,20 @@ module.exports = {
 
     createItem : (req,res) => {
         Item.create(req.body)
-            .then(item => res.json(item))
-            .catch(err => res.json({message: "Something went wrong with Create",err}));
+            .then(result => res.json(result))
+            .catch(err => {
+                res.status(400).json(err)
+                // res.json({message: "Something went wrong with Create",err})
+                // res.status(400).json(err)
+            });
     },
 
 
     getAllItems : (req,res) => {
         Item.find({})
-            .then(items => {
-                console.log(items);
-                res.json(items);
+            .then(result => {
+                console.log(result);
+                res.json(result);
             })
             .catch(err => {
                 console.log(err)
@@ -30,14 +34,14 @@ module.exports = {
 
     getOneItem : (req, res) => {
         Item.findOne({_id: req.params.id})
-            .then(item => res.json(item))
+            .then(result => res.json(result))
             .catch(err => res.json({message: "Something went wrong with Get One",err}));
     },
 
 
     updateItem : (req,res) => {
         Item.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-            .then(updatedItem => res.json(updatedItem))
+            .then(updatedResult => res.json(updatedResult))
             .catch(err => res.json({message: "Something went wrong with Update",err}))
     },
 

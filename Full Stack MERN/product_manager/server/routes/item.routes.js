@@ -8,4 +8,3 @@ module.exports = (app) => {
     app.put('/api/item/:id', ItemController.updateItem);
     app.delete('/api/item/:id', ItemController.deleteItem)
 }
- 

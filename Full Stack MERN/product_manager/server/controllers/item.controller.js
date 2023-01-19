@@ -8,9 +8,12 @@ module.exports.index = (req, res) => {
 module.exports.createItem = (req,res) => {
     Item.create(req.body)
         .then(item => res.json(item))
-        .catch(err => res.json({message: "Something went wrong with Create",err}));
+        .catch(err => {
+            res.status(400).json(err)
+            // res.json({message: "Something went wrong with Create",err})
+            // res.status(400).json(err)
+        });
 }
-
 
 module.exports.getAllItems = (req,res) => {
     Item.find({})
