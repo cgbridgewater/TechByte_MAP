@@ -38,7 +38,12 @@ const Main = () => {
     
     return(
         <div>
-            <PersonForm onSubmitProp={createPerson} intialFirstName="" intialLastName="" initialAge="" />
+            <PersonForm 
+                onSubmitProp={createPerson} 
+            initialFirstName={''}
+            initialLastName={''}
+            initialAge={''}
+            />
             <hr style={{width:"80%",height:"10px", margin:"20px auto", backgroundColor:"darkgrey", borderRadius:"10px"}} />
             <PersonList ischanged={ ischanged } person={ person } removeFromDom={ removeFromDom }/> 
         </div>

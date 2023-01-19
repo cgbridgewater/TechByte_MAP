@@ -1,99 +1,59 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import ItemForm from "./ItemForm"
+import DeleteButton from "./DeleteButton"
 
-import { useNavigate, useParams, Link } from "react-router-dom";
-// import Navibar from "./Navibar";
 
 const Update = (props) => {
     const {id} = useParams();
-    const [ title, setTitle ] = useState("");
-    const [ price, setPrice ] = useState("");
-    const [ description, setDescription ] = useState("");
+    const [ item, setItem ] = useState({});
+    const [ loaded, setLoaded ] = useState(false);
     const navigate = useNavigate();
     
     useEffect(() => {
         axios.get("http://localhost:8000/api/item/" + id)
         .then( res => {
             console.log(res.data);
-            setTitle(res.data.title);
-            setPrice(res.data.price);
-            setDescription(res.data.description);
+            setItem(res.data);
+            setLoaded(true)
         })
         .catch( err => console.log(err) );
     }, []);
 
-    const updateItem = (e) => {
-        e.preventDefault();
-        axios.put('http://localhost:8000/api/item/' + id, {
-            title,
-            price,
-            description
-        })
-        .then(res => {
-            console.log(res);
-            navigate("/home");
-        })
+    const updateItem = itemParam => {
+        axios.put('http://localhost:8000/api/item/' + id, itemParam) 
+        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
 
-    const deleteItem = (e) => {
-        axios.delete('http://localhost:8000/api/item/' + id)
-            .then(res => {
-                navigate("/home");
-            })
-            .catch(err => console.log(err))
-    }
 
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"70vh"}}>
-            {/* <Navibar/> */}
             <h1>Update an Item</h1>
-
-            <form onSubmit={updateItem}>
-
-                <p>
-                    <label> Title </label><br />
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
-                    type="text" 
-                    onChange={(e) => setTitle(e.target.value)}
-                    value= {title}
+            {
+                loaded && (
+                <>
+                    <ItemForm
+                        onSubmitProp={updateItem}
+                        initialTitle={item.title}
+                        initialPrice={item.price}
+                        initialDescription={item.description}
                     />
-                </p>
+                
+                </>
+                )}
+                
 
-                <p>
-                    <label> Price </label><br />
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
-                    type="Number" 
-                    step="0.01" 
-                    onChange={(e) => 
-                    setPrice(e.target.value)}
-                    value={price}
-                    />
-                </p>
 
-                <p>
-                    <label> Description </label><br />
-                    <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
-                    cols="40" 
-                    rows="7"  
-                    onChange={(e) => setDescription(e.target.value)}
-                    value= {description}
-                    ></textarea>
-                </p>
-                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px"}} 
-                type="submit"/>
-            </form>
-
-            <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"10px"}}>
-                <button 
-                    className='DeleteButton'
-                    onClick={(e) =>{deleteItem(id)}}>
-                    Delete Item
-                </button>
-
+            <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"20px", marginBottom:"20px"}}>
+                <DeleteButton
+                    itemId= {id}
+                    successCallback= {() => navigate("/home")}
+                />
                 <Link to="/home" style={{  textDecoration: "none", color: "whitesmoke"}}><button className='ViewButton'> Home Page </button></Link>
-
             </div>
+
         </div>
     )
 }

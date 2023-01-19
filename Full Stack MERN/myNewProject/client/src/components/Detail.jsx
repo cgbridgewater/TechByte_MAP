@@ -18,14 +18,6 @@ const Detail = (props) => {
             .catch( err => console.log(err) );
         }, [id]);
 
-    const deleteperson = (e) => {
-        axios.delete('http://localhost:8000/api/people/' + id)
-            .then(res => {
-                navigate("/home");
-            })
-            .catch(err => console.log(err))
-    }
-
 
     return (
         <div style={{backgroundColor:"darkslateblue", minHeight:"70vh"}}>

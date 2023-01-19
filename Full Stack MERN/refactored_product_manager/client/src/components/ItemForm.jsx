@@ -1,77 +1,69 @@
-import React, {useState} from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const ItemForm = (props) => {
-    const { item, setItem } = props;
-    const[ title, setTitle ] = useState("");
-    const[ price, setPrice ] = useState("");
-    const[ description, setDescription ] = useState("");
-    // const[ isadded, setIsadded ] = useState(null)
 
+    const { initialTitle, initialPrice, initialDescription, onSubmitProp } = props;
+    const[ title, setTitle ] = useState( initialTitle );
+    const[ price, setPrice ] = useState( initialPrice );
+    const[ description, setDescription ] = useState( initialDescription );
+    const navigate = useNavigate()
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/item", {
-            title,
-            price,
-            description
-    })
-        .then( res => {
-            console.log(res);
-            console.log(res.data) 
-            // setIsadded(true)
-            setItem([...item, res.data])
-            setTitle("")
-            setPrice("")
-            setDescription("")
-        })
-        .catch( err => console.log(err))
+        onSubmitProp({ title, price, description});
+        navigate("/home")
+        setTitle("")
+        setPrice("")
+        setDescription("")
     }
+
 
 
     return(
         <div style={{backgroundColor:"darkslateblue", minHeight:"60vh"}}>
-            <h1>Add New Product Into Database</h1>
-            <form className="Form" style={{ fontSize:"20px", fontWeight:800,boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} onSubmit={onSubmitHandler}>
+            
+            <form className="Form"  onSubmit={onSubmitHandler} style={{ fontSize:"20px", fontWeight:800,boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}}>
                 <p>
                     <label> Title </label><br />
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px",width:"80%",maxWidth:"400px" }} 
+                    <input 
+                    style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px",width:"80%",maxWidth:"400px" }} 
                     type="text" 
-                    onChange={(e) => setTitle(e.target.value)}
-                    value= {title}
+                    name="title"
+                    value={title}
+                    onChange={(e) => 
+                        setTitle(e.target.value)}
                     />
                 </p>
                 <p>
                     <label> Price </label><br />
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px",width:"80%",maxWidth:"400px" }} 
+                    <input 
+                    style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px",width:"80%",maxWidth:"400px" }} 
                     type="Number" 
                     step="0.01" 
                     min="0.01"
-                    onChange={(e) => 
-                    setPrice(e.target.value)}
+                    name="price"
                     value={price}
+                    onChange={(e) => 
+                        setPrice(e.target.value)}
                     />
                 </p>
                 <p>
                     <label> Description </label><br />
-                    <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px",width:"80%",maxWidth:"400px" }} 
-                    // cols="40" 
+                    <textarea 
+                    style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px",width:"80%",maxWidth:"400px" }} 
                     rows="7"  
-                    onChange={(e) => setDescription(e.target.value)}
-                    value= {description}
+                    name="description"
+                    value={description}
+                    onChange={(e) => 
+                        setDescription(e.target.value)}
                     ></textarea>
                 </p>
-                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} type="submit"/>
+                <input 
+                    style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} 
+                    type="submit"/>
             </form>
-            
-            {/* { isadded ?
-                <div>
-                    <h1>"{title}" has been added to the database!</h1>
-                    <img src="https://media.tenor.com/2y6XTN-gDUIAAAAC/borat-great.gif" alt="error"/>
-                </div>
-                :
-                null
-            } */}
         </div>
     )
 }

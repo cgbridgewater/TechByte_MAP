@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import DeleteButton from "./DeleteButton"
 
 const sortType = { 
     NONE:(a,b) => -1,
@@ -12,19 +13,10 @@ const sortType = {
 
 
 const ItemList2 = (props) => {
-    const { removeFromDom, item, setItem } = props;
+    const isChanged = props
+    const [item, setItem ] = useState([])
     const [ sort, setSort ] = useState("NONE")  //change name
 
-
-    const deleteItem = (itemId) => {
-        axios.delete('http://localhost:8000/api/item/' + itemId)
-            .then(res => {
-                removeFromDom(itemId)
-            })
-            .catch(err => console.log(err))
-    }
-
-    // const sortedItems = [...item]
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/item")
@@ -35,15 +27,15 @@ const ItemList2 = (props) => {
         .catch((err) => {
             console.log(err);
         })
-    }, [sort])
+    }, [isChanged,sort])
 
-
-// axios call based on drop down select
+    const removeFromDom = itemId => {
+        setItem(item.filter(item => item._id !== itemId))
+    }
 
     return (
 
         <div>
-            {/* <h1>Sort value =  {isSorted}</h1> */}
             <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}} >
                 <label style={{fontSize:"18px", fontWeight:700, color:"white", marginRight:"10px"}} htmlFor="">Sort:</label>
                 <select onChange={(e) => setSort(e.target.value)} style={{border:"3px solid darkblue", fontSize:"18px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"   }}>
@@ -63,9 +55,7 @@ const ItemList2 = (props) => {
                     .map((item, index) => {
                         return(
                         <div className='CardContainer'>
-                            <div key={index} className="Card" 
-                            // style={{boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)",backgroundColor:"darkgray", width:"100%",textAlign:"center",border:"2px solid darkblue", borderRadius:"10px"}}
-                            >
+                            <div key={index} className="Card">
                                 <h1>{item.title}</h1>
                                 <p className="price" style={{color:"grey", fontSize:"22px"}}>${item.price.toFixed(2)}</p>
                                 <p>
@@ -75,9 +65,7 @@ const ItemList2 = (props) => {
                                     <Link style={{textDecoration:"none", color:"white"}} to={"/item/edit/" +item._id}><button className='EditButton'>Edit</button></Link>
                                     </p>
                                 <p> 
-                                    <button className='DeleteButton'
-                                    onClick={(e) =>{deleteItem(item._id)}}>
-                                    Delete Item</button>   
+                                    <DeleteButton itemId={item._id} successCallback={() => removeFromDom(item._id)}/>
                                 </p>
                             </div>
                         </div>

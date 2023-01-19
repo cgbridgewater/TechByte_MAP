@@ -12,6 +12,9 @@ const PersonForm = (props) => {
         e.preventDefault();
         onSubmitProp({ firstName, lastName, age});
         navigate("/home")
+        setFirstName("")
+        setLastName("")
+        setAge("")
     }
 
 
@@ -26,7 +29,7 @@ const PersonForm = (props) => {
                         name='firstName'
                         value={firstName}
                         onChange={(e) => 
-                        setFirstName(e.target.value)}
+                            setFirstName(e.target.value)}
                         />
                 </p>
                 <p>
@@ -34,9 +37,9 @@ const PersonForm = (props) => {
                     <input 
                         style={{backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
                         type="text" 
-                        onChange={(e) => 
-                        setLastName(e.target.value)}
                         value={lastName}
+                        onChange={(e) => 
+                            setLastName(e.target.value)}
                         />
                 </p>
                 <p>
@@ -46,9 +49,9 @@ const PersonForm = (props) => {
                         type="number" 
                         step="1"
                         min="1" 
-                        onChange={(e) => 
-                        setAge(e.target.value)}
                         value={age}
+                        onChange={(e) => 
+                            setAge(e.target.value)}
                         />
                 </p>
                 <input 

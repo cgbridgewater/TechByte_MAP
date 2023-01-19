@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import PersonForm from "./PersonForm";
 import DeleteButton from "./DeleteButton";
 
@@ -17,7 +17,7 @@ const Update = (props) => {
                 setPerson(res.data);
                 setLoaded(true);
             })
-            // .catch( err => console.log(err));
+            .catch( err => console.log(err));
     }, []);
 
     const updatePerson = personParam => {
