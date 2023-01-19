@@ -4,7 +4,10 @@ import axios from "axios";
 import DeleteButton from "./DeleteButton";
 
 const PersonList = (props) => {
+    const ischanged = props
     const [ person, setPerson ] = useState([])
+    // const [ischanged, setIsChanged] = useState(false)
+
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/people")
@@ -15,11 +18,14 @@ const PersonList = (props) => {
         .catch((err) => {
             console.log(err);
         })
-    }, [])
+    }, [ischanged])
+//, isSorted
+
 
     const removeFromDom = personId => {
         setPerson(person.filter(person => person._id !== personId))
     }
+
 
 
     return (

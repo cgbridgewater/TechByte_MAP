@@ -4,7 +4,7 @@ import PersonForm from "../components/PersonForm";
 import PersonList from "../components/PersonList";
 
 const Main = () => {
-
+    const [ischanged, setIsChanged] = useState(false)
     const [ person, setPerson ] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:8000/api/people')
@@ -31,6 +31,7 @@ const Main = () => {
             console.log(res);
             console.log(res.data);
             setPerson([...person, res.data])
+            setIsChanged(!ischanged)
         })
         .catch((err) => console.log(err))
     }
@@ -39,7 +40,7 @@ const Main = () => {
         <div>
             <PersonForm onSubmitProp={createPerson} intialFirstName="" intialLastName="" initialAge="" />
             <hr style={{width:"80%",height:"10px", margin:"20px auto", backgroundColor:"darkgrey", borderRadius:"10px"}} />
-            <PersonList person={ person } removeFromDom={ removeFromDom }/> 
+            <PersonList ischanged={ ischanged } person={ person } removeFromDom={ removeFromDom }/> 
         </div>
     )
 }

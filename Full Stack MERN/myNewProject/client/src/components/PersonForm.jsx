@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PersonForm = (props) => {
     const{ initialFirstName, initialLastName, initialAge, onSubmitProp } = props;
     const[ firstName, setFirstName ] = useState(initialFirstName);
     const[ lastName, setLastName ] = useState(initialLastName);
     const[ age, setAge ] = useState(initialAge);
-    
-
+    const navigate = useNavigate()
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
         onSubmitProp({ firstName, lastName, age});
+        navigate("/home")
     }
+
 
     return (
         <div style={{backgroundColor:"darkslateblue", minHeight:"30vh"}}>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import PersonForm from "./PersonForm";
 import DeleteButton from "./DeleteButton";
 
@@ -8,6 +8,7 @@ const Update = (props) => {
     const {id} = useParams();
     const [ person, setPerson ] = useState({});
     const [ loaded, setLoaded ] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/people/" + id)
@@ -38,7 +39,7 @@ const Update = (props) => {
                 initialFirstName={person.firstName} 
                 initialLastName={person.lastName} 
                 initialAge={person.age} />
-                <DeleteButton personId= {id} successCallback= {() => Navigate("/home")} />
+                <DeleteButton personId= {id} successCallback= {() => navigate("/home")} />
             </> )   
             }
             <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"10px"}}>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from 'react-router-dom';
-
+import DeleteButton from './DeleteButton'
 
 const Detail = (props) => {
 
@@ -36,11 +36,7 @@ const Detail = (props) => {
                 </div>
 
                 <div style={{display:"flex", justifyContent:"space-evenly"}}>
-                    <button 
-                        className='DeleteButton'
-                        onClick={(e) =>{deleteperson(id)}}>
-                        Delete Person    
-                    </button>
+                    <DeleteButton personId= {id} successCallback= {() => navigate("/home")} />
                     <button className='ViewButton'>
                         <Link to="/home" style={{  textDecoration: "none", color: "whitesmoke"}}> Home Page</Link>
                     </button>
