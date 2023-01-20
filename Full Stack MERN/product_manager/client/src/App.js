@@ -18,7 +18,7 @@ function App() {
         <Route element={<Main/>} path="/home" />
         <Route element={<Update/>} path="/item/edit/:id"/>
         <Route element={<Detail/>} path="/item/:id" />
-        {/* <Route element={<BadLink/>} path="/home/:bad"/> */}
+        <Route element={<BadLink/>} path="/home/:bad"/>
         <Route element={<BadLink/>} path="/:bad" />
       </Routes>
     </BrowserRouter>

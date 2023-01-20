@@ -12,6 +12,12 @@ const ItemSchema = mongoose.Schema({
     description: { 
         type: String,
         required: [true, "Description required"],
-        minlenth: [2, "Description must be at least 2 characters long"]}
+        minlenth: [2, "Description must be at least 2 characters long"]
+    },
+
+        rewound: { 
+            type: String ,
+            default: "yes"            
+        },
 }, { timestamps: true});
 module.exports = mongoose.model("Item", ItemSchema)
