@@ -1,10 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
+const sortType = { 
+    // NONE:(a,b) => 0,
+    NONE: (a,b) => a.createdAt > b.createdAt ? -1 : 1,
+    HIGHTOLOW: (a,b) => a.price > b.price ? -1 : 1,
+    LOWTOHIGH: (a,b) => a.price > b.price ? 1 : -1,
+    ATOZ: (a,b) => a.title.localeCompare(b.title),                   
+    ZTOA: (a,b) => b.title.localeCompare(a.title)
+}
+
+
+
+
 const ItemList2 = (props) => {
     const { removeFromDom, item, setItem } = props;
-    
+    const [ sort, setSort ] = useState("NONE") 
+
+
     const deleteItem = (itemId) => {
         axios.delete('http://localhost:8000/api/item/' + itemId)
             .then(res => {
@@ -22,7 +37,7 @@ const ItemList2 = (props) => {
         .catch((err) => {
             console.log(err);
         })
-    }, [])
+    }, [sort])
 
 
 // axios call based on drop down select
@@ -30,30 +45,28 @@ const ItemList2 = (props) => {
     return (
 
         <div>
-
             <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}} >
-                <label style={{fontSize:"18px", fontWeight:700, color:"white", marginRight:"10px"}} htmlFor="">Sort:</label>
-                <select style={{border:"3px solid darkblue", fontSize:"18px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"   }}>
-                    <option value="">Recently Added</option>
-                    <option value="">A to Z</option>
-                    <option value="">Z to A</option>
-                    <option value="">Highest Price</option>
-                    <option value="">Lowest Price</option>
+                <label style={{fontSize:"18px", fontWeight:800, color:"goldenrod", marginRight:"10px"}} htmlFor="">Sort:</label>
+                <select onChange={(e) => setSort(e.target.value)} style={{border:"3px solid goldenrod", fontSize:"18px", color:"goldenrod",backgroundColor:"#073DAA",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"}}>
+                    <option value="NONE">Recently Added</option>
+                    <option value="ATOZ">A to Z</option>
+                    <option value="ZTOA">Z to A</option>
+                    <option value="HIGHTOLOW">Highest Price</option>
+                    <option value="LOWTOHIGH">Lowest Price</option>
                 </select>
             </div>
             <br />
         <div className='Main' style={{marginLeft:"3vw", display:'flex',justifyContent:"center"}}>
             <div className='Boxes' 
             style={{display:"flex", flexWrap:"wrap"}}>
-                {
-                    item.map((item, index) => {
+                {item.length > 0 && [...item]
+                    .sort(sortType[sort])
+                    .map((item, index) => {
                         return(
                         <div className='CardContainer'>
-                            <div key={index} className="Card" 
-                            // style={{boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)",backgroundColor:"darkgray", width:"100%",textAlign:"center",border:"2px solid darkblue", borderRadius:"10px"}}
-                            >
-                                <h1>{item.title}</h1>
-                                <p className="price" style={{color:"grey", fontSize:"22px"}}>${item.price}</p>
+                            <div key={index} className="Card">
+                                <h1 style={{color:"#073DAA"}}>{item.title}</h1>
+                                <p className="price" style={{color:"#073DAA", fontSize:"22px", fontWeight:"600"}}>${item.price.toFixed(2)}</p>
                                 <p>
                                     <Link style={{textDecoration:"none", color:"white"}} to={`/item/${item._id}`}><button className='ViewButton'>View Item</button></Link>
                                 </p>

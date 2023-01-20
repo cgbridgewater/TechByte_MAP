@@ -32,17 +32,17 @@ const ItemForm = (props) => {
 
 
     return(
-        <div style={{backgroundColor:"darkslateblue", minHeight:"60vh"}}>
-            <h1>Add New Product Into Database</h1>
+        <div style={{backgroundColor:"#073DAA", minHeight:"60vh"}}>
+            <h1 style={{color:"goldenrod"}}>Add New Product Into Database</h1>
             <form className="Form" style={{ fontSize:"20px", fontWeight:800,boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} onSubmit={onSubmitHandler}>
                 <p>
                     <label>
                     { errors.title ? 
-                        <h3 style={{color:"red"}}>{errors.title.message}</h3>
-                        : <h3>Title</h3>
+                        <h3 style={{color:"red", margin:0}}>{errors.title.message}</h3>
+                        : <h3 style={{color:"#073DAA", margin:0}}>Title</h3>
                     }
                     </label>
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
+                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" }} 
                     type="text" 
                     onChange={(e) => setTitle(e.target.value)}
                     value= {title}
@@ -51,11 +51,11 @@ const ItemForm = (props) => {
                 <p>
                     <label>
                     { errors.price ? 
-                        <h3 style={{color:"red"}}>{errors.price.message}</h3>
-                        : <h3>Price</h3>
+                        <h3 style={{color:"red", margin:0}}>{errors.price.message}</h3>
+                        : <h3 style={{color:"#073DAA", margin:0}}>Price</h3>
                     }
                     </label>
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
+                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" }} 
                     type="Number" 
                     step="0.01" 
                     min="0.01"
@@ -67,18 +67,18 @@ const ItemForm = (props) => {
                 <p>
                     <label>
                     { errors.description ? 
-                        <h3 style={{color:"red"}}>{errors.description.message}</h3>
-                        : <h3>Description</h3>
+                        <h3 style={{color:"red", margin:0}}>{errors.description.message}</h3>
+                        : <h3 style={{color:"#073DAA", margin:0}}>Description</h3>
                     }
                     </label>
-                    <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid lightblue", borderRadius:"15px" }} 
+                    <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" }} 
                     cols="40" 
                     rows="7"  
                     onChange={(e) => setDescription(e.target.value)}
                     value= {description}
                     ></textarea>
                 </p>
-                <input style={{ cursor: "pointer" ,backgroundColor:"lightseagreen", padding:"5px", fontSize:"15px", fontWeight:"700", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} type="submit"/>
+                <input style={{ cursor: "pointer" ,backgroundColor:"#073DAA", color:"white", padding:"8px", fontSize:"15px", fontWeight:"500",border:"1px solid white", borderRadius:"10px",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.70)"}} type="submit"/>
             </form>
         </div>
     )

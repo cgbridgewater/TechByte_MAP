@@ -23,7 +23,8 @@ module.exports.getAllItems = (req,res) => {
         })
         .catch(err => {
             console.log(err)
-            res.json({message: "Something went wrong with Get All",err});
+            .catch((err) => res.status(400).json(err))
+            // res.json({message: "Something went wrong with Get All",err});
         })
 }
 
@@ -31,14 +32,17 @@ module.exports.getAllItems = (req,res) => {
 module.exports.getOneItem = (req, res) => {
     Item.findOne({_id: req.params.id})
         .then(item => res.json(item))
-        .catch(err => res.json({message: "Something went wrong with Get One",err}));
+        .catch((err) => res.status(400).json(err))
+        // .catch(err => res.json({message: "Something went wrong with Get One",err}));
 }
 
 
 module.exports.updateItem = (req,res) => {
-    Item.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+    // Item.findByIdAndRemove({_id: req.params.id}, req.body, {new:true, runValidators: true})
+    Item.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators: true})
         .then(updatedItem => res.json(updatedItem))
-        .catch(err => res.json({message: "Something went wrong with Update",err}))
+        .catch((err) => res.status(400).json(err))
+        // .catch(err => res.json({message: "Something went wrong with Update",err}))
 }
 
 
