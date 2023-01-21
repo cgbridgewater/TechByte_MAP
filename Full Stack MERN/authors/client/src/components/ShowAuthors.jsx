@@ -60,26 +60,30 @@ const ShowAuthors = (props) => {
             
             {/* display table */}
             <table style={{margin:"30px auto"}}>
-                <div style={{width:"120%",marginLeft:"100px",display:"flex", justifyContent:"space-between"}}>
-                    <div style={{color:"white", textDecoration:"underline"}}>Author</div>
-                    <div style={{color:"white", textDecoration:"underline"}}>Actions</div>
-                </div>
+                <thead>
+                    <tr style={{width:"120%",marginLeft:"100px",display:"flex", justifyContent:"space-between"}}>
+                        <td style={{color:"white", textDecoration:"underline"}}>Author</td>
+                        <td style={{color:"white", textDecoration:"underline"}}>Actions</td>
+                    </tr>
+                </thead>
             {/* start mapping */}
             {author.length > 0 && [...author]
                 .sort(sortType[sort])
                 .map((author, index) => {
                 return( 
-                <tr key={index}>
-                    <td style={{textAlign:"start",color:"darkRed", fontSize:"30px",fontWeight:700}}>{author.author}</td>
-                    <td style={{borderLeft:"6px solid darkred"}}>
-                        <Link style={{textDecoration:"none"}} to={"/edit/" +author._id}><button style={{fontWeight:"800",backgroundColor:"darkgray", color:"white", padding:"4px 8px", marginLeft:"40px" }} className='EditButton'> Edit</button></Link>
-                        <button 
-                        className='DeleteButton'
-                        style={{fontWeight:"800",backgroundColor:"darkred",color:"white", padding:"4px 8px", marginLeft:"20px" }} 
-                        onClick={(e) =>{deleteAuthor(author._id)}}>
-                        Delete</button>
-                    </td>
-                </tr>
+                    <tbody key={index}>
+                        <tr >
+                            <td style={{textAlign:"start",color:"darkRed", fontSize:"30px",fontWeight:700}}>{author.author}</td>
+                            <td style={{borderLeft:"6px solid darkred"}}>
+                                <Link style={{textDecoration:"none"}} to={"/edit/" +author._id}><button style={{fontWeight:"800",backgroundColor:"darkgray", color:"white", padding:"4px 8px", marginLeft:"40px" }} className='EditButton'> Edit</button></Link>
+                                <button 
+                                className='DeleteButton'
+                                style={{fontWeight:"800",backgroundColor:"darkred",color:"white", padding:"4px 8px", marginLeft:"20px" }} 
+                                onClick={(e) =>{deleteAuthor(author._id)}}>
+                                Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
                 )})}
             {/* end mapping */}
             </table>
