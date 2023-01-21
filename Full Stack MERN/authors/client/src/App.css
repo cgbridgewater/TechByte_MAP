@@ -2,37 +2,30 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.IndexMain, .AddMain, .UpdateMain{
+  height: 100vh;
+  background-image:url(https://media.istockphoto.com/id/183757452/photo/old-blank-open-book.jpg?b=1&s=170667a&w=0&k=20&c=ZYXFAB2HasxjtL_-5m7e5KMAfY9MY-l8XEeQEZr1v3U=);
+  background-size: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.NewButton {
+  margin: 2%;
+  width: 10%;
+  background-color: lightgrey;
+  border: 5px double darkred;
+  color: darkred;
+  text-decoration: none;
+  padding: 4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Form {
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  font-size:"20px";
+  font-weight:800;
+  color: whitesmoke;
+  border: 8px double darkred;
+  border-radius: 20px;
+  background-color:darkgray;
 }

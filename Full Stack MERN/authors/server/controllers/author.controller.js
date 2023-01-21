@@ -8,7 +8,7 @@ module.exports.index = (req, res) => {
 
 module.exports.createAuthor = (req,res) => {
     Author.create(req.body)
-        .then(result => res.json(result))
+        .then(result => res.json({result}))
         .catch(err => {
             res.status(400).json(err)
         });
@@ -46,3 +46,14 @@ module.exports.deleteAuthor = (req,res) => {
         .then(deleteConfirmation => res.json(deleteConfirmation))
         .catch(err => res.json({message: "Something went wrong with Delete",err}))
 } 
+
+
+// ///// Testing //////
+
+// module.exports.nameCheck = (req, res) => {
+//     Author.findOne(req.params.author)
+//         .then(result => res.json(result))
+//         .catch((err) => res.status(400).json(err))
+// }
+
+
