@@ -13,8 +13,6 @@ const sortType = {
 }
 
 
-
-
 const ItemList2 = (props) => {
     const { removeFromDom, item, setItem } = props;
     const [ sort, setSort ] = useState("NONE") 
@@ -40,11 +38,9 @@ const ItemList2 = (props) => {
     }, [sort])
 
 
-// axios call based on drop down select
-
     return (
-
         <div>
+            {/* sorting */}
             <div style={{display:"flex", justifyContent:"flex-end", marginRight:"15%"}} >
                 <label style={{fontSize:"18px", fontWeight:800, color:"goldenrod", marginRight:"10px"}} htmlFor="">Sort:</label>
                 <select onChange={(e) => setSort(e.target.value)} style={{border:"3px solid goldenrod", fontSize:"18px", color:"goldenrod",backgroundColor:"#073DAA",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"}}>
@@ -56,34 +52,34 @@ const ItemList2 = (props) => {
                 </select>
             </div>
             <br />
-        <div className='Main' style={{marginLeft:"3vw", display:'flex',justifyContent:"center"}}>
-            <div className='Boxes' 
-            style={{display:"flex", flexWrap:"wrap"}}>
-                {item.length > 0 && [...item]
-                    .sort(sortType[sort])
-                    .map((item, index) => {
-                        return(
-                        <div className='CardContainer'>
-                            <div key={index} className="Card">
-                                <h1 style={{color:"#073DAA"}}>{item.title}</h1>
-                                <p className="price" style={{color:"#073DAA", fontSize:"22px", fontWeight:"600"}}>${item.price.toFixed(2)}</p>
-                                <p>
-                                    <Link style={{textDecoration:"none", color:"white"}} to={`/item/${item._id}`}><button className='ViewButton'>View Item</button></Link>
-                                </p>
-                                <p>
-                                    <Link style={{textDecoration:"none", color:"white"}} to={"/item/edit/" +item._id}><button className='EditButton'>Edit</button></Link>
+            {/* content */}
+            <div className='Main' style={{ display:'flex',justifyContent:"center"}}>
+                <div className='Boxes' style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
+                    {item.length > 0 && [...item]
+                        .sort(sortType[sort])
+                        .map((item, index) => {
+                            return(
+                            <div className='CardContainer'>
+                                <div key={index} className="Card">
+                                    <h2 style={{color:"#073DAA"}}>{item.title}</h2>
+                                    <p className="price" style={{color:"#073DAA", fontSize:"22px", fontWeight:"600"}}>${item.price.toFixed(2)}</p>
+                                    <p>
+                                        <Link style={{textDecoration:"none", color:"white"}} to={`/item/${item._id}`}><button className='ViewButton'>View Item</button></Link>
                                     </p>
-                                <p> 
-                                    <button className='DeleteButton'
-                                    onClick={(e) =>{deleteItem(item._id)}}>
-                                    Delete Item</button>   
-                                </p>
+                                    <p>
+                                        <Link style={{textDecoration:"none", color:"white"}} to={"/item/edit/" +item._id}><button className='EditButton'>Edit</button></Link>
+                                        </p>
+                                    <p> 
+                                        <button className='DeleteButton'
+                                        onClick={(e) =>{deleteItem(item._id)}}>
+                                        Delete Item</button>   
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    )})
-                }
+                        )})
+                    }
+                </div>
             </div>
-        </div>
         </div>
     );
 }

@@ -10,7 +10,9 @@ const Indexpage = () => {
             <br />
             <br />
             <br />
-            <img className='Mongo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Blockbuster_logo.svg/594px-Blockbuster_logo.svg.png?20160911233527" alt="blockbusterTicket" />
+            <div style={{height:"40%"}}>
+                <img className='Ticket' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Blockbuster_logo.svg/594px-Blockbuster_logo.svg.png?20160911233527" alt="blockbusterTicket" />
+            </div>
         </div>
     )
 }

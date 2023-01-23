@@ -24,11 +24,9 @@ const ItemList = (props) => {
         })
     }, [setItem])
 
-
-
     return (
         <div style={{width:'700px'}} className='ListContainer'>
-
+            {/* result table */}
             <table>
                 <tr>
                     <th>Title</th>
@@ -37,12 +35,10 @@ const ItemList = (props) => {
                     <th>Actions</th>
                     
                 </tr>
-{/* start mapping */}
+            {/* start mapping */}
             {
                 item.map((item, index) => {
                     return( 
-
-
                 <tr key={index}>
                     <td style={{ textAlign:"start",color:"darkRed", fontSize:"30px",fontWeight:700}}>{item.title}</td>
                     <td style={{fontWeight:700, fontSize:"20px"}}>${item.price}</td>
@@ -57,8 +53,7 @@ const ItemList = (props) => {
                     <td></td>
                 </tr>
                 )})
-            }
-{/* end mapping */}
+            }{/* end mapping */}
             </table>
         </div>
     );

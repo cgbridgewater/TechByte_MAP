@@ -42,7 +42,7 @@ const ItemForm = (props) => {
                         : <h3 style={{color:"#073DAA", margin:0}}>Title</h3>
                     }
                     </label>
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" }} 
+                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" ,width:"40%"}} 
                     type="text" 
                     onChange={(e) => setTitle(e.target.value)}
                     value= {title}
@@ -55,7 +55,7 @@ const ItemForm = (props) => {
                         : <h3 style={{color:"#073DAA", margin:0}}>Price</h3>
                     }
                     </label>
-                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" }} 
+                    <input style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px", width:"40%" }} 
                     type="Number" 
                     step="0.01" 
                     min="0.01"
@@ -71,9 +71,9 @@ const ItemForm = (props) => {
                         : <h3 style={{color:"#073DAA", margin:0}}>Description</h3>
                     }
                     </label>
-                    <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px" }} 
+                    <textarea style={{marginTop:"5px",backgroundColor:"lightgray", fontSize:"20px", fontWeight:800, border:"4px solid #073DAA", borderRadius:"15px", width:"40%" }} 
                     cols="40" 
-                    rows="7"  
+                    rows="3"  
                     onChange={(e) => setDescription(e.target.value)}
                     value= {description}
                     ></textarea>
