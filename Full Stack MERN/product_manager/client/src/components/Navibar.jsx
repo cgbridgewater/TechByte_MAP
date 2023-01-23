@@ -5,7 +5,7 @@ const Navibar = () => {
   const [ searchBar , setSearchBar] = useState("");
   const searchHandler = (event) => {
     event.preventDefault();
-      alert(`Thanks for searching for "${searchBar}", but this feature isn't active yet`)
+      alert(`Thanks for searching for "${searchBar}"\n this feature isn't active yet\n \nNow grab some snacks and make it "A Block Buster Night" \n 🎬🎞️🥤🍿🍫`)
       setSearchBar("")
   }
 
@@ -23,9 +23,9 @@ const Navibar = () => {
         </div>
         {/* right side of navbar */}
         <div style={{width:"30%", display:"flex", justifyContent:"end", flexWrap:"wrap"}} className='RightNav'>
-          <a style={{color:"#073DAA",marginLeft:"2%"}} href="###">Link</a>
-          <a style={{color:"#073DAA",marginLeft:"2%"}} href="###">Link</a>
-          <a style={{color:"#073DAA",marginLeft:"2%"}} href="###">Link</a>
+          <a style={{color:"#073DAA",marginLeft:"2%"}} href="/home/link">Link</a>
+          <a style={{color:"#073DAA",marginLeft:"2%"}} href="/home/link">Link</a>
+          <a style={{color:"#073DAA",marginLeft:"2%"}} href="/home/link">Link</a>
           <form onSubmit={ searchHandler }>
             <input 
               style={{width:"50%", backgroundColor:"lightgray", borderColor:"goldenrod"}}

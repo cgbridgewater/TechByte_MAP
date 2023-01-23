@@ -6,6 +6,7 @@ import Indexpage from './components/Index';
 import Update from './components/Update';
 import Navibar from './components/Navibar';
 import BadLink from './components/BadLink';
+import Construction from './components/Construction';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route element={<Update/>} path="/item/edit/:id"/>
         <Route element={<Detail/>} path="/item/:id" />
         <Route element={<BadLink/>} path="/home/:bad"/>
+        <Route element={<Construction/>} path="/home/link"/>
         <Route element={<BadLink/>} path="/:bad" />
       </Routes>
     </BrowserRouter>
