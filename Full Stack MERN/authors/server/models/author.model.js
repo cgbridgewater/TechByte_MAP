@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
-const beautifyUnique = require('mongoose-beautiful-unique-validation');
-
-
 const AuthorSchema = mongoose.Schema({
 
     author: { 
-        type: String, index: {unique: true, dropDups: true},
-        // unique: 'Two users cannot share the same username ({VALUE})',
-        // unique: true
-        // unique : '({VALUE}) exists in the database already',    
+        type: String,  
         required: [true, "Author Name required"],
         minLength: [3, "Author Name must be at least 3 characters long"],
-        // dropDups: [true, "Duplicate was removed!"]
     },
 
-},{ timestamps: true });
+    books: {
+    type: [String],
+    // items: {
+    //     book1:[],
+    //     book2:[],
+    //     book3:[],
+    // },
+    max: [2, "must be less than 3"]
+    }
 
-AuthorSchema.plugin(beautifyUnique);
+},{ timestamps: true });
 
 module.exports = mongoose.model("Author", AuthorSchema)
