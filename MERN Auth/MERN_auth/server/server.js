@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 require('./config/mongoose.config.js');
 require('./routes/user.routes')(app);
-
+require('dotenv').config();
 
 app.listen(PORT,() => {
     console.log(`Listening on Port: ${PORT}`)
