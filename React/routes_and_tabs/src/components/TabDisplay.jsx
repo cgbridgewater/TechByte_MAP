@@ -3,9 +3,11 @@ import Tab from './tabholder/Tab'
 import Tabs from './tabholder/Tabs';
 import TabPanel from './tabholder/TabPanel';
 import WhatIsPokemon from './tabDisplays/WhatIsPokemon';
-import Tab2 from './tabDisplays/TabPage2';
 import Pokedex from './tabDisplays/Pokedex';
 import Footer from './tabDisplays/Footer';
+import SleepingPichu from './tabDisplays/TabPage2';
+import PokemonGo from './tabDisplays/PokemonGo';
+import PokemonCards from './tabDisplays/PokemonCards';
 
   const TabDisplay = (props) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -20,9 +22,9 @@ import Footer from './tabDisplays/Footer';
       <div className='TabsContainer' >
       <Tabs selectedTab={activeTab} onChange={handleChange} >
         <Tab label="What is Pokémon" value={1}/>
-        <Tab label="Sleeping Pikachu" value={2}/>
-        <Tab label="Pokémon Games" value={3}/>
-        <Tab label="Pokémon Cards" value={4}/>
+        <Tab label="Sleeping Pichu" value={2}/>
+        <Tab label="Pokémon Go" value={3}/>
+        <Tab label="Pokémon Trading Cards" value={4}/>
         <Tab label="Pokédex" value={5}/>
       </Tabs>
       </div>
@@ -37,17 +39,17 @@ import Footer from './tabDisplays/Footer';
 
         {/* Tab window 2 */}
         <TabPanel value={activeTab} selectedIndex={2}>
-            <Tab2/>
+            <SleepingPichu/>
         </TabPanel>
 
         {/* Tab window 3 */}
         <TabPanel value={activeTab} selectedIndex={3}>
-          Tab 3 testing
+          <PokemonGo/>
         </TabPanel>
 
         {/* Tab window 4 */}
         <TabPanel value={activeTab} selectedIndex={4}>
-        <h1>tab 4 testing</h1>
+        <PokemonCards/>
         </TabPanel>
 
         {/* Tab window 5 */}

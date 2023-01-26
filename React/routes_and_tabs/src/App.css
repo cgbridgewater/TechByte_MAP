@@ -130,6 +130,26 @@ background-image: url("./components/tabDisplays/images/pokeball.png");
   background: url("./components/tabDisplays/images/container_bg.png");
 }
 
+.InnerBox {
+  background: url("https://lh3.googleusercontent.com/5-w5yrCLD69zlOIfgMndRr4dMhrKW5u8nJVojvrUqnSI8ln1ywgqzNFjWQJYrN2YlVSBMHNyXzhcIrQXRPUYTcqJXjAzYbJyXiXb_uK3YO2G-g=rw-e365-w1440");
+  background-position: center;
+  background-size:cover ;
+  margin: 0 auto;
+  width: 90%;
+  min-height: 30vh;
+  display: flex;
+  padding-top: 5%;
+}
+.ContentGo {
+  background: url("https://lh3.googleusercontent.com/39fWyzZddwsbUYLvJ99H5Gxj2erERkIRY--psXpnKMerQfZmO5Wd5AmULRgmmlNZaSrcUkvKAf0liZBkPquwhmmfeWEql_S_mnapIzau83l0WV4=rw-e365-w1440");
+  background-position: center;
+  background-size:cover ;
+  /* height: 700px; */
+  margin: 0 auto;
+  width: 90%;
+  min-height: 70vh;
+}
+
 .Spinner{
   aspect-ratio: 50%;
   width: 90%;
