@@ -1,34 +1,9 @@
 const mongoose = require('mongoose');
-
-// near the top is a good place to group our imports
 const bcrypt = require('bcrypt');
-// this should go after 
-UserSchema.pre('save', function(next) {
-    bcrypt.hash(this.password, 10)
-    .then(hash => {
-        this.password = hash;
-        next();
-    });
-});
-
-
-UserSchema.pre('validate', function(next) {
-    if (this.password !== this.confirmPassword) {
-      this.invalidate('confirmPassword', 'Password must match confirm password');
-    }
-    next();
-  });
-
 
 
 const UserSchema = new mongoose.Schema({
     
-    // add this after UserSchema is defined
-    UserSchema.virtual('confirmPassword')
-        .get( () => this._confirmPassword )
-        .set( value => this._confirmPassword = value );
-
-
     firstName: {
         type: String,
         required: [true, "First name is required"]
@@ -43,8 +18,7 @@ const UserSchema = new mongoose.Schema({
         validate: {
             validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
             message: "Please enter a valid email"
-        }
-
+        }        
     },
     password: {
         type: String,
@@ -55,8 +29,28 @@ const UserSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 
+// add this after UserSchema is defined
+UserSchema.virtual('confirmPassword')
+    .get( () => this._confirmPassword )
+    .set( value => this._confirmPassword = value );
+    
+    
+    UserSchema.pre('validate', function(next) {
+        if (this.password !== this.confirmPassword) {
+            this.invalidate('confirmPassword', 'Password must match confirm password');
+        }
+        next();
+    });
+    
 
-
+// add this after the validate function
+UserSchema.pre('save', function(next) {
+    bcrypt.hash(this.password, 10)
+    .then(hash => 
+        {this.password = hash;
+        next();
+    });
+});
 
 
 module.exports = mongoose.model("User", UserSchema)
