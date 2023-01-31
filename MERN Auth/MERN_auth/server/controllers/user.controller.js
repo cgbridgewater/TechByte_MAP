@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 module.exports= {
 
 
-    getAll : (req,res) => {
+    findAll : (req,res) => {
         User.find()
             .then(results => res.json(results))
             .catch(err => res.status(400).json(err))
@@ -20,7 +20,7 @@ module.exports= {
                 }, process.env.SECRET_KEY);
                 res
                 .cookie("usertoken", userToken, {httpOnly:true})
-                .json({ msg: "Great Success!", user: newUser });
+                .json({ msg: "Great Success, You are registered!", user: newUser });
             })
             .catch(err => res.status(400).json({message: "Problem with registration",error: err}));
     },
@@ -30,7 +30,8 @@ module.exports= {
         if(!user) {
             return res.status(400).json({message: "Invalid login"})
         }
-        // CONGRATULATIONS you found the user in database
+        console.log(user)
+        // Congrats you found the user in the database
         const correctPassword = await bcrypt.compare(req.body.password, user.password)
 
         if (!correctPassword) {
@@ -39,21 +40,16 @@ module.exports= {
         const userToken = jwt.sign({
             id: user._id
         }, process.env.SECRET_KEY);
+        console.log(userToken)
         res 
         .cookie("usertoken", userToken, {httpOnly:true})
-        .json({ msg: "Great Success!", user: newUser });    
+        .json({ msg: "Great Success, You've logged in!!"});    
     },
 
     logout: (req,res) => {
         res.clearCookie('userToken');
         res.sendStatus(200);
     },
-
-    // index : (req, res) => {
-    //     res.json({
-    //         message: "Hello World!"
-    //     });
-    // },
 
     getOne : (req, res) => {
         User.findOne({_id: req.params.id})
@@ -67,7 +63,7 @@ module.exports= {
             .catch((err) => res.status(400).json(err))
     },
 
-    deleteItem : (req,res) => {
+    delete : (req,res) => {
         User.deleteOne({ _id: req.params.id})
             .then(deleteConfirmation => res.json(deleteConfirmation))
             .catch(err => res.json({message: "Something went wrong with Delete",err}))
