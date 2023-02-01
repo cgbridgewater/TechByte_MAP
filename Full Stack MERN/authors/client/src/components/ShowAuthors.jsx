@@ -82,24 +82,9 @@ const ShowAuthors = (props) => {
                     <tbody key={author._id}>
                         <tr >
                             <td style={{display:"flex", flexDirection:"column",height:"100px",textAlign:"start", marginRight:"40px"}}>
-                                <p style={{color:"darkRed", fontSize:"30px",fontWeight:700}}>{author.author}'s Favs</p>
+                                <p style={{color:"darkRed", fontSize:"30px",fontWeight:700}}>{author.author}</p>
                             </td>
-                            {/* <td> */}
 
-
-
-                            { [...author.books].map((book,index) => {
-                                return(
-                                    // <div style={{display:"flex", flex:"columns"}} key={index}>
-                                        <td style={{display:"flex"}} key={index}>
-                                            {book}
-                                        </td>
-                                    // </div>
-                                )
-                            })}
-
-
-                            {/* </td> */}
                             <td style={{borderLeft:"6px solid darkred", width:"200px"}}>
                                 <Link style={{textDecoration:"none"}} to={"/edit/" +author._id}><button style={{fontWeight:"800",backgroundColor:"darkgray", color:"white", padding:"4px 8px", marginLeft:"40px" }} className='EditButton'> Edit</button></Link>
                                 <button 

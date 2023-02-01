@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom"
 import ShowAuthors from "./ShowAuthors"
 
 const Index = () => {

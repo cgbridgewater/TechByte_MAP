@@ -9,11 +9,6 @@ const AuthorSchema = mongoose.Schema({
 
     books: {
     type: [String],
-    // items: {
-    //     book1:[],
-    //     book2:[],
-    //     book3:[],
-    // },
     max: [2, "must be less than 3"]
     }
 
