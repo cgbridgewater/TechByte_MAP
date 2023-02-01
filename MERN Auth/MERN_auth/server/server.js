@@ -14,4 +14,4 @@ app.use(express.urlencoded({ extended: true }));
 require('./config/mongoose.config.js');
 require('./routes/user.routes')(app);
 
-app.listen(PORT,() => {console.log(`Listening on Port: ${PORT}`)});
+app.listen(PORT,() => {console.log(`⚡ 1.21 Gigawatts Flowing Through Port: ${PORT} ⚡`)});
