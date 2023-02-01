@@ -25,29 +25,37 @@ module.exports= {
             .catch(err => res.status(400).json({message: "Problem with registration",error: err}));
     },
 
-    login : async (req,res)  => {
+    login :async (req, res) => {
         const user = await User.findOne({email: req.body.email})
-        if(!user) {
+        if (user === null) {
             return res.status(400).json({message: "Invalid login"})
         }
         console.log(user)
-        // Congrats you found the user in the database
+
+        // CONGRATULATIONS YOU FOUND THE USER IN THE DATABASE
         const correctPassword = await bcrypt.compare(req.body.password, user.password)
 
         if (!correctPassword) {
-            return res.status(400).json({message: "Invalid login"});
+            return res.status(400).json({message: "Invalid login"})
         }
+
         const userToken = jwt.sign({
             id: user._id
         }, process.env.SECRET_KEY);
-        console.log(userToken)
-        res 
-        .cookie("usertoken", userToken, {httpOnly:true})
-        .json({ msg: "Great Success, You've logged in!!"});    
+
+        console.log(userToken);
+     
+        // note that the response object allows chained calls to cookie and json
+        res
+            .cookie("usertoken", userToken, {
+                httpOnly: true
+            })
+            .json({ msg: "success!" });
+
     },
 
     logout: (req,res) => {
-        res.clearCookie('userToken');
+        res.clearCookie('usertoken');
         res.sendStatus(200);
     },
 

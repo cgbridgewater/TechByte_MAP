@@ -30,9 +30,9 @@ const LoginPage = props => {
     const handleRegistration = (e) =>{
         e.preventDefault()
         axios.post("http://localhost:8000/api/register", register, {withCredentials: true})
-            .then(res => console.log(res))
-            // setState("")
-            navigate("/users")
+            .then(res => {console.log(res)
+                navigate("/users")
+            })
             .catch(err => console.log(err))
     }
 
@@ -44,9 +44,10 @@ const LoginPage = props => {
     const handleLogin = (e) => {
         e.preventDefault()
         axios.post("http://localhost:8000/api/login", login, {withCredentials: true})
-            .then(res => console.log(res))
+        .then(res => { console.log(res)
             navigate("/users")
-            .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
     }
 
 
