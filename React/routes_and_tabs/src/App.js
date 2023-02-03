@@ -2,6 +2,7 @@ import './App.css';
 // import PokedexDisplay from './components/tabDisplays/PokeDexDisplay'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import TabDisplay from './components/TabDisplay';
+import Construction from './components/tabDisplays/Construction';
 
 
 function App() {
@@ -12,9 +13,9 @@ function App() {
 
                 <Routes> 
 
-                  <Route path='/' element={<TabDisplay /> }/>
+                  <Route path='/' element={< TabDisplay /> }/>
                   {/* <Route path='/pokemon/:input' element={<PokedexDisplay /> }/> */}
-                  <Route /> 
+                  <Route path='/pokemon/construction' element={< Construction />}/> 
                   <Route /> 
 
                 </Routes>

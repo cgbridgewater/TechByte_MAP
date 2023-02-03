@@ -5,7 +5,7 @@ import TabPanel from './tabholder/TabPanel';
 import WhatIsPokemon from './tabDisplays/WhatIsPokemon';
 import Pokedex from './tabDisplays/Pokedex';
 import Footer from './tabDisplays/Footer';
-import SleepingPichu from './tabDisplays/TabPage2';
+import SleepingPichu from './tabDisplays/PikuSleeping';
 import PokemonGo from './tabDisplays/PokemonGo';
 import PokemonCards from './tabDisplays/PokemonCards';
 
@@ -24,8 +24,8 @@ import PokemonCards from './tabDisplays/PokemonCards';
         <Tab label="What is Pokémon" value={1}/>
         <Tab label="Sleeping Pichu" value={2}/>
         <Tab label="Pokémon Go" value={3}/>
-        <Tab label="Pokémon Trading Cards" value={4}/>
-        <Tab label="Pokédex" value={5}/>
+        <Tab label="Pokédex" value={4}/>
+        <Tab label="Pokémon Trading Cards" value={5}/>
       </Tabs>
       </div>
 
@@ -49,12 +49,12 @@ import PokemonCards from './tabDisplays/PokemonCards';
 
         {/* Tab window 4 */}
         <TabPanel value={activeTab} selectedIndex={4}>
-        <PokemonCards/>
+          <Pokedex/>
         </TabPanel>
 
         {/* Tab window 5 */}
         <TabPanel value={activeTab} selectedIndex={5}>
-          <Pokedex/>
+        <PokemonCards/>
         </TabPanel>
 
         {/* Page footer */}
