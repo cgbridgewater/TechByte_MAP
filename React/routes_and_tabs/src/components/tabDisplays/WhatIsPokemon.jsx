@@ -161,7 +161,7 @@ const WhatIsPokemon = () => {
             </main>
 
             <img className="desktop-only" style={{width:"75vh", height:"auto",display:"flex"}}  src="https://corporate.pokemon.com/char-pikachu-57d9f7946973b66cc4351807500acb15.png" alt="" />
-            <img className="mobile-only" style={{width:"40vh", height:"auto",display:"flex"}}  src="https://corporate.pokemon.com/char-pikachu-57d9f7946973b66cc4351807500acb15.png" alt="" />
+            <img className="mobile-only" style={{width:"25vh", height:"auto",display:"flex", margin:"4%"}}  src="https://corporate.pokemon.com/char-pikachu-57d9f7946973b66cc4351807500acb15.png" alt="" />
         </div>
 
         );
