@@ -221,6 +221,8 @@ const PokemonGo = () => {
 
                     {/* section 1 MOBILE VIEW */}
                         {/* Start Left Box */}
+                    <div className="mobile-only">
+
                         <div className="LeftBox">
                             <h1 style={{textAlign:"start", color:"black", fontSize:"30px", fontWeight:"800"}}>Pokémon GO</h1>
                             <p style={{textAlign:"start", fontSize:"20px"}}>
@@ -407,29 +409,30 @@ const PokemonGo = () => {
 
 
 
-                    {/* App Store buttons */}
-                    <div className="mobile-only" id="SplitBox" style={{flexDirection:"column", width:"79%"}}>
-                        <div style={{margin:"0 auto", width: "80%"}}>"LEFT BOX"</div>
-                        <div style={{margin:"0 auto",width:"100%", padding:"2%"}}>
-                            <div style={{margin:"0 auto",width:"80%", marginTop:"3%", padding:"3%",backgroundColor:"silver", borderRadius:"10px"}}>
-                                <img style={{width:"95%", height:"auto"}} src="https://assets.pokemon.com/assets//cms2/img/video-games/video-games/pokemon_go/app_store_badge_us_135x40.jpg" alt="appStore" />
-                                <div style={{margin:"0 auto",width:"100%"}}>
-                                    <p style={{textAlign:"start",fontSize:"12px" }}>Release Date: July 6, 2016</p>
-                                    <p style={{textAlign:"start",fontSize:"12px"}}>Genre: Real World Adventures</p>
-                                    <p style={{textAlign:"start",fontSize:"12px"}}>Platform: iPhone</p>
-                                    <p style={{textAlign:"start",fontSize:"12px"}}>Players: Single Player or Multiplayer</p>
+                        {/* App Store buttons */}
+                        <div className="mobile-only" id="SplitBox" style={{flexDirection:"column", width:"79%"}}>
+                            <div style={{margin:"0 auto", width: "80%"}}>"LEFT BOX"</div>
+                            <div style={{margin:"0 auto",width:"100%", padding:"2%"}}>
+                                <div style={{margin:"0 auto",width:"80%", marginTop:"3%", padding:"3%",backgroundColor:"silver", borderRadius:"10px"}}>
+                                    <img style={{width:"95%", height:"auto"}} src="https://assets.pokemon.com/assets//cms2/img/video-games/video-games/pokemon_go/app_store_badge_us_135x40.jpg" alt="appStore" />
+                                    <div style={{margin:"0 auto",width:"100%"}}>
+                                        <p style={{textAlign:"start",fontSize:"12px" }}>Release Date: July 6, 2016</p>
+                                        <p style={{textAlign:"start",fontSize:"12px"}}>Genre: Real World Adventures</p>
+                                        <p style={{textAlign:"start",fontSize:"12px"}}>Platform: iPhone</p>
+                                        <p style={{textAlign:"start",fontSize:"12px"}}>Players: Single Player or Multiplayer</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style={{margin:"0 auto",width:"80%", marginTop:"5%", padding:"3%",backgroundColor:"silver", borderRadius:"10px"}}>
-                                <img style={{width:"95%", height:"auto"}} src="https://assets.pokemon.com/assets//cms2/img/misc/icons/google-play-en.jpg" alt="googlePlay" />
-                                <div style={{margin:"0 auto",width:"50%"}}>
-                                    <p style={{textAlign:"start",fontSize:"12px"}}>Platform: iPhone</p>
-                                    <p style={{textAlign:"start",fontSize:"12px"}}>Players: Single Player or Multiplayer</p>
+                                <div style={{margin:"0 auto",width:"80%", marginTop:"5%", padding:"3%",backgroundColor:"silver", borderRadius:"10px"}}>
+                                    <img style={{width:"95%", height:"auto"}} src="https://assets.pokemon.com/assets//cms2/img/misc/icons/google-play-en.jpg" alt="googlePlay" />
+                                    <div style={{margin:"0 auto",width:"50%"}}>
+                                        <p style={{textAlign:"start",fontSize:"12px"}}>Platform: iPhone</p>
+                                        <p style={{textAlign:"start",fontSize:"12px"}}>Players: Single Player or Multiplayer</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                         
+                    </div>
 
 
 
