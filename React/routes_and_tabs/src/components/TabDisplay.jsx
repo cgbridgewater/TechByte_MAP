@@ -7,7 +7,7 @@ import Pokedex from './tabDisplays/Pokedex';
 import Footer from './tabDisplays/Footer';
 import SleepingPichu from './tabDisplays/PikuSleeping';
 import PokemonGo from './tabDisplays/PokemonGo';
-import PokemonCards from './tabDisplays/PokemonCards';
+import PokemonFavorites from './tabDisplays/PokemonFavorites';
 
   const TabDisplay = (props) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -25,7 +25,7 @@ import PokemonCards from './tabDisplays/PokemonCards';
         <Tab label="Sleeping Pichu" value={2}/>
         <Tab label="Pokémon Go" value={3}/>
         <Tab label="Pokédex" value={4}/>
-        <Tab label="Pokémon Trading Cards" value={5}/>
+        <Tab label="Favorited Pokémon" value={5}/>
       </Tabs>
       </div>
 
@@ -54,7 +54,7 @@ import PokemonCards from './tabDisplays/PokemonCards';
 
         {/* Tab window 5 */}
         <TabPanel value={activeTab} selectedIndex={5}>
-        <PokemonCards/>
+        <PokemonFavorites/>
         </TabPanel>
 
         {/* Page footer */}

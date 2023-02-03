@@ -21,14 +21,20 @@ const WhatIsPokemon = () => {
                     Just how many kinds of Pokémon exist? The exact number is unknown. While over 800 kinds of Pokémon have been confirmed, as of yet unseen Pokémon will surely be discovered in the future.
                 </p>
                 <div className="Examples">
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon01.jpg" alt="Bulbasaur" />
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon02.jpg" alt="Charmander" />
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon03.jpg" alt="Squirtle" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon01.jpg" alt="Bulbasaur" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon02.jpg" alt="Charmander" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon03.jpg" alt="Squirtle" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon01.jpg" alt="Bulbasaur" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon02.jpg" alt="Charmander" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_pokemon03.jpg" alt="Squirtle" />
                 </div>
                 <div className="ExampleNames">
-                    <h5>Balbasaur</h5>
-                    <h5>Charmander</h5>
-                    <h5>Squirtle</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Balbasaur</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Charmander</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Squirtle</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Balbasaur</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Charmander</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Squirtle</h5>
                 </div>
                 
                 <hr />
@@ -37,14 +43,20 @@ const WhatIsPokemon = () => {
                     Pokémon evolve by leveling up. For example, In the case of Pidgey:
                 </p>
                 <div className="Examples">
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution01.jpg" alt="Pidgey" />
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution02.jpg" alt="Pidgeotto" />
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution03.jpg" alt="Pidgeot" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution01.jpg" alt="Pidgey" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution02.jpg" alt="Pidgeotto" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution03.jpg" alt="Pidgeot" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution01.jpg" alt="Pidgey" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution02.jpg" alt="Pidgeotto" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_evolution03.jpg" alt="Pidgeot" />
                 </div>
                 <div className="ExampleNames">
-                    <h5>Pidgey</h5>
-                    <h5>Pidgeotto</h5>
-                    <h5>Pidgeot</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Pidgey</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Pidgeotto</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Pidgeot</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Pidgey</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Pidgeotto</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Pidgeot</h5>
                 </div>
                 <p>
                     Pokémon learn a variety of moves that they can then use in battle. Pokémon grow stronger and level up through battle. Some Pokémon not only level up, but evolve as well.
@@ -56,14 +68,20 @@ const WhatIsPokemon = () => {
                     Pokémon are classified into 18 types based on their characteristics. For example, Pikachu is an Electric type Pokémonand Magikarp is a Water type. There are some Pokémon who belong to two types, such as Jigglypuff, who is both Normal and Fairy. Each type has special affinities that have a big effect on battles. If your opponent's Pokémon has the right type of affinity, it can be a huge advantage in battle.
                 </p>
                 <div className="Examples">
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_type01.jpg" alt="Pikachu" />
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_type02.jpg" alt="Magikarp" />
-                    <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_type03.jpg" alt="Jigglypuff" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}}src="https://sg.portal-pokemon.com/img/pokemon-about/img_type01.jpg" alt="Pikachu" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_type02.jpg" alt="Magikarp" />
+                    <img className="desktop-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_type03.jpg" alt="Jigglypuff" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}}src="https://sg.portal-pokemon.com/img/pokemon-about/img_type01.jpg" alt="Pikachu" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_type02.jpg" alt="Magikarp" />
+                    <img className="mobile-only" style={{width:"12vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_type03.jpg" alt="Jigglypuff" />
                 </div>
                 <div className="ExampleNames">
-                    <h5>Pikachu</h5>
-                    <h5>Magikarp</h5>
-                    <h5>Jigglypuff</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Pikachu</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Magikarp</h5>
+                    <h5 className="desktop-only" style={{fontSize:"50%"}}>Jigglypuff</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Pikachu</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Magikarp</h5>
+                    <h5 className="mobile-only" style={{fontSize:"15%"}}>Jigglypuff</h5>
                 </div>
 
                 
@@ -78,7 +96,8 @@ const WhatIsPokemon = () => {
                 <p>
                     The movies are created to be enjoyed by both kids and adults and are interwoven with themes of family, life, and taking care of the environment.
                 </p>
-                <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_anime-movie.jpg" alt="PokemonMovie" />
+                <img className="desktop-only" style={{width:"60vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_anime-movie.jpg" alt="PokemonMovie" />
+                <img className="mobile-only" style={{width:"30vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_anime-movie.jpg" alt="PokemonMovie" />
                 
                 <hr />
                 <h3 className="Paragraph">Pokémon Video Games</h3>
@@ -91,7 +110,8 @@ const WhatIsPokemon = () => {
                 <p>
                     The game is designed so that players cooperate with friends and family who play Pokémon to catch Pokémon they can't catch by themselves. The more people who play together, the more fun it becomes. A small Pokémon trading ring soon grows into a big ring.
                 </p>
-                <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_videogame.jpg" alt="PokemonGames" />
+                <img className="desktop-only" style={{width:"75vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_videogame.jpg" alt="PokemonGames" />
+                <img className="mobile-only" style={{width:"30vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_videogame.jpg" alt="PokemonGames" />
                 
                 <hr />
                 <h3 className="Paragraph">Pokémon Trading Card Game</h3>
@@ -101,7 +121,8 @@ const WhatIsPokemon = () => {
                 <p>
                     While there are many fun things about Pokémon Trading Card Game, perhaps the most appealing aspect is that it is played person versus person. Players can chat, trade cards, and join tournaments held at various locations all while battling, creating all kinds of memories as they meet people through the card game.
                 </p>
-                <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_card.jpg" alt="PokemonCards" />
+                <img className="desktop-only" style={{width:"75vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_card.jpg" alt="PokemonCards" />
+                <img className="mobile-only" style={{width:"30vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_card.jpg" alt="PokemonCards" />
                 
                 <hr />
                 <h3 className="Paragraph">Pokémon Apps</h3>
@@ -122,7 +143,8 @@ const WhatIsPokemon = () => {
                 <p>
                     Pokémon looks forward to the evolution of information technology, and will create new ways of playing unique to Pokémon that will appeal to an even wider range of people.
                 </p>
-                <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_apps.jpg" alt="PokemonGo" />
+                <img className="desktop-only" style={{width:"75vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_apps.jpg" alt="PokemonGo" />
+                <img className="mobile-only" style={{width:"30vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_apps.jpg" alt="PokemonGo" />
                 
                 <hr />
                 <h3 className="Paragraph">The Future of Pokémon</h3>
@@ -132,16 +154,17 @@ const WhatIsPokemon = () => {
                 <p>
                     For example, turning Pokémon created in the game into cards that take advantage of their characteristics, then into cute, brave characters for the animated series, will create even broader appeal. In this way, the world of Pokémon continues to grow deeper and evolve into something even more interesting.
                 </p>
-                <img src="https://sg.portal-pokemon.com/img/pokemon-about/img_from.jpg" alt="pokemon" />
+                <img className="desktop-only" style={{width:"60vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_from.jpg" alt="pokemon" />
+                <img className="mobile-only" style={{width:"40vh", height:"auto"}} src="https://sg.portal-pokemon.com/img/pokemon-about/img_from.jpg" alt="pokemon" />
                 
 
             </main>
 
-            <img className="Pika" src="https://corporate.pokemon.com/char-pikachu-57d9f7946973b66cc4351807500acb15.png" alt="" />
+            <img className="desktop-only" style={{width:"75vh", height:"auto",display:"flex"}}  src="https://corporate.pokemon.com/char-pikachu-57d9f7946973b66cc4351807500acb15.png" alt="" />
+            <img className="mobile-only" style={{width:"40vh", height:"auto",display:"flex"}}  src="https://corporate.pokemon.com/char-pikachu-57d9f7946973b66cc4351807500acb15.png" alt="" />
         </div>
 
         );
 };
-
 
 export default WhatIsPokemon

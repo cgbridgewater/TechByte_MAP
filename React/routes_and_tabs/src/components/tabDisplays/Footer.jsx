@@ -15,10 +15,14 @@ const Footer = () => {
                 <div className="FooterFlex" >
                     {/* left side links */}
                     <ul style={{listStyleType:"none"}}>
-                        <li><a className="List1" href="/pokemon/construction">Whats New</a></li>
-                        <li><a className="List1" href="/pokemon/construction">Pokémon Parents Guide</a></li>
-                        <li><a className="List1" href="/pokemon/construction">Pokémon Careers</a></li>
-                        <li><a className="List1" href="/pokemon/construction">Pokémon Press Site</a></li>
+                        <li><a className="desktop-only" id="List1" href="/pokemon/construction">Whats New</a></li>
+                        <li><a className="desktop-only" id="List1" href="/pokemon/construction">Pokémon Parents Guide</a></li>
+                        <li><a className="desktop-only" id="List1" href="/pokemon/construction">Pokémon Careers</a></li>
+                        <li><a className="desktop-only" id="List1" href="/pokemon/construction">Pokémon Press Site</a></li>
+                        <li><a style={{fontSize:"12px"}}  className="mobile-only" id="List1" href="/pokemon/construction">Whats New</a></li>
+                        <li style={{marginTop:"12px"}}><a style={{fontSize:"12px"}}  className="mobile-only" id="List1" href="/pokemon/construction">Pokémon Parents Guide</a></li>
+                        <li style={{marginTop:"12px"}}><a style={{fontSize:"12px"}}  className="mobile-only" id="List1" href="/pokemon/construction">Pokémon Careers</a></li>
+                        <li style={{marginTop:"12px"}}><a style={{fontSize:"12px"}}  className="mobile-only" id="List1" href="/pokemon/construction">Pokémon Press Site</a></li>
                     </ul>
                     {/* social media links */}
                     <div className="FooterLogos">
@@ -40,11 +44,16 @@ const Footer = () => {
                     </div>
                     {/* right side links */}
                     <ul style={{listStyleType:"none"}} >
-                        <li><a className="List2" href="/pokemon/construction">Terms of Use</a></li>
-                        <li><a className="List2" href="/pokemon/construction">Privacy Notice</a></li>
-                        <li><a className="List2" href="/pokemon/construction">Cookie Page</a></li>
-                        <li><a className="List2" href="/pokemon/construction">Legal Info</a></li>
-                        <li><a className="List2" href="/pokemon/construction">Security</a></li>
+                        <li><a className="desktop-only" id="List2" href="/pokemon/construction">Terms of Use</a></li>
+                        <li><a className="desktop-only" id="List2" href="/pokemon/construction">Privacy Notice</a></li>
+                        <li><a className="desktop-only" id="List2" href="/pokemon/construction">Cookie Page</a></li>
+                        <li><a className="desktop-only" id="List2" href="/pokemon/construction">Legal Info</a></li>
+                        <li><a className="desktop-only" id="List2" href="/pokemon/construction">Security</a></li>
+                        <li><a style={{fontSize:"12px"}} className="mobile-only" id="List2" href="/pokemon/construction">Terms of Use</a></li>
+                        <li style={{marginTop:"10px"}}><a style={{fontSize:"12px"}} className="mobile-only" id="List2" href="/pokemon/construction">Privacy Notice</a></li>
+                        <li style={{marginTop:"10px"}}><a style={{fontSize:"12px"}} className="mobile-only" id="List2" href="/pokemon/construction">Cookie Page</a></li>
+                        <li style={{marginTop:"10px"}}><a style={{fontSize:"12px"}} className="mobile-only" id="List2" href="/pokemon/construction">Legal Info</a></li>
+                        <li style={{marginTop:"10px"}}><a style={{fontSize:"12px"}} className="mobile-only" id="List2" href="/pokemon/construction">Security</a></li>
                     </ul>
                 </div>
             </main>        
