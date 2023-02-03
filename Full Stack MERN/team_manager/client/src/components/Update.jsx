@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import PersonForm from "./PersonForm";
+import PersonForm from "./PlayerForm";
 import DeleteButton from "./DeleteButton";
 
 const Update = (props) => {

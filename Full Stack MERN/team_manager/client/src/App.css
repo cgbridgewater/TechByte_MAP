@@ -1,13 +1,66 @@
 .App {
+  margin: 0 auto;
   text-align: center;
 }
 .Form {
   margin: auto;
-  width: 50%;
+  margin-top: 25%;
+  width: 40%;
   padding: 20px;
   font-size:"20px";
   font-weight:800;
-  border: 3px solid darkblue;
+  border: 5px double whitesmoke;
   border-radius: 20px;
-  background-color:lightslategray;
+  color: whitesmoke;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6VZFUtzji5kpKiutDFmy_291E38dd1G--V8dJBLQ1Oc3qTpKv7sPvvYMepK4ieQdVxyQ&usqp=CAU);
+  background-position: center;
+  background-size: cover;}
+
+.Index {
+  background-image: url(https://media.istockphoto.com/id/1317268529/photo/green-field-in-soccer-stadium-ready-for-game-in-the-midfield.jpg?b=1&s=170667a&w=0&k=20&c=g0jEp4Lirn_f5qi7DQF4-Ie2_EOKMotZJYa1YMXM4w8=);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.EnterBall {
+  margin-top: 1%;
+  height: 90px;
+  width: 90px;
+  background-image: url('./components/Images/EnterBall.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.PLBG , .FormBG, .GameBG{
+  background-attachment: fixed;
+  background-image: url(https://media.istockphoto.com/id/1276444914/photo/full-stadium-and-neoned-colorful-flashlights-background.jpg?s=612x612&w=0&k=20&c=1AJv_B5D4GfZmRJYCRwzcVld4VcxK-srFscfK4Hy3qc=);
+  background-position: center;
+  background-size: cover;
+  min-height: 91.5vh;
+  padding:2%
+}
+
+.PlayerListContainer {
+  margin: 1% auto;
+  padding: 2%;
+  width: 60%;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6VZFUtzji5kpKiutDFmy_291E38dd1G--V8dJBLQ1Oc3qTpKv7sPvvYMepK4ieQdVxyQ&usqp=CAU);
+  background-position: center;
+  background-size: cover;
+  border: 4px double whitesmoke;
+  border-radius: 10px;
+}
+
+.EditButton {
+background-color: whitesmoke;
+  color: red;
+  font-weight: 800;
+}
+
+th, td {
+  color: whitesmoke;
+  text-align:start;
 }

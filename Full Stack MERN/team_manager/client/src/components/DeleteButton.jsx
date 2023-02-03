@@ -2,18 +2,20 @@ import React from "react";
 import axios from "axios";
 
 const DeleteButton = (props) =>  {
-    const { personId, successCallback } = props;
-    const deletePerson = e => {
-        axios.delete("http://localhost:8000/api/people/" + personId)
-            .then(res=> { successCallback();
+    const { playerId, successCallback, playerName } = props;
+    const deletePlayer = e => {
+        axios.delete("http://localhost:8000/api/player/" + playerId)
+            .then(res=> { 
+                alert(`Are you sure you want to delete ${playerName}?`)
+                successCallback();
             })
     }
 
     return(
         <button 
-            style={{backgroundColor:"red", color:"white"}}
-            onClick={ deletePerson }
-        >Delete!        
+            style={{backgroundColor:"red", color:"white", fontWeight:800}}
+            onClick={ deletePlayer }
+        >Delete
         </button>    
     )
 }
