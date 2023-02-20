@@ -1,15 +1,20 @@
 
 .GameStats {
     position: absolute;
-    width: 22vw;
+    /* width: 80vw; */
+    width: 17%;
+    padding: 4px;
     list-style-type: none;
     color: rgba(255,255,255, 0.5);
+    border: 1px solid rgba(80,227,230,1);
+    border-radius: 5px;
 }
 
 .GameStats__left {
     right:0;
     top:22vh;
     text-align: left;
+    
 }
 
 .GameStats__right {
@@ -19,8 +24,12 @@
 }
 
 .GameStats .value {
-    font-size: 2.8rem;
-    margin-bottom: 0.5em;
+    font-size: 200%;
+    margin-bottom: 1%;
+    /* font-size: 2.8rem;
+    margin-bottom: 0.5em; */
     color: rgna(255,255,255,1);
+    /* border: 3px solid whitesmoke; */
+    text-align: right;
 }
 

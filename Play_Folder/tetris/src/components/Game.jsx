@@ -5,7 +5,7 @@ import Tetris from "./Tetris";
 
 
 const Game = ({ rows, columns }) => {
-    const [ gameOver, SetGameOver, resetGameOver] = useGameOver();
+    const [ gameOver, setGameOver, resetGameOver] = useGameOver();
     const start = () => resetGameOver();
 
 
@@ -17,7 +17,7 @@ return(
             )
             : 
             (
-                <Tetris rows={rows} columns={columns} SetGameOver={SetGameOver} />
+                <Tetris rows={rows} columns={columns} setGameOver={setGameOver} />
 
             )
         }

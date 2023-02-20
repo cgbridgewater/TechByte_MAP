@@ -66,7 +66,7 @@ export const randomTetromino = () => {
     return TETROMINOES[key];
 };
 
-export const transferToBoard = ({
+export const transferToBoard = ({ //given board,shape and start position, transfer the shape to the board
     className,
     isOccupied,
     position,
@@ -79,7 +79,7 @@ export const transferToBoard = ({
             const occupied = isOccupied;
             const _y = y + position.row;
             const _x = x + position.column;
-            rows[_y][_x] = { occupied, className };
+            rows[_y][_x] = { occupied, className };  // track that insertion point is colliding or not
         }
         });
     });
