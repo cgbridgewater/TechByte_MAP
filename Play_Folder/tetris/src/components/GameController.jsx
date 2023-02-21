@@ -2,6 +2,8 @@ import "./GameController.css";
 import { Action, ActionForKey } from "../utils/Input";
 import { playerController } from "../utils/PlayerController";
 
+import { useDropTime } from "../hooks/useDropTime";
+import { useInterval } from "../hooks/useInterval";
 
 const GameController = ({
     board,
@@ -10,6 +12,15 @@ const GameController = ({
     setGameOver, 
     setPlayer 
 }) => {
+    const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({ // drop time controller
+        gameStats
+    })
+
+    useInterval(() => { // set slow drop action to 1000ms standard drop rate
+        handleInput({ action: Action.SlowDrop });
+    }, dropTime);
+
+
     const onKeyUp = ({ code }) => { //bring in key commands to control tetrominoes
         const action = ActionForKey(code);
 
