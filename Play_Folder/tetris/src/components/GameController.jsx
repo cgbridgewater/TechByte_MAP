@@ -1,5 +1,5 @@
 import "./GameController.css";
-import { Action, ActionForKey } from "../utils/Input";
+import { Action, ActionForKey, actionIsDrop } from "../utils/Input";
 import { playerController } from "../utils/PlayerController";
 
 import { useDropTime } from "../hooks/useDropTime";
@@ -21,17 +21,27 @@ const GameController = ({
     }, dropTime);
 
 
-    const onKeyUp = ({ code }) => { //bring in key commands to control tetrominoes
+    const onKeyUp = ({ code }) => { //release of keyboard key
         const action = ActionForKey(code);
-
-        if (action === Action.Quit) {  // quit game action
-            setGameOver(true);
-        }
+        if (actionIsDrop(action)) resumeDropTime();
     };
     
-    const onKeyDown = ({ code }) => {
+    const onKeyDown = ({ code }) => { //down stroke of keyboard key
         const action = ActionForKey(code);
-        handleInput ({ action });
+
+        if (action === Action.Pause) {    // pause/unpause
+            if (dropTime) {  // if we have a drop time, pause
+                pauseDropTime();
+            } else {     //  if you dont have a drop time, resume
+                resumeDropTime();
+            }
+        } else if (action === Action.Quit) {  // quit game action
+                setGameOver(true);
+            }
+        else {
+            if (actionIsDrop(action)) pauseDropTime(); //pause drop time during action move
+            handleInput ({ action });  // make action
+        }
     };
 
     const handleInput = ({ action }) => {  // controls player

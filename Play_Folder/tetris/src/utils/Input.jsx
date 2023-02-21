@@ -18,4 +18,9 @@ export const Key = { // Key codes for actions input
     Space: Action.FastDrop
 };
 
+
+
+export const actionIsDrop = (action) =>   
+[Action.SlowDrop, Action.FastDrop].includes(action);// function for dropping actions made
+
 export const ActionForKey = (keyCode) => Key[keyCode];
