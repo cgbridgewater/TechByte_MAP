@@ -1,5 +1,6 @@
 import "./GameController.css";
 import { Action, ActionForKey } from "../utils/Input";
+import { playerController } from "../utils/PlayerController";
 
 
 const GameController = ({
@@ -9,18 +10,28 @@ const GameController = ({
     setGameOver, 
     setPlayer 
 }) => {
-    const onKeyUp = ({ code }) => {
+    const onKeyUp = ({ code }) => { //bring in key commands to control tetrominoes
         const action = ActionForKey(code);
 
-        if (action === Action.Quit) {
+        if (action === Action.Quit) {  // quit game action
             setGameOver(true);
         }
     };
     
     const onKeyDown = ({ code }) => {
-        console.log(`onKeyDown ${code}`)
-    
-    }
+        const action = ActionForKey(code);
+        handleInput ({ action });
+    };
+
+    const handleInput = ({ action }) => {  // controls player
+        playerController({
+            action,
+            board,
+            player,
+            setPlayer,
+            setGameOver
+        });
+    };
 
     return(
         <input 
