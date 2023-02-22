@@ -1,19 +1,25 @@
 import React from "react"
 import "./GameStats.css"
 const GameStats = ({ gameStats }) =>{
-    const { level, points, linesCompleted, linesPerLevel } = gameStats;
-    const linesToLevel = linesPerLevel - linesCompleted;
+    const { level, points, linesCompleted, linesPerLevel, totalLines } = gameStats;
+    // const  lines = linesCompleted;
 
-    return(
-        <ul className="GameStats GameStats__right">
-            <li>Level</li>
-            <li className="value">{level}</li>
-            <li>Lines to level</li>
-            <li className="value">{linesToLevel}</li>
-            <li>Points</li>
-            <li className="value">{points}</li>
-        </ul>
-    );
+    // return(
+    //     <div className="GameStats GameStats__right">
+    //         <div>
+    //             <li className="LiText">Level</li>
+    //             <li className="value">{level}</li>
+    //         </div>
+    //         <div> 
+    //             <li className="LiText">Lines</li>
+    //             <li className="value">{totalLines}</li>
+    //         </div>
+    //         <div>
+    //             <li className="LiText">Points</li>
+    //             <li className="value">{points}</li>
+    //         </div>
+    //     </div>
+    // );
 };
 
 export default React.memo(GameStats);

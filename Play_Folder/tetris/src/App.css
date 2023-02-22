@@ -9,7 +9,11 @@
   text-align: center;
   font-family: sans-serif;
   color: #fff;
-  background-color: #406;
+  /* background-color: #406; */
+  background-image: url(https://mcdn.wallpapersafari.com/medium/34/86/sVenFH.jpg);
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
   height: 100vh;
-  padding:20px;
+  /* padding:5%; */
 }

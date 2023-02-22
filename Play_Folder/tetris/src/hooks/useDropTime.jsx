@@ -1,8 +1,8 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react"    ;
 
 const defaultDropTime = 1000;
 const minimumDropTime = 100;
-const speedIncrement = 75;
+const speedIncrement = 120;
 
 export const useDropTime = ({ gameStats }) => {
     const [dropTime, setDroptime] = useState(defaultDropTime);
@@ -13,7 +13,7 @@ export const useDropTime = ({ gameStats }) => {
             return;
         }
         setDroptime(previousDropTime);
-        setPreviousDropTime(null);
+        setPreviousDropTime(null);  
     }, [previousDropTime]);
 
     const pauseDropTime = useCallback(() => {  // used to pause time on game pause
@@ -24,7 +24,7 @@ export const useDropTime = ({ gameStats }) => {
     }, [dropTime, setPreviousDropTime]);
 
     useEffect(() => { // update speed based on level (subtracting 1 to prevent speed increase on first level)
-        const speed = speedIncrement * (gameStats.level -1); // 50ms multiplied by level
+        const speed = speedIncrement * (1.1*(gameStats.level -1)); // 80ms multiplied by level
         const newDropTime = Math.max(defaultDropTime - speed, minimumDropTime); // minimum drop as catch for max speed
 
         setDroptime(newDropTime);

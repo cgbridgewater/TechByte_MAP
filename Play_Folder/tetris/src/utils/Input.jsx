@@ -18,6 +18,8 @@ export const Key = { // Key codes for actions input
     Space: Action.FastDrop
 };
 
+//TODO make buttons for input!!!
+
 
 
 export const actionIsDrop = (action) =>   

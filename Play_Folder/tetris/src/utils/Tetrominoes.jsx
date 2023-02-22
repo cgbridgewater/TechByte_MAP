@@ -59,7 +59,7 @@ export const TETROMINOES = {
     }
 };
 
-export const randomTetromino = () => {
+export const randomTetromino = () => { // generate a random tetromino
     const keys = Object.keys(TETROMINOES);
     const index = Math.floor(Math.random() * keys.length);
     const key = keys[index];
@@ -77,10 +77,6 @@ export const  rotate = ({ piece, direction }) => { //clockwise rotation
 
     return newPiece.reverse();
 }
-
-
-
-
 
 
 export const transferToBoard = ({ //given board,shape and start position, transfer the shape to the board

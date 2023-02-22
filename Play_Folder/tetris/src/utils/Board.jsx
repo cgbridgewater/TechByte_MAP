@@ -131,14 +131,6 @@ export const hasCollision = ({ board, position, shape }) => {  // collision dete
 }
 
 
-
-
-
-
-
-
-
-
 export const isWithinBoard =  ({ board, position, shape }) => { //check inside board limits
     for (let y = 0; y < shape.length; y++) {  // go through shape rows
         const row = y + position.row;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useGameOver } from "../hooks/useGameOver";
 import Menu from "./Menu";
 import Tetris from "./Tetris";
@@ -7,7 +7,6 @@ import Tetris from "./Tetris";
 const Game = ({ rows, columns }) => {
     const [ gameOver, setGameOver, resetGameOver] = useGameOver();
     const start = () => resetGameOver();
-
 
 return(
     <div className="Game">

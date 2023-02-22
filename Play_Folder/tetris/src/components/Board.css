@@ -1,11 +1,47 @@
-.Board {
-    margin: 2em auto;
+.BoardPage {
+    width: 100vw;
+    height: 100vh;
+    background-color: #406;
+    padding: 3%;
+}
+
+.BoardContainer {
+    margin: auto;
+    padding-top: 30px;
     display: grid;
     grid-gap: 2px;
-    width: 45vh;
+    width: 40vh;
+    min-width: 350px;
     height: 90vh;
+    background: rgb(127, 127, 127);
+    /* background-image: url(https://mcdn.wallpapersafari.com/medium/47/35/Qgpzue.png); */
+    border: 3px solid rgb(127,127,127);
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+}
+.Board {
+    margin: auto;
+    display: grid;
+    grid-gap: 2px;
+    width: 35vh;
+    height: 70vh;
     background: rgb(32,0,64);
     border: 10px solid rgb(32,0,64);
     border-radius: 10px;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+}
+
+
+.Scoring {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    text-align: right;
+    font-size: 120%;
+    font-weight: 700;
+}
+
+.ScoringText {
+    text-align: left;
+    font-weight: 700;
 }

@@ -1,4 +1,7 @@
 .Tetris {
     position: relative;
-    
+    width:40%;
+    height: 80%;
+    border: 1px solid greenyellow;
+
 }

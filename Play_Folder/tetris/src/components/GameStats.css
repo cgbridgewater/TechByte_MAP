@@ -1,21 +1,27 @@
 
 .GameStats {
     position: absolute;
-    /* width: 80vw; */
-    width: 17%;
-    padding: 4px;
+    top:13vh;
+    left: 42.25vw;
+    display: flex;
+    justify-content: space-between;
+    /* width: 17%; */
+    width: 15vw;
+    min-width: 300px;
+    height:6%;
+    padding: 8px;
     list-style-type: none;
-    color: rgba(255,255,255, 0.5);
+    color: rgba(255,255,255, 0.75);
     border: 1px solid rgba(80,227,230,1);
     border-radius: 5px;
 }
 
-.GameStats__left {
+/* .GameStats__left {
     right:0;
     top:22vh;
     text-align: left;
     
-}
+} */
 
 .GameStats__right {
     right:0;
@@ -24,12 +30,17 @@
 }
 
 .GameStats .value {
-    font-size: 200%;
+    font-size: 100%;
     margin-bottom: 1%;
     /* font-size: 2.8rem;
     margin-bottom: 0.5em; */
     color: rgna(255,255,255,1);
     /* border: 3px solid whitesmoke; */
     text-align: right;
+    font-weight: 800;
 }
 
+.LiText {
+    font-size: 90%;
+    font-weight: 700;
+}

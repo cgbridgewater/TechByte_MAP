@@ -81,6 +81,7 @@ const attemptMovement = ({  // player piece movement
     //did we collide immediately?   if so, set game over!
     const isGameOver = collided && player.position.row === 0;
     if (isGameOver) {
+        // add high score in here
         setGameOver(isGameOver);
     }
 
