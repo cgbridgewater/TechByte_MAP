@@ -1,13 +1,17 @@
 .Menu {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     align-items: center;
     min-height: 100vh;
+    min-width: 100vh;
     z-index: 100;
-    background-color: #406;
+    /* background-color: #406; */
     padding: 5%;
-
+    background-image: url(https://mcdn.wallpapersafari.com/medium/34/86/sVenFH.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100vh;
 }
 
 .Button {

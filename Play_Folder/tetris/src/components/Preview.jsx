@@ -10,8 +10,6 @@ const Preview = ({ tetromino, index }) => {
 
     const board = buildBoard({ rows: 4, columns: 4});
 
-    const style = { left: `${index * 8}vw` };  // was top:   *12
-
     board.rows = transferToBoard({
         className,
         isOccupied: false,
@@ -21,8 +19,7 @@ const Preview = ({ tetromino, index }) => {
     });
     
     return (
-        <div className="Preview" style={style}>
-            {/* <div className="PreviewContainer"> */}
+        <div className="Preview" >
                 <div className="Preview-board">
                     {board.rows.map((row, y) =>
                     row.map((cell, x) => (
@@ -30,7 +27,6 @@ const Preview = ({ tetromino, index }) => {
                     ))
                     )}
                 </div>
-            {/* </div> */}
         </div>
     );
 };
