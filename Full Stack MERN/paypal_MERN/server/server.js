@@ -11,5 +11,5 @@ require("./config/mongoose.config.js");
 require("./routes/item.routes")(app);
 
 app.listen(PORT, () => {
-    console.log(`Shut up and take my money!!  ${PORT}`);
+    console.log(`Shut up and take my money!!  ${PORT}`); 
 });
