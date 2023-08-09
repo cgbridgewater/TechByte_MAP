@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  background-image: url(https://i0.wp.com/bhamnow.com/wp-content/uploads/2020/11/ln5drpv_imi.jpg?resize=1400%2C890&ssl=1);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  color: yellow;
+  font-weight: 800;
+}
+
+p { 
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #5B2A5A;
+  border: 5px double goldenrod;
+}
+
+li {
+  color: yellow;
+  list-style-type:none;
+  text-align: start;
+}
