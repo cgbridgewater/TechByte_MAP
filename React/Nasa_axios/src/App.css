@@ -5,23 +5,110 @@
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  min-height: 100dvh;
 }
 
-h1 {
+.Nasa {
+  display: flex;
+
+}
+
+h1, .Label {
   color: yellow;
   font-weight: 800;
 }
 
-p { 
-  width: 600px;
+.Label {
+  height: 1.15em;
+  text-align: end;
+}
+
+
+
+.Align {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.Radio {
+  margin-right: 10px;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+}
+
+.LeftContainer {
+  width: 30%;
+  min-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.InputSearches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Search {
+  width: 150px;
+}
+
+.Clear {
+  width: 160px;
+  padding: 5px;
+  background-color:  yellow;
+  color: #5B2A5A;
+  font-weight: 900;
+}
+
+.SortBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SortLabel {
+  color: yellow;
+  font-weight: 800;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid yellow;
+  width: 163px;
+  background-color: #5B2A5A;
+}
+
+.MapBox {
+  width: 30%;
+  min-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.DataContainer { 
+  min-width: 300px;
   margin: 20px auto;
   padding: 20px;
   background-color: #5B2A5A;
   border: 5px double goldenrod;
 }
 
-li {
+.FilterBox { 
+  width: 150px;
+  margin: 20px auto;
+  padding: 5px;
+  background-color: #5B2A5A;
+  border: 5px double goldenrod;
+}
+
+p {
   color: yellow;
   list-style-type:none;
   text-align: start;
 }
+
