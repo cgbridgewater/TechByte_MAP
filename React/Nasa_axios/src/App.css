@@ -1,11 +1,11 @@
 .App {
   text-align: center;
-  padding: 20px;
-  background-image: url(https://i0.wp.com/bhamnow.com/wp-content/uploads/2020/11/ln5drpv_imi.jpg?resize=1400%2C890&ssl=1);
+  padding: 1%;
+  background-image: url(https://wallpapercave.com/wp/wp3479784.gif);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  min-height: 100dvh;
+  min-height: 96dvh;
 }
 
 .Nasa {
@@ -13,17 +13,17 @@
 
 }
 
-h1, .Label {
+h1 {
   color: yellow;
   font-weight: 800;
 }
 
 .Label {
-  height: 1.15em;
+  color:yellow;
+  font-weight: 800;
+  font-size: 16px;
   text-align: end;
 }
-
-
 
 .Align {
   display: flex;
@@ -43,31 +43,56 @@ h1, .Label {
 }
 
 .LeftContainer {
-  width: 30%;
-  min-width: 300px;
+  width: 15%;
+  min-width: 200px;
   margin: 20px auto;
-  padding: 20px;
+  height: 61dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 .InputSearches {
   display: flex;
+  justify-content: center;
+}
+
+
+.Searches {
+  width: 155px;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  border: 5px double goldenrod;
 }
 
 .Search {
   width: 150px;
+  opacity: 80%;
 }
 
 .Clear {
+  position: relative;
   width: 160px;
   padding: 5px;
-  background-color:  yellow;
-  color: #5B2A5A;
+  color:  yellow;
+  background-color: transparent;
   font-weight: 900;
+  box-shadow:inset 2px 2px 2px 1px rgba(255,255,255,.4),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  opacity: 90%;
+}
+.Clear:hover {
+  color:  #5B2A5A;
+  background-color: yellow;
 }
 
-.SortBar {
+.Clear:active {
+  top:2px;
+}
+
+/* .SortBar {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,21 +106,29 @@ h1, .Label {
   border: 1px solid yellow;
   width: 163px;
   background-color: #5B2A5A;
-}
+} */
 
 .MapBox {
-  width: 30%;
+  width: 50%;
   min-width: 300px;
   margin: 20px auto;
-  padding: 20px;
+  border: 5px double goldenrod;
+  }
+
+.GoogleMap {
+  margin: 2px;
+  height: 60dvh;
+  width: 98%;
+  opacity: 90%;
 }
 
 .DataContainer { 
-  min-width: 300px;
+  width: 325px;
   margin: 20px auto;
-  padding: 20px;
-  background-color: #5B2A5A;
+  padding: 5px 20px;
   border: 5px double goldenrod;
+  overflow-y: scroll;
+  height: 60dvh;
 }
 
 .FilterBox { 
@@ -112,3 +145,35 @@ p {
   text-align: start;
 }
 
+
+
+/* ////////////////// SLIDER */
+
+.SliderBox {
+  margin: 0 auto;
+  width: 180px;
+  height: 115px;
+  border: 2px solid goldenrod;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SliderContainer {
+  height: 50px;
+}
+
+.TextValueContainer {
+  margin: 13px auto;
+  color:yellow;
+  font-weight: 700;
+}
+
+.TextValue {
+  margin: 0
+}
+
+.Title {
+  text-decoration: underline;
+}
