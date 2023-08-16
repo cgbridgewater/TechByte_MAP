@@ -9,22 +9,14 @@ import 'toolcool-range-slider';
 
 const GetNasaData = (props) => {
     const Google_API = process.env.REACT_APP_GOOGLE_API;
-
     const [ nasaData, setNasaData ] = useState([]);
-    const [ Sort, setSort ] = useState("ATOZ") 
-    const [ nameSearch,setNameSearch] = useState("")
-    const [ yearSearch,setYearSearch] = useState("")
-    const [ massSearch,setMassSearch] = useState("")
-    const [ recSearch,setRecSearch] = useState("")
-    console.log(yearSearch)
-    // const [locations, setLocations] = useState([])
-    // const locations = []
-    // console.log("locations = " , locations)
-
-    const [ massSliderV1, setMassSliderV1 ] = useState(0)
-    const [ massSliderV2, setMassSliderV2 ] = useState(23000000)
-    const [ yearSliderV1, setYearSliderV1 ] = useState(500)
-    const [ yearSliderV2, setYearSliderV2 ] = useState(2023)
+    const [ Sort, setSort ] = useState("ATOZ");
+    const [ nameSearch,setNameSearch] = useState("");
+    const [ recSearch,setRecSearch] = useState("");
+    const [ massSliderV1, setMassSliderV1 ] = useState(0);
+    const [ massSliderV2, setMassSliderV2 ] = useState(23000000);
+    const [ yearSliderV1, setYearSliderV1 ] = useState(500);
+    const [ yearSliderV2, setYearSliderV2 ] = useState(2023);
 
 
 //  Sorting Functions for radios
@@ -62,18 +54,13 @@ const SortType = {
         }
         // compare whats left
         return b.mass - a.mass
-    } 
-}
-
-// reset the radio back to default location ATOZ
-function radioReset() {
-    document.getElementById("ATOZ").checked = true;
-    };
+    }
+};
 
 
-    // api data fetch
+    // API Data Fetch //
 useEffect(() => {
-        axios
+    axios
         .get('https://data.nasa.gov/resource/gh4g-9sfh.json')    
         .then(res => {
             console.log("All Fireball Strikes",res.data);
@@ -81,12 +68,11 @@ useEffect(() => {
         })
         .catch((err) => console.log(err));
     }, []); 
-
-
-
-    const yearSliderRef = useRef(null);
     
-    // YEAR
+
+
+    // YEAR Slider //
+    const yearSliderRef = useRef(null);
     useEffect(() => {
         const slider = yearSliderRef.current;
         const onChange = (e) => {
@@ -99,8 +85,9 @@ useEffect(() => {
         };
     }, []);
     
+    
+    // MASS Slider //
     const massSliderRef = useRef(null);
-    // MASS
     useEffect(() => {
         const slider = massSliderRef.current;
         const onChange = (e) => {
@@ -112,35 +99,40 @@ useEffect(() => {
             slider?.removeEventListener('change', onChange);
         };
     }, []);
-
-
-    function resetSlider() {
-        const $slider = document.getElementById('MassSlider')
-            $slider.value1 = 0;
-            $slider.value2 = 23000000;
-        const $$slider = document.getElementById('YearSlider')
-            $$slider.value1 = 500;
-            $$slider.value2 = 2023;
-        };
+    
+    
+    // Reset sorts and filters back to default //
+    function resetFilters() {
+        const slider = document.getElementById('MassSlider');
+        slider.value1 = 0;
+        slider.value2 = 23000000;
+        const slider2 = document.getElementById('YearSlider');
+        slider2.value1 = 500;
+        slider2.value2 = 2023;
+        document.getElementById("ATOZ").checked = true;
+        setNameSearch("");
+        setRecSearch(""); 
+        setSort("ATOZ");
+    };
     
 
 
 
     return (
-        
+        // Project Container
         <div className="Nasa">
+            {/* Left Data Container */}
             <div className="LeftContainer">
-
-
-            {/* Mass */}
+            {/* Mass Filter */}
             <div className="SliderBox">
-                {/* Label and Selected Values */}
+
+                {/* Mass Label and Selected Values */}
                 <div className="TextValueContainer">
-                    <h5 className="TextValue Title">Mass Range</h5>
-                    <p className="TextValue">Start: &nbsp;{massSliderV1}</p>
+                    <h5 className="TextValueTitle">Filter Mass Range</h5>
+                    <p className="TextValue">Start: {massSliderV1}</p>
                     <p className="TextValue">End: {massSliderV2}</p>
                 </div>
-                {/* Slider */}
+                {/* Mass Slider */}
                 <div className="SliderContainer">
                     <tc-range-slider
                         id="MassSlider"
@@ -156,9 +148,9 @@ useEffect(() => {
                         max="23000000" 
                         // STYLE //
                         slider-width="150px"
-                        slider-height="0.5rem"
-                        pointer-width="15px"
-                        pointer-height="25px"
+                        slider-height="5px"
+                        pointer-width="10px"
+                        pointer-height="20px"
                         pointer-radius="5px"
                         pointer-bg="red"
                         pointer-bg-hover="red"
@@ -177,57 +169,52 @@ useEffect(() => {
                 </div>
             </div>
 
-
-            {/* Year */}
-            <div className="SliderBox">
-                {/* Label and Selected Values */}
-                <div className="TextValueContainer">
-                    <h5 className="TextValue Title">Year Range</h5>
-                    <p className="TextValue">Start : &nbsp;{yearSliderV1}</p>
-                    <p className="TextValue">End : {yearSliderV2}</p>
+                {/* Year Filter */}
+                <div className="SliderBox">
+                    {/* Year Label and Selected Values */}
+                    <div className="TextValueContainer">
+                        <h5 className="TextValueTitle">Filter Year Range</h5>
+                        <p className="TextValue">Start : &nbsp;{yearSliderV1}</p>
+                        <p className="TextValue">End : {yearSliderV2}</p>
+                    </div>
+                    {/* Year Slider */}
+                    <div className="SliderContainer">
+                        <tc-range-slider
+                            id="YearSlider"
+                            ref={ yearSliderRef }
+                            value-label="#value-1"
+                            value2-label="#value-2"
+                            range-dragging="true"
+                            step="5"
+                            value1="500"
+                            value2="2023"
+                            round="0"
+                            min="500" 
+                            max="2023" 
+                            // STYLE //
+                            slider-width="150px"
+                            slider-height="5px"
+                            pointer-width="10px"
+                            pointer-height="20px"
+                            pointer-radius="5px"
+                            pointer-bg="red"
+                            pointer-bg-hover="red"
+                            pointer-bg-focus="red"
+                            slider-bg-fill="yellow"
+                            slider-bg="silver"
+                            pointer1-shadow-focus =	"0 0 20px yellow"
+                            pointer2-shadow-focus =	"0 0 20px yellow"
+                            pointer1-shadow-hover =	"0 0 20px yellow"
+                            pointer2-shadow-hover =	"0 0 20px yellow"
+                            pointer-border="1px solid black"
+                            pointer-border-hover="2px solid yellow"
+                            pointer-border-focus="2px solid yellow"
+                        >
+                        </tc-range-slider>
+                    </div>
                 </div>
-                {/* Slider */}
-                <div className="SliderContainer">
-                    <tc-range-slider
-                        id="YearSlider"
-                        ref={ yearSliderRef }
-                        value-label="#value-1"
-                        value2-label="#value-2"
-                        range-dragging="true"
-                        step="5"
-                        value1="500"
-                        value2="2023"
-                        round="0"
-                        min="500" 
-                        max="2023" 
-                        // STYLE //
-                        slider-width="150px"
-                        slider-height="0.5rem"
-                        pointer-width="15px"
-                        pointer-height="25px"
-                        pointer-radius="5px"
-                        pointer-bg="red"
-                        pointer-bg-hover="red"
-                        pointer-bg-focus="red"
-                        slider-bg-fill="yellow"
-                        slider-bg="silver"
-                        pointer1-shadow-focus =	"0 0 20px yellow"
-                        pointer2-shadow-focus =	"0 0 20px yellow"
-                        pointer1-shadow-hover =	"0 0 20px yellow"
-                        pointer2-shadow-hover =	"0 0 20px yellow"
-                        pointer-border="1px solid black"
-                        pointer-border-hover="2px solid yellow"
-                        pointer-border-focus="2px solid yellow"
-                    >
-                    </tc-range-slider>
-                </div>
-            </div>
 
-            
-
-
-
-
+                {/* Sorting Drop Down NOT IN USE */}
                 {/* <div  className="SortBar">
                     <label className="SortLabel" htmlFor="filterpicker">Sort By</label >
                     <select value={Sort} onChange={(e) => setSort(e.target.value)} style={{padding:"3px",width:"175px",textAlign:"center",border:"1px solid yellow", fontSize:"18px", color:"yellow",backgroundColor:"#5B2A5A",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"}}>
@@ -240,50 +227,54 @@ useEffect(() => {
                     </select>
                 </div> */}
 
+                {/* Radio Sort Boxes */}
                 <fieldset className="FilterBox">
+                    {/* Name Sort A-Z */}
                     <li className="Align">
                         <label className="Label" htmlFor="filterpicker">Name A-Z</label>
                         <input className="Radio" type="radio" id="ATOZ" name="filterpicker" value={Sort} onChange={(e) => setSort("ATOZ")} defaultChecked/>
                     </li>
-                    
+                    {/* Name Sort Z-A */}
                     <li className="Align">
                         <label className="Label" htmlFor="filterpicker">Name Z-A</label>
                         <input className="Radio" type="radio" id="ZTOA"  name="filterpicker" value={Sort} onChange={(e) => setSort("ZTOA")}/>
                     </li>
-                    
+                    {/* Date Sort Oldest First */}
                     <li className="Align">
                         <label className="Label" htmlFor="filterpicker">Oldest First</label>
                         <input className="Radio" type="radio" id="OLDEST"  name="filterpicker" value={Sort} onChange={(e) => setSort("OLDEST")}/>
                     </li>
-                    
+                    {/* Date Sort Newest First */}
                     <li className="Align">
                         <label className="Label" htmlFor="filterpicker">Newest First</label>
                         <input className="Radio" type="radio" id="NEWEST"  name="filterpicker" value={Sort} onChange={(e) => setSort("NEWEST")}/>
                     </li>
-                    
+                    {/* Mass Sort Highest First */}
                     <div className="Align">
                         <label className="Label" htmlFor="filterpicker">Highest Mass</label>
                         <input className="Radio" type="radio" id="HiMass"  name="filterpicker" value={Sort} onChange={(e) => setSort("HIMASS")}/>
                     </div>
-                    
+                    {/* Mass Sort Lowest First */}
                     <div className="Align">
                         <label className="Label" htmlFor="filterpicker">Lowest Mass</label>
                         <input className="Radio" type="radio" id="LoMass"  name="filterpicker" value={Sort} onChange={(e) => setSort("LOMASS")}/>
                     </div>
                 </fieldset>
-
+                
+                {/* Filter By Typing Input Fields */}
                 <div className="InputSearches">
                     <div className="Searches">
                         <input className="Search" type="text" placeholder="Filter Name" onChange={(e) => setNameSearch(e.target.value.toLowerCase())} value={nameSearch} />
                         <input className="Search" type="text" placeholder="Filter Rec Class" onChange={(e) => setRecSearch(e.target.value.toLowerCase())} value={recSearch} />
-                        <input className="Search" type="text" placeholder="Filter Year" onChange={(e) => setYearSearch(e.target.value)} value={yearSearch} />
-                        <input className="Search" type="text" placeholder="Filter Mass" onChange={(e) => setMassSearch(e.target.value)} value={massSearch} />
+                        {/* <input className="Search" type="text" placeholder="Filter Year" onChange={(e) => setYearSearch(e.target.value)} value={yearSearch} />
+                        <input className="Search" type="text" placeholder="Filter Mass" onChange={(e) => setMassSearch(e.target.value)} value={massSearch} /> */}
                         {/* Clear All Filters Button */}
-                        <button className="Clear" onClick={(e) => (setNameSearch(""),setRecSearch(""),setYearSearch(""),setMassSearch(""), setSort("ATOZ"),radioReset(), resetSlider())}>Reset Filters</button>
+                        <button className="Clear" onClick={(e) => (resetFilters())}>Reset All Filters</button>
                     </div>
                 </div>
             </div>
 
+            {/* Map Container */}
             <div className="MapBox">
                 {/* <!-- google MAP --> */}
                     <iframe
@@ -294,12 +285,12 @@ useEffect(() => {
                         referrerPolicy="no-referrer-when-downgrade"
                         src={`https://www.google.com/maps/embed/v1/place?key=`+ Google_API +
                         `&q= north america `}
-
                         >
                     </iframe>
                 {/* <!-- end google MAP --> */}
             </div>
 
+            {/* API Results Container */}
             <div className="DataContainer">
                 {
                     nasaData.length > 0 &&[...nasaData] 
@@ -310,11 +301,6 @@ useEffect(() => {
                     .filter((nasaObj) => {
                         return recSearch.toLowerCase() === '' ? nasaObj : nasaObj.recclass.toLowerCase().includes(recSearch) 
                     })
-                    // .filter((nasaObj) => {
-                    //     const date = new Date(nasaObj.year)
-                    //     const year = date.getFullYear();
-                    //     return yearSearch === "" ? nasaObj : year.includes(yearSearch) 
-                    // })
                     .filter((nasaObj) => {
                         return nasaObj.mass > massSliderV1 && nasaObj.mass < massSliderV2 ;
                     })
@@ -326,18 +312,20 @@ useEffect(() => {
                     .map((nasaObj)=>{
                         const date = new Date(nasaObj.year)
                         const year = date.getFullYear();
-                        // setLocations.push(nasaObj.name)
 
+                        // setLocations.push(nasaObj.geolocation)
+                        
                         // const newLocation = nasaObj.reclat + " , " + nasaObj.reclong
                         // // setLocations = newLocation
                         // locations.push(newLocation)
-
-                    return (
-                    
-                    <p key={nasaObj.id}> Name: {nasaObj.name} , Year: {year}, <br />RecClass: {nasaObj.recclass} , Mass: {nasaObj.mass}</p>)
-                })}
+                        
+                        return (
+                    <div>
+                        <p className="Results" key={nasaObj.id}> Name: {nasaObj.name} , Year: {year}, <br />RecClass: {nasaObj.recclass} , Mass: {nasaObj.mass}</p>
+                    </div>
+                        )
+                    })}
             </div>
-
         </div>
     );
 }
