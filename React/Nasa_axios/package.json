@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@iconify/icons-fluent-emoji-flat": "^1.2.8",
+    "@iconify/icons-mdi": "^1.2.47",
+    "@iconify/react": "^4.1.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
+    "google-map-react": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-range-slider-input": "^3.0.7",
@@ -40,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "tailwindcss": "^3.3.3"
   }
 }

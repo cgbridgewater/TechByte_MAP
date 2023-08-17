@@ -1,16 +1,48 @@
+* {
+  margin:0;
+  padding:0;
+}
+
 .App {
   text-align: center;
-  padding: 1%;
   background-image: url(https://wallpapercave.com/wp/wp3479784.gif);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  min-height: 96dvh;
+  min-height: 100dvh;
+}
+
+.Header {
+  background-color: #5B2A5A;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 90%;
+}
+
+.HeaderFireball {
+  height: 35px;
+}
+
+.HeaderNasa {
+  color: red;
+  font-size: 18px;
+  margin: 0 20px;
+}
+
+.NasaLogo {
+  height: 45px;
 }
 
 .Nasa {
+  padding-top: 65px;
   display: flex;
-
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -27,9 +59,9 @@ h1 {
 
 .Align {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  margin: 5px 0;
+  margin: 3px 0;
 }
 
 .Radio {
@@ -58,7 +90,7 @@ h1 {
 
 
 .Searches {
-  width: 155px;
+  width: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,13 +98,13 @@ h1 {
 }
 
 .Search {
-  width: 150px;
+  width: 170px;
   opacity: 80%;
 }
 
 .Clear {
   position: relative;
-  width: 160px;
+  width: 180px;
   padding: 5px;
   color:  yellow;
   background-color: transparent;
@@ -83,6 +115,7 @@ h1 {
   transition: all 0.2s ease;
   opacity: 90%;
 }
+
 .Clear:hover {
   color:  #5B2A5A;
   background-color: yellow;
@@ -109,7 +142,7 @@ h1 {
 } */
 
 .MapBox {
-  width: 50%;
+  width: 40%;
   min-width: 300px;
   margin: 20px auto;
   border: 5px double goldenrod;
@@ -117,7 +150,7 @@ h1 {
 
 .GoogleMap {
   margin: 2px;
-  height: 60dvh;
+  height: 502px;
   width: 98%;
   opacity: 90%;
 }
@@ -128,14 +161,18 @@ h1 {
   padding: 5px 20px;
   border: 5px double goldenrod;
   overflow-y: scroll;
-  height: 60dvh;
+  height: 502px;
+}
+
+.Results {
+  margin: 15px 0
 }
 
 .FilterBox { 
   width: 150px;
-  margin: 20px auto;
-  padding: 5px;
-  background-color: #5B2A5A;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: rgba(91, 42, 90, .6);
   border: 5px double goldenrod;
 }
 
@@ -153,7 +190,7 @@ p {
   margin: 0 auto;
   width: 180px;
   height: 115px;
-  border: 2px solid goldenrod;
+  border: 5px double goldenrod;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,9 +208,77 @@ p {
 }
 
 .TextValue {
-  margin: 0
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
 }
 
-.Title {
+.TextValueTitle {
   text-decoration: underline;
+  margin: 0;
+}
+
+.SliderInput{
+  width: 100px;
+}
+
+
+/* //////// MAP API CSS */
+.Map {
+  width: 100%;
+  height: 100%;
+  opacity: 90%;
+}
+
+.LocationIcon {
+  font-size: 2rem;
+  color:red;
+}
+
+.Loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.Loader img {
+  width: 400px;
+}
+
+.Loader h1 {
+  margin-top: -100px;
+}
+
+.LocationInfo {
+  position: absolute;
+  top: 25%;
+  left: 27%;
+  background:rgba(224, 221, 224, 0.5);
+  border: 5px double goldenrod;
+  width: 190px;
+  padding: 5px;
+}
+
+.LocationInfo ul {
+  list-style-type: none;
+  padding: 0;
+}
+.LocationInfo h2 {
+  color: #5B2A5A;
+  font-weight: 800;
+  text-align: start;
+  margin-left: 20px;
+}
+.LocationInfo li {
+  color: black;
+  font-weight: 800;
+  text-align: start;
+  margin-left: 20px;
+}
+
+.Info {
+  color: yellow;
+  font-weight: 600;
 }
