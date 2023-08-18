@@ -1,8 +1,8 @@
-
-const LocationInfoBox = ({ info }) => {
+const LocationInfoBox = ({ info, isHidden, setIsHidden }) => {
 
   return (
-    <div className="LocationInfo">
+    <div className="LocationInfo" hidden={isHidden} key={info.id}>
+        <p className="Close" onClick={()=> setIsHidden(true)}>X</p>
         <h2>Location Info</h2>
             <ul>
                 <li>ID: <span className="Info">{ info.id }</span></li>

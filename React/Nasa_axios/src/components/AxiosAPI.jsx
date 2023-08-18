@@ -13,7 +13,7 @@ import Header from "./Header";
 
 
 const GetNasaData = (props) => {
-    // const Google_API = process.env.REACT_APP_GOOGLE_API;
+
     const [ loading, setLoading] = useState(false)
     const [ nasaData, setNasaData ] = useState([]);
     const [ Sort, setSort ] = useState("ATOZ");
@@ -24,9 +24,9 @@ const GetNasaData = (props) => {
     const [ yearSliderV1, setYearSliderV1 ] = useState(500);
     const [ yearSliderV2, setYearSliderV2 ] = useState(2023);
     const newLocation = [];
-    console.log("Locations: ", newLocation)
+    // console.log("Locations: ", newLocation)
     const latLong = [];
-    console.log("lat and long :", latLong)
+    // console.log("lat and long :", latLong)
 
 //  Sorting Functions for radios
 const SortType = { 
@@ -74,7 +74,7 @@ useEffect(() => {
         .then(res => {
             console.log("All Fireball Strikes",res.data);
             setNasaData(res.data);
-            setLoading(false)
+            setLoading(false);
         })
         .catch((err) => console.log(err));
     }, []); 
@@ -305,7 +305,7 @@ useEffect(() => {
                     {/* <!-- end google MAP --> */}
                 
 
-                    {!loading ? <Map nasaData={nasaData} /> : <Loader /> }
+                    {!loading ? <Map nasaData={nasaData} yearSliderV1={yearSliderV1} yearSliderV2={yearSliderV2}  /> : <Loader /> }
                 
                 
                 
@@ -338,7 +338,7 @@ useEffect(() => {
                         })
                         .map((nasaObj)=>{
                             // pushing locations to an array
-                            newLocation.push(nasaObj.geolocation)                        
+                            newLocation.push(nasaObj.geolocation)     
                             latLong.push(`lat: ${nasaObj.reclat} , lng: ${nasaObj.reclong}`)
                             const date = new Date(nasaObj.year)
                             const year = date.getFullYear();

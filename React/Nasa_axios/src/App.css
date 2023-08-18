@@ -233,6 +233,7 @@ p {
 .LocationIcon {
   font-size: 2rem;
   color:red;
+  cursor: pointer;
 }
 
 .Loader {
@@ -265,12 +266,14 @@ p {
   list-style-type: none;
   padding: 0;
 }
+
 .LocationInfo h2 {
   color: #5B2A5A;
   font-weight: 800;
   text-align: start;
   margin-left: 20px;
 }
+
 .LocationInfo li {
   color: black;
   font-weight: 800;
@@ -281,4 +284,12 @@ p {
 .Info {
   color: yellow;
   font-weight: 600;
+}
+
+.Close {
+  font-weight: 900;
+  text-align: end;
+  margin-right: 10px;
+  cursor: pointer;
+  color: black;
 }

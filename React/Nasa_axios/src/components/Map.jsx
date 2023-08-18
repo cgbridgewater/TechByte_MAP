@@ -3,27 +3,32 @@ import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker';
 import LocationInfoBox from "./LocationInfoBox";
 
-const Map = ({ nasaData, center, zoom }) => {
+const Map = ({ nasaData, center, zoom}) => {
+    
+    const Google_API = process.env.REACT_APP_GOOGLE_API;
+    
+    const [ isHidden, setIsHidden ] = useState(false)    
+    
     const [locationInfo, setLocationInfo] = useState(null);
-    const Fireball_Key = process.env.Google_FireBall_Key;
-    const markers = nasaData.map(ev => {
-        const date = new Date(ev.year)
-        const year = date.getFullYear();
-        return <LocationMarker lat={ev.reclat} lng={ev.reclong} onClick={() => setLocationInfo({ id: ev.id, name: ev.name, mass: ev.mass, year: year, recclass: ev.recclass })} />
-    })
-  return (
-    <div className="Map">
-        <GoogleMapReact
-            bootstrapURLKeys={{key: Fireball_Key}}
-            defaultCenter={ center }
-            defaultZoom={ zoom }
-        >
-            {markers}
-        </GoogleMapReact>
-        {locationInfo && <LocationInfoBox info={locationInfo} />}
 
-    </div>
-  )
+    const markers = nasaData.map((nasaObj, index) => {
+                                const date = new Date(nasaObj.year)
+                                const year = date.getFullYear();
+                                return <LocationMarker key={index} lat={nasaObj.reclat} lng={nasaObj.reclong} draggable={false}  onClick={() => {setLocationInfo({ id: nasaObj.id, name: nasaObj.name, mass: nasaObj.mass, year: year, recclass: nasaObj.recclass }); setIsHidden(false);}} />
+                            })
+    return (
+        <div className="Map">
+            <GoogleMapReact
+                bootstrapURLKeys={{ key: Google_API }}
+                defaultCenter={ center }
+                defaultZoom={ zoom }
+                draggable={true} 
+                >
+                {markers}
+            </GoogleMapReact>
+            { locationInfo && <LocationInfoBox isHidden={isHidden} setIsHidden={setIsHidden} info={locationInfo} />}
+        </div>
+    )
 }
 
 Map.defaultProps = {
