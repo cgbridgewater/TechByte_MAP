@@ -300,3 +300,14 @@ tr, td {
 th {
   color:red;
 }
+
+.GoogleMap2 {
+  height: 350px;
+  width: 350px;
+}
+
+#myBtn {
+  /* text-decoration: none; */
+  color: white;
+  margin-right: 6px;
+}

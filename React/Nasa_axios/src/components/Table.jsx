@@ -13,11 +13,11 @@ export default function Table({ results }) {
               <th className='py-2 px-4 text-left'>Location</th>
             </tr>
           </thead>
-          <tbody>
+
             {results.map((nasaObj, i) => (
               <TableRow key={i} nasaObj={nasaObj} />
             ))}
-          </tbody>
+
         </table>
     </div>
   );
