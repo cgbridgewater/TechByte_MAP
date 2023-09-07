@@ -15,7 +15,7 @@ const Map = ({ nasaData, center, zoom}) => {
                                 const date = new Date(nasaObj.year)
                                 const year = date.getFullYear();
                                 const location = {lat: nasaObj.reclat, lng: nasaObj.reclong}
-                                console.log(location)
+                                // console.log(location)
                                 return <Marker key={index} lat={nasaObj.reclat} lng= {nasaObj.reclong} draggable={true}  onClick={() => {setLocationInfo({ id: nasaObj.id, name: nasaObj.name, mass: nasaObj.mass, year: year, recclass: nasaObj.recclass }); setIsHidden(false);}} />
                             })
     return (

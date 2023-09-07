@@ -23,6 +23,7 @@
   justify-content: center;
   align-items: center;
   opacity: 90%;
+  z-index: 999;
 }
 
 .HeaderFireball {
@@ -144,6 +145,7 @@ h1 {
 .MapBox {
   width: 40%;
   min-width: 300px;
+  height: 100vh;
   margin: 20px auto;
   border: 5px double goldenrod;
   }
@@ -198,7 +200,7 @@ p {
 }
 
 .SliderContainer {
-  height: 50px;
+  padding-top: 50px;
 }
 
 .TextValueContainer {
@@ -214,12 +216,8 @@ p {
 }
 
 .TextValueTitle {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   margin: 0;
-}
-
-.SliderInput{
-  width: 100px;
 }
 
 
@@ -292,4 +290,13 @@ p {
   margin-right: 10px;
   cursor: pointer;
   color: black;
+}
+
+
+
+tr, td {
+  color:white;
+}
+th {
+  color:red;
 }

@@ -4,11 +4,13 @@ import React, { useEffect, useState, useRef } from "react";
 import 'toolcool-range-slider/dist/plugins/tcrs-storage.min.js';
 import 'toolcool-range-slider/dist/plugins/tcrs-generated-labels.min.js';
 import 'toolcool-range-slider/dist/plugins/tcrs-binding-labels.min.js';
+import 'toolcool-range-slider/dist/plugins/tcrs-moving-tooltip.min.js';
 import 'toolcool-range-slider';
 
 import Map from "./Map";
 import Loader from "./Loader";
 import Header from "./Header";
+import Table from "./Table";
 
 
 
@@ -23,10 +25,13 @@ const GetNasaData = (props) => {
     const [ massSliderV2, setMassSliderV2 ] = useState(23000000);
     const [ yearSliderV1, setYearSliderV1 ] = useState(500);
     const [ yearSliderV2, setYearSliderV2 ] = useState(2023);
-    const newLocation = [];
-    // console.log("Locations: ", newLocation)
-    const latLong = [];
-    // console.log("lat and long :", latLong)
+    // const newLocation = [];
+    // // console.log("Locations: ", newLocation)
+    // const latLong = [];
+    // // console.log("lat and long :", latLong)
+    
+    
+
 
 //  Sorting Functions for radios
 const SortType = { 
@@ -65,7 +70,6 @@ const SortType = {
         return b.mass - a.mass
     }
 };
-
 
     // API Data Fetch //
 useEffect(() => {
@@ -128,6 +132,54 @@ useEffect(() => {
 
 
 
+                            // .sort(SortType[Sort])
+                        // .filter((nasaObj) => {
+                        //     return nameSearch.toLowerCase() === '' ? nasaObj : nasaObj.name.toLowerCase().includes(nameSearch) 
+                        // })
+                        // .filter((nasaObj) => {
+                        //     return recSearch.toLowerCase() === '' ? nasaObj : nasaObj.recclass.toLowerCase().includes(recSearch) 
+                        // })
+
+
+    // // // FILTER AND SORT FUNCTIONS // // //
+
+    //filter Mass with inputs from slider
+    function filterMass(nasaData){
+        return nasaData.mass > massSliderV1 && nasaData.mass < massSliderV2 ;
+    }
+
+    // filter Year with inputs from slider
+    function filterYear(nasaData) {
+        const date = new Date(nasaData.year)
+        const year = date.getFullYear();
+        return year > yearSliderV1 && year < yearSliderV2;
+    }
+
+    // filter name with text input
+    function filterName(nasaData){
+        return nameSearch.toLowerCase() === '' ? nasaData : nasaData.name.toLowerCase().includes(nameSearch);
+    }
+
+    // filter Rec Class with text input
+    function filterRecClass(nasaData){
+        return recSearch.toLowerCase() === '' ? nasaData : nasaData.recclass.toLowerCase().includes(recSearch);
+    }
+
+
+
+
+    // manipulate data variable  //
+    const filtered = [...nasaData].filter(filterYear).filter(filterMass).filter(filterName).filter(filterRecClass).sort(SortType[Sort])
+ 
+
+
+    // display for testing filtered data results in console
+    console.log("filtered: ",filtered)
+    console.log("sort: ", SortType[Sort])
+
+
+
+
 
 
     return (
@@ -141,15 +193,10 @@ useEffect(() => {
                 {/* Mass Filter */}
                 <div className="SliderBox">
 
-                    {/* Mass Label and Selected Values */}
-                    <div className="TextValueContainer">
-                        <h5 className="TextValueTitle">Filter Mass Range</h5>
-                        <p className="TextValue">Start: {massSliderV1}</p>
-                        <p className="TextValue">End: {massSliderV2}</p>
-                    </div>
                     {/* Mass Slider */}
                     <div className="SliderContainer">
                         <tc-range-slider
+                            className="Slider"
                             id="MassSlider"
                             ref={ massSliderRef }
                             value-label="#value-1"
@@ -162,9 +209,9 @@ useEffect(() => {
                             min="0" 
                             max="23000000" 
                             // STYLE //
-                            slider-width="150px"
+                            slider-width="100%"
                             slider-height="5px"
-                            pointer-width="10px"
+                            pointer-width="20px"
                             pointer-height="20px"
                             pointer-radius="5px"
                             pointer-bg="red"
@@ -172,6 +219,12 @@ useEffect(() => {
                             pointer-bg-focus="red"
                             slider-bg-fill="yellow"
                             slider-bg="silver"
+                            moving-tooltip="true"
+                            moving-tooltip-distance-to-pointer="30"
+                            moving-tooltip-width="55"
+                            moving-tooltip-height="20"
+                            moving-tooltip-bg="#721d82"
+                            moving-tooltip-text-color="#efefef"
                             pointer1-shadow-focus =	"0 0 20px yellow"
                             pointer2-shadow-focus =	"0 0 20px yellow"
                             pointer1-shadow-hover =	"0 0 20px yellow"
@@ -181,42 +234,53 @@ useEffect(() => {
                             pointer-border-focus="2px solid yellow"
                         >
                         </tc-range-slider>
+                        {/* Mass Label and Selected Values */}
+                        <div className="TextValueContainer">
+                            <h5 className="TextValueTitle">Filter Mass Range</h5>
+                            {/* <p className="TextValue">Start: {massSliderV1}</p>
+                            <p className="TextValue">End: {massSliderV2}</p> */}
+                        </div>
                     </div>
                 </div>
 
                     {/* Year Filter */}
                     <div className="SliderBox">
-                        {/* Year Label and Selected Values */}
-                        <div className="TextValueContainer">
-                            <h5 className="TextValueTitle">Filter Year Range</h5>
-                            <p className="TextValue">Start : &nbsp;{yearSliderV1}</p>
-                            <p className="TextValue">End : {yearSliderV2}</p>
-                        </div>
                         {/* Year Slider */}
-                        <div className="SliderContainer">
+                        <div className="SliderContainer2">
+                            <div className="TextValueContainer">
+                                <h5 className="TextValueTitle">Year &nbsp;&nbsp;&nbsp;&nbsp;{yearSliderV1}-{yearSliderV2}</h5>
+                                {/* <p className="TextValue">Start : &nbsp;</p>
+                                <p className="TextValue">End : </p> */}
+                            </div>
                             <tc-range-slider
                                 id="YearSlider"
                                 ref={ yearSliderRef }
                                 value-label="#value-1"
                                 value2-label="#value-2"
                                 range-dragging="true"
-                                step="5"
-                                value1="500"
+                                data="800,1350,1475,1500,1600,1650,1700,1725,1750,1775,1800,1825,1850,1875,1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2005,2010,2015,2023"
+                                value1="800"
                                 value2="2023"
                                 round="0"
                                 min="500" 
                                 max="2023" 
                                 // STYLE //
-                                slider-width="150px"
+                                slider-width="100%"
                                 slider-height="5px"
-                                pointer-width="10px"
+                                pointer-width="20px"
                                 pointer-height="20px"
                                 pointer-radius="5px"
                                 pointer-bg="red"
                                 pointer-bg-hover="red"
                                 pointer-bg-focus="red"
                                 slider-bg-fill="yellow"
-                                slider-bg="silver"
+                                slider-bg-hover="silver" 
+                                // moving-tooltip="true"
+                                // moving-tooltip-distance-to-pointer="30"
+                                // moving-tooltip-width="35"
+                                // moving-tooltip-height="20"
+                                // moving-tooltip-bg="#721d82"
+                                // moving-tooltip-text-color="#efefef"
                                 pointer1-shadow-focus =	"0 0 20px yellow"
                                 pointer2-shadow-focus =	"0 0 20px yellow"
                                 pointer1-shadow-hover =	"0 0 20px yellow"
@@ -227,10 +291,11 @@ useEffect(() => {
                             >
                             </tc-range-slider>
                         </div>
+                        {/* Year Label and Selected Values */}
                     </div>
 
                     {/* Sorting Drop Down NOT IN USE */}
-                    {/* <div  className="SortBar">
+                    <div  className="SortBar">
                         <label className="SortLabel" htmlFor="filterpicker">Sort By</label >
                         <select value={Sort} onChange={(e) => setSort(e.target.value)} style={{padding:"3px",width:"175px",textAlign:"center",border:"1px solid yellow", fontSize:"18px", color:"yellow",backgroundColor:"#5B2A5A",boxShadow:"0 8px 12px 0 rgba(0, 0, 0, 0.80)"}}>
                             <option value="ATOZ">A to Z</option>
@@ -240,7 +305,7 @@ useEffect(() => {
                             <option value="HIMASS">Highest Mass</option>
                             <option value="LOMASS">Lowest Mass</option>
                         </select>
-                    </div> */}
+                    </div>
 
                     {/* Radio Sort Boxes */}
                     <fieldset className="FilterBox">
@@ -303,13 +368,7 @@ useEffect(() => {
                             >
                         </iframe> */}
                     {/* <!-- end google MAP --> */}
-                
-
                     {!loading ? <Map nasaData={nasaData} yearSliderV1={yearSliderV1} yearSliderV2={yearSliderV2}  /> : <Loader /> }
-                
-                
-                
-                
                 </div>
 
 
@@ -318,38 +377,24 @@ useEffect(() => {
 
 
                 {/* API Results Container */}
-                <div className="DataContainer">
+                {/* <div className="DataContainer">
                     {
-                        nasaData.length > 0 &&[...nasaData] 
-                        .sort(SortType[Sort])
-                        .filter((nasaObj) => {
-                            return nameSearch.toLowerCase() === '' ? nasaObj : nasaObj.name.toLowerCase().includes(nameSearch) 
-                        })
-                        .filter((nasaObj) => {
-                            return recSearch.toLowerCase() === '' ? nasaObj : nasaObj.recclass.toLowerCase().includes(recSearch) 
-                        })
-                        .filter((nasaObj) => {
-                            return nasaObj.mass > massSliderV1 && nasaObj.mass < massSliderV2 ;
-                        })
-                        .filter((nasaObj) => {
+                        filtered.map((nasaObj)=>{
+
                             const date = new Date(nasaObj.year)
                             const year = date.getFullYear();
-                            return year > yearSliderV1 && year < yearSliderV2 ;
-                        })
-                        .map((nasaObj)=>{
-                            // pushing locations to an array
-                            newLocation.push(nasaObj.geolocation)     
-                            latLong.push(`lat: ${nasaObj.reclat} , lng: ${nasaObj.reclong}`)
-                            const date = new Date(nasaObj.year)
-                            const year = date.getFullYear();
-                            
+
                             return (
                         <div>
                             <p className="Results" key={nasaObj.id}> Name: {nasaObj.name} , Year: {year}, <br />RecClass: {nasaObj.recclass} , Mass: {nasaObj.mass}</p>
                         </div>
                             )
                         })}
-                </div>
+                </div> */}
+
+                <Table results={filtered}/>
+
+
             </div>
         </div>
     );
