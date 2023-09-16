@@ -25,6 +25,7 @@ const GetNasaData = (props) => {
     const [ massSliderV2, setMassSliderV2 ] = useState(23000000);
     const [ yearSliderV1, setYearSliderV1 ] = useState(500);
     const [ yearSliderV2, setYearSliderV2 ] = useState(2023);
+    const [isMassActive, setIsMassActive] = useState(false);
     // const newLocation = [];
     // // console.log("Locations: ", newLocation)
     // const latLong = [];
@@ -107,6 +108,7 @@ useEffect(() => {
         const onChange = (e) => {
             setMassSliderV1(e.detail.value1)
             setMassSliderV2(e.detail.value2)
+            setIsMassActive(true);
         };
         slider?.addEventListener('change', onChange);
         return () => {
@@ -127,6 +129,7 @@ useEffect(() => {
         setNameSearch("");
         setRecSearch(""); 
         setSort("ATOZ");
+        setIsMassActive(false);
     }; 
     
 
@@ -169,13 +172,17 @@ useEffect(() => {
 
 
     // manipulate data variable  //
-    const filtered = [...nasaData].filter(filterYear).filter(filterMass).filter(filterName).filter(filterRecClass).sort(SortType[Sort])
- 
+    // const filtered = [...nasaData].filter(filterYear).filter(filterName).filter(filterRecClass).filter(filterMass)
+    
+    const filtered = (isMassActive === false ?  [...nasaData].filter(filterYear).filter(filterName).filter(filterRecClass) : [...nasaData].filter(filterYear).filter(filterName).filter(filterRecClass).filter(filterMass))
+    // const filtered = [...nasaData].filter(filterYear).filter(filterMass).filter(filterName).filter(filterRecClass).sort(SortType[Sort])
+    
+    console.log(isMassActive)
 
 
     // display for testing filtered data results in console
     console.log("filtered: ",filtered)
-    console.log("sort: ", SortType[Sort])
+    // console.log("sort: ", SortType[Sort])
 
 
 
