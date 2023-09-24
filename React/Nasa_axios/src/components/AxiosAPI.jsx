@@ -139,8 +139,6 @@ useEffect(() => {
                         // .filter((nasaObj) => {
                         //     return recSearch.toLowerCase() === '' ? nasaObj : nasaObj.recclass.toLowerCase().includes(recSearch) 
                         // })
-
-
     // // // FILTER AND SORT FUNCTIONS // // //
 
     //filter Mass with inputs from slider
