@@ -132,9 +132,6 @@ useEffect(() => {
         setIsMassActive(false);
     }; 
     
-
-
-
                             // .sort(SortType[Sort])
                         // .filter((nasaObj) => {
                         //     return nameSearch.toLowerCase() === '' ? nasaObj : nasaObj.name.toLowerCase().includes(nameSearch) 
