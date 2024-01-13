@@ -1,0 +1,141 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+.App {
+  background-color: #FCFEFF;
+}
+
+/* HEADER.JSX */
+.NavTitle {
+  height: 15%;
+  max-height: 150px;
+  width:100dvw;
+}
+
+.TitleOf, .TitleName, .FullStack, .Tldr {
+  text-align: center;
+  color: #342833;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.TitleName, .FullStack, .Tldr {
+  font-size: 3rem;
+}
+/* END HEADER.JSX */
+
+/* TYPINGTEXT.JSX */
+.RotatingText {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.TypingText {
+  font-family: 'Courier New', Courier, monospace;
+  color: #342833;
+  font-weight:700;
+  font-size: 3rem;
+}
+
+.txt-rotate {
+  color: #FF5C03;
+  margin-left: -62px;
+  font-weight:900;
+}
+
+.txt-rotate {
+  border-right: 0.08em solid #FF5C03;
+  padding-right: 5px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #FF5C03; }
+}
+/* END TYPINGTEXT.JSX */
+
+/* CONTENT.JSX */
+.ContentText,.ContentTextSmall {
+  color: #342833;
+  width: 85%;
+  margin: 25px auto;
+  text-align: center;
+  font-family: "Syncopate";
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+
+.ContentText b {
+  font-weight: 900;
+}
+
+.ContentTextSmall {
+  font-size: .6rem;
+  margin: 0 auto;
+}
+
+.PortfolioLink {
+  color: #FF5C03;
+  font-weight: 900;
+  text-decoration: none;
+  
+  transition: transform .2s ease-in-out;
+  
+}
+.PortfolioLink:hover {
+    transition: all .2s ease-in-out;
+    font-size: 105%;
+    color: #ff9a64;
+}
+
+@keyframes heartbeat { 
+  0% { transform: scale(1); } 
+  50% { transform: scale(1.2, 1); } 
+  100% { transform: scale(1); } 
+}
+
+.Pulse { 
+  animation: heartbeat 1.75s infinite; 
+}
+/* CONTENT.JSX */
+
+/* TLDR.JSX */
+.Tldr {
+  text-align: center;
+  color: #342833;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.Tldr {
+  font-size: 3rem;
+}
+
+
+
+
+/* PAGE WIDTH CONTROL */
+@media screen and (max-width: 600px){
+  .TitleName, .Tldr {
+    font-size: 1.8rem;
+    transition: .3s;
+  }
+  .TypingText, .FullStack{
+    font-size: 1.7rem;
+    transition: .3s;
+  }
+  .RotatingText{
+    width: 325px;
+    padding-left: 0px;
+    transition: .3s;
+  }
+  .txt-rotate{
+    margin-left: -25px;
+  }
+  .ContentText{
+    font-size: 1.2rem;
+    transition: .3s;
+  }
+}

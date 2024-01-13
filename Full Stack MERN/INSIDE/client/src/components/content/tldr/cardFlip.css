@@ -1,0 +1,231 @@
+.CardContent {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+/* .CardDescription {
+    width: 100%;
+    margin-top: 0;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+} */
+
+.CardText {
+    color: #FF5C03;
+    font-weight: bolder;
+    font-size: 13px;
+    background: #342833;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.Card {
+    color: inherit;
+    cursor: pointer;
+    width: calc(33% - 2rem);
+    min-width: calc(33% - 2rem);
+    height: 400px;
+    min-height: 400px;
+    perspective: 1000px;
+    margin: 1rem;
+    position: relative;  
+    filter: drop-shadow(8px 8px 8px black);
+}
+@media screen and (max-width: 800px) {
+    .Card {
+    width: calc(50% - 2rem);
+    }
+}
+@media screen and (max-width: 500px) {
+    .Card {
+    width: 100%;
+    }
+}
+
+.CardFront,
+.CardBack {
+    display: flex;
+    border-radius: 6px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: ease-in-out 600ms;
+    padding: 5px;
+    overflow: hidden;
+    font-family: Poppins, sans-serif;
+}
+.Cardfront:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.25;
+    z-index: -1;
+    /* background: linear-gradient(135deg, #1a9be6, #1a57e6); */
+}
+.Card:hover .CardFront {
+    transform: rotateY(180deg);
+}
+.Card:nth-child(even):hover .CardFront {
+    transform: rotateY(-180deg);
+}
+
+.CardBack {
+    transform: rotateY(-180deg);
+    filter: drop-shadow(8px 8px 12px #FF5C03);
+}
+/* .CardBack .CardButton {
+    background: linear-gradient(135deg, #1a9be6, #1a57e6);
+}
+.CardBack .CardButton:before {
+    box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
+    background-color: rgba(26, 87, 230, 0.25);
+} */
+.Card:hover .CardBack {
+    transform: rotateY(0deg);
+}
+.Card:nth-child(even) .CardBack {
+    transform: rotateY(180deg);
+}
+/* .Card:nth-child(even) .CardBack .CardButton {
+    background: linear-gradient(135deg, #e61a80, #e61a3c);
+} */
+/* .Card:nth-child(even) .CardBack .CardButton:before {
+    box-shadow: 0 0 10px 10px rgba(230, 26, 60, 0.25);
+    background-color: rgba(230, 26, 60, 0.25);
+} */
+.Card:nth-child(even):hover .CardBack {
+    transform: rotateY(0deg);
+}
+
+.Card1Front {
+    background-image: url("./images/1.png");
+}
+
+.Card1Back {
+    background-image: url("./images/1.png");
+    opacity: .8;
+}
+
+.Card2Front {
+    background-image: url("./images/2.png");
+}
+
+.Card2Back {
+    background-image: url("./images/2.png");
+    opacity: .8;
+}
+
+.Card3Front {
+    background-image: url("./images/3.png");
+}
+
+.Card3Back {
+    background-image: url("./images/3.png");
+    opacity: .8;
+}
+
+.Card4Front {
+    background-image: url("./images/4.png");
+}
+
+.Card4Back {
+    background-image: url("./images/4.png");
+    opacity: .8;
+}
+
+.Card5Front {
+    background-image: url("./images/5.png");
+}
+
+.Card5Back {
+    background-image: url("./images/5.png");
+    opacity: .8;
+}
+
+.Card6Front {
+    background-image: url("./images/6.png");
+}
+
+.Card6Back {
+    background-image: url("./images/6.png");
+    opacity: .8;
+}
+
+.Card7Front {
+    background-image: url("./images/8.png");
+}
+
+.Card7Back {
+    background-image: url("./images/8.png");
+    opacity: .8;
+}
+
+.Card8Front {
+    background-image: url("./images/7.png");
+}
+
+.Card8Back {
+    background-image: url("./images/7.png");
+    opacity: .8;
+}
+
+.Card9Front {
+    background-image: url("./images/9.png");
+}
+
+.Card9Back {
+    background-image: url("./images/9.png");
+    opacity: .8;
+}
+
+.Card10Front {
+    background-image: url("./images/10.png");
+}
+
+.Card10Back {
+    background-image: url("./images/10.png");
+    opacity: .8;
+}
+
+.Card11Front {
+    background-image: url("./images/11.png");
+}
+
+.Card11Back {
+    background-image: url("./images/11.png");
+    opacity: .8;
+}
+
+.Card12Front {
+    background-image: url("./images/12.png");
+}
+
+.Card12Back {
+    background-image: url("./images/12.png");
+    opacity: .8;
+}
+
+.Card13Front {
+    background-image: url("./images/13.png");
+}
+
+.Card13Back {
+    background-image: url("./images/13.png");
+    opacity: .8;
+}
