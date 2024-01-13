@@ -1,4 +1,4 @@
-import origin from "../../assets/images/originStory.jpg"
+import origin from "./images/originStory.jpg"
 import TypingText from "./typingText";
 
 const Header = () => {
