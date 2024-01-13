@@ -8,10 +8,18 @@
 }
 
 /* HEADER.JSX */
+Nav {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .NavTitle {
   height: 15%;
   max-height: 150px;
-  width:100dvw;
+  width:95dvw;
 }
 
 .TitleOf, .TitleName, .FullStack, .Tldr {
@@ -81,10 +89,9 @@
   color: #FF5C03;
   font-weight: 900;
   text-decoration: none;
-  
   transition: transform .2s ease-in-out;
-  
 }
+
 .PortfolioLink:hover {
     transition: all .2s ease-in-out;
     font-size: 105%;
@@ -112,9 +119,7 @@
 .Tldr {
   font-size: 3rem;
 }
-
-
-
+/* END TLDR.JSX */
 
 /* PAGE WIDTH CONTROL */
 @media screen and (max-width: 600px){

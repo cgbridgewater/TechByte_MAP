@@ -5,7 +5,7 @@ const Header = () => {
 
     return(
         <nav>
-            <img className="NavTitle" src={origin} alt="Origin Story Title" />
+            <img className="NavTitle" src={origin} alt="Origin Story Title"/>
             <h1 className="TitleOf">OF</h1>
             <h1 className="TitleName">CHRIS BRIDGEWATER</h1>
             <TypingText/>

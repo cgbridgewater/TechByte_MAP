@@ -1,7 +1,5 @@
 import CardFlip from "./CardFlip";
 
-
-
 const Tldr = () => {
 
     return(
@@ -10,7 +8,6 @@ const Tldr = () => {
             <p className="ContentTextSmall">
                 (hover or click on images to tell the story)
             </p>
-
             <CardFlip/>
         </div>
     )

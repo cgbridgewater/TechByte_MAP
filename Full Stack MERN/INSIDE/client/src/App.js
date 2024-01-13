@@ -1,9 +1,8 @@
 import './App.css';
-import "@fontsource/syncopate"; // Defaults to weight 400
-import "@fontsource/syncopate/400.css"; // Specify weight
-import Content from './components/content/content';
+import "@fontsource/syncopate"; 
 import Header from './components/header/header';
-import Tldr from './components/content/tldr/tldr';
+import Content from './components/main/content/content';
+import Tldr from './components/main/tldr/tldr';
 
 function App() {
   return (

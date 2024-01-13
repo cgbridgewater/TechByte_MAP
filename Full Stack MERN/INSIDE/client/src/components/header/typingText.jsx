@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 const TypingText = () => {
+
     useEffect(() => {
         runTyping();
     }, []);
@@ -64,7 +65,7 @@ const runTyping = function() {
                 <span
                     className="txt-rotate"
                     data-period="2000"
-                    data-rotate='["GOLFER", "MOUNTAIN BIKER", "HUSBAND"]'
+                    data-rotate='["GOLFER", "MOUNTAIN BIKER", "SKIER", "HUSBAND"]'
                 ></span>
             </h1>
         </div>

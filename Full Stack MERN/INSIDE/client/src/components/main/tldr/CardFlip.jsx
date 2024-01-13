@@ -1,6 +1,5 @@
 import './cardFlip.css';
 
-
 const CardFlip = () => {
 
     return(

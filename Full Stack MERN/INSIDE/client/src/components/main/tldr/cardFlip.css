@@ -1,3 +1,6 @@
+/* Card Flip Specific Styling */
+
+/* Container Layout */
 .CardContent {
     display: flex;
     margin: 0 auto;
@@ -7,13 +10,7 @@
     max-width: 1000px;
 }
 
-/* .CardDescription {
-    width: 100%;
-    margin-top: 0;
-    margin-left: 1rem;
-    margin-bottom: 3rem;
-} */
-
+/* Backside of card text box */
 .CardText {
     color: #FF5C03;
     font-weight: bolder;
@@ -23,6 +20,7 @@
     padding: 2px 5px;
 }
 
+/* Style For the card itself */
 .Card {
     color: inherit;
     cursor: pointer;
@@ -35,17 +33,22 @@
     position: relative;  
     filter: drop-shadow(8px 8px 8px black);
 }
+
+/* responsive adaption */
 @media screen and (max-width: 800px) {
     .Card {
-    width: calc(50% - 2rem);
+        width: calc(50% - 2rem);
     }
 }
+
+/* responsive adaption */
 @media screen and (max-width: 500px) {
     .Card {
     width: 100%;
     }
 }
 
+/* Card Faces */
 .CardFront,
 .CardBack {
     display: flex;
@@ -66,6 +69,7 @@
     overflow: hidden;
     font-family: Poppins, sans-serif;
 }
+
 .Cardfront:before {
     position: absolute;
     display: block;
@@ -76,11 +80,13 @@
     bottom: 0;
     opacity: 0.25;
     z-index: -1;
-    /* background: linear-gradient(135deg, #1a9be6, #1a57e6); */
 }
+
+/* Flipping Action */
 .Card:hover .CardFront {
     transform: rotateY(180deg);
 }
+
 .Card:nth-child(even):hover .CardFront {
     transform: rotateY(-180deg);
 }
@@ -89,30 +95,20 @@
     transform: rotateY(-180deg);
     filter: drop-shadow(8px 8px 12px #FF5C03);
 }
-/* .CardBack .CardButton {
-    background: linear-gradient(135deg, #1a9be6, #1a57e6);
-}
-.CardBack .CardButton:before {
-    box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
-    background-color: rgba(26, 87, 230, 0.25);
-} */
+
 .Card:hover .CardBack {
     transform: rotateY(0deg);
 }
+
 .Card:nth-child(even) .CardBack {
     transform: rotateY(180deg);
 }
-/* .Card:nth-child(even) .CardBack .CardButton {
-    background: linear-gradient(135deg, #e61a80, #e61a3c);
-} */
-/* .Card:nth-child(even) .CardBack .CardButton:before {
-    box-shadow: 0 0 10px 10px rgba(230, 26, 60, 0.25);
-    background-color: rgba(230, 26, 60, 0.25);
-} */
+
 .Card:nth-child(even):hover .CardBack {
     transform: rotateY(0deg);
 }
 
+/* Card Images */
 .Card1Front {
     background-image: url("./images/1.png");
 }
