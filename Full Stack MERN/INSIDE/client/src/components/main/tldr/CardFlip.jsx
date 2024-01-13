@@ -12,7 +12,7 @@ const CardFlip = () => {
                 </div>
                 <div className="CardBack Card1Back">
                     <p className="CardText">
-                        Rain or shine, I love to get outside on my bikes!
+                        Rain or shine, I love to be on my bikes!
                     </p>
                 </div>
             </a>
@@ -42,7 +42,7 @@ const CardFlip = () => {
                 </div>
                 <div className="CardBack Card4Back">
                     <p className="CardText">
-                        Just being outdoors, Biking, Golfing, Skiing or Hiking, I'm having fun!
+                        Always making sure I'm having fun!
                     </p>
                 </div>
             </a>
@@ -52,7 +52,7 @@ const CardFlip = () => {
                 </div>
                 <div className="CardBack Card5Back">
                     <p className="CardText">
-                        15 years as a Sr. Process Specialist in the Pulp and Paper industry. Leading projects, Providing Training, Troubleshooting, I was a "Jack Of All Trades" working as the North American Product Champion. Traveling North America I often spent 250+ nights in hotels and boarded 100+ flights in a year.
+                        15 years as a Sr. Process Specialist in the pulp and paper industry. Leading projects, providing training, troubleshooting, I was a "Jack Of All Trades" working as the North American Product Champion. <br /><br /> Traveling North America I often spent 250+ nights in hotels and boarded 100+ flights in a year.
                     </p>
                 </div>
             </a>
@@ -92,7 +92,7 @@ const CardFlip = () => {
                 </div>
                 <div className="CardBack Card9Back">
                     <p className="CardText">
-                        I started dabbling in JavaScript using p5.js and following some tutorials on YouTube. Up until this point, I had never written code, or understood it. At this point, I knew what I wanted to do with my life going forward.
+                        I started dabbling in JavaScript using p5.js and following some tutorials on YouTube. <br /><br /> At this point, I knew what I wanted to do with my life going forward.
                     </p>
                 </div>
             </a>
@@ -123,10 +123,10 @@ const CardFlip = () => {
                 </div>
                 <div className="CardBack Card12Back">
                     <p className="CardText">
-                    I also made sure to help my classmates along the way. Through online meetings or over Discord, if I could help, I was there! 
-                    <br /> 
+                    I made sure to help my classmates along the way. Through online meetings or over Discord, if I could help, I was there! 
+                    <br /><br /> 
                     After Graduation I continued to build my knowledge by learning C# and Python(Django) on my own. 
-                    <br />
+                    <br /><br />
                     I also built several sites solo and in group atmospheres, including a Chingu Voyage.
                     </p>
                 </div>
