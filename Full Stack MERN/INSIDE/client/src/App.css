@@ -3,7 +3,7 @@
   padding:0;
 }
 
-.App {
+.Origon {
   background-color: #FCFEFF;
   padding: 20px 0;
 }
@@ -50,7 +50,7 @@ Nav {
 
 .txt-rotate {
   color: #FF5C03;
-  margin-left: -62px;
+  margin-left: -50px;
   font-weight:900;
 }
 
@@ -70,7 +70,7 @@ Nav {
 .ContentText,.ContentTextSmall {
   color: #342833;
   width: 85%;
-  margin: 25px auto;
+  margin: 10px auto;
   text-align: center;
   font-family: "Syncopate";
   font-weight: 300;
@@ -81,12 +81,25 @@ Nav {
   font-weight: 900;
 }
 
+.List {
+  width: 500px;
+  margin: 20px auto;
+  padding-left: 10px;
+  font-size: 1.2rem;
+  text-align: start;
+}
+
+li {
+  margin: .4rem 0;
+}
+
 .ContentTextSmall {
   font-size: .6rem;
   margin: 0 auto;
 }
 
 .PortfolioLink {
+  position: relative;
   color: #FF5C03;
   font-weight: 900;
   text-decoration: none;
@@ -94,9 +107,9 @@ Nav {
 }
 
 .PortfolioLink:hover {
-    transition: all .2s ease-in-out;
-    font-size: 105%;
-    color: #ff9a64;
+  transition: all .2s ease-in-out;
+  font-size: 115%;
+  color: #ff9a64;
 }
 
 @keyframes heartbeat { 
@@ -106,7 +119,8 @@ Nav {
 }
 
 .Pulse { 
-  animation: heartbeat 1.75s infinite; 
+  width: 600px;
+  animation: heartbeat 1.75s infinite;
 }
 /* CONTENT.JSX */
 
@@ -115,14 +129,19 @@ Nav {
   text-align: center;
   color: #342833;
   font-family: 'Courier New', Courier, monospace;
-}
-
-.Tldr {
   font-size: 3rem;
+  margin-top: 40px;
 }
 /* END TLDR.JSX */
 
 /* PAGE WIDTH CONTROL */
+@media screen and (max-width: 750px){
+  .Pulse{
+    font-size: 1.6rem;
+    width: 400px;
+    transition: .3s;
+  }
+}
 @media screen and (max-width: 600px){
   .TitleName, .Tldr {
     font-size: 1.8rem;
@@ -143,5 +162,14 @@ Nav {
   .ContentText{
     font-size: 1.2rem;
     transition: .3s;
+  }
+  .List{
+    font-size: .9rem;
+    transition: .3s;
+    width: 300px;
+    padding-left: 20px;
+  }
+  .Pulse{
+    width: 250px;
   }
 }

@@ -3,7 +3,7 @@ const Content = () => {
     return(
         <div>
             <p className="ContentText">
-                Born out of a small town in the Pacific Northwest, The Original Chris had a stable career path working for an automation company in the <b>pulp and paper industry for 15 years</b>. This career came with its challenges, but ultimately weekly travel out of state became stale and taxing. 
+                The Original Chris, hailing from a small town in the Pacific Northwest, had a stable <b>15-year</b> career working in the <b>pulp and paper industry</b>. However, the weekly out-of-state travel became monotonous and exhausting.
             </p>
 
             <p className="ContentText">
@@ -11,26 +11,34 @@ const Content = () => {
             </p>
 
             <p className="ContentText">
-                By completing the <b>Coding Dojo</b> Full stack program from Colorado Technical University with <b>triple black belt</b> status (perfect scores in JavaScript, Java, and Python), Chris can now add <b>part ninja</b> to his title. Chris exemplified the ninja attitude by being ever-present on Discord to <b>help classmates</b> troubleshoot.
+                Chris completed Colorado Technical University's Coding Dojo full stack program with several accomplishments:
             </p>
+            
+            <ul className="ContentText List">
+                <li><b>Triple Black Belt</b> status (perfect scores in JavaScript, Python and Java)</li>
+                <li>Provided <b>mentorship</b> to fellow students to help them <b>troubleshoot</b> code remotely</li>
+                <li>Worked with small <b>teams</b> to rapidly complete projects</li>
+                <li>Strengthened <b>research skills</b></li>
+                <li>Developed a <b>growth mindset</b></li>
+            </ul>
 
             <p className="ContentText">
-                An Avid <b>self-learner</b>, his quest to become a professional software developer of endless languages will never be complete. Current projects in progress include C# and Django. If you ask him why his resumé doesn’t include <b>Ruby on Rails</b>, he would respond by saying, “Give me two weeks and I will learn it and give you a completed project. I welcome a challenge and will strive for <b>nothing but excellence</b>”
+                As an Avid <b>self-learner</b>, his quest to become a professional software developer was not complete when he graduated. Current projects in progress include C# and Django. While <b>Ruby on Rails</b> may not be on his resume, Chris confidently states, "I can learn it and deliver a completed project within two weeks". He welcomes challenges and strives for <b>excellence</b>.
             </p>
-
+            <br />
             <p className="ContentText">
-                More details and project examples can be viewed on
+                For more information and project examples, visit
             </p>
             <p className="ContentText">
                 <a className="PortfolioLink" href="https://www.chrisbridgewater.com/">chrisbridgewater.com</a> 
             </p>
-
+            <br />
             <p className="ContentText">
-                The story doesn’t end here, but rather takes an exciting turn in the next chapter when he joins your team at <b>Inside.com. </b>
+                The story doesn’t end here, but rather takes an exciting turn in the next chapter when he joins your team at <b>Inside.com</b> to build rad products with rad people!
             </p>
-            <p className="ContentText Pulse">
+            <h3 className="ContentText Pulse">
                 Stay tuned for more details!
-            </p>
+            </h3>
         </div>
     )
 }

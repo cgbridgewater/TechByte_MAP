@@ -37,7 +37,7 @@
 /* responsive adaption */
 @media screen and (max-width: 800px) {
     .Card {
-        width: calc(50% - 2rem);
+        width: calc(50% - 3.5rem);
     }
 }
 
