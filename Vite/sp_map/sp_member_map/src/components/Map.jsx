@@ -5,6 +5,71 @@ const token = import.meta.env.VITE_MB_Token;
 mapboxgl.accessToken = token;
 
 function Map() {
+    const geojson = {
+        type: 'FeatureCollection',
+        features: [
+        {
+            type: 'Feature',
+            geometry: {
+            type: 'Point',
+            coordinates: [-122.483261, 45.614846]
+            },
+            properties: {
+            title: 'Mapbox',
+            description: 'Street Parking HQ',
+            JVM: 'HQ'
+            }
+        },
+        {
+            type: 'Feature',
+            geometry: {
+            type: 'Point',
+            coordinates: [-77.032, 38.913]
+            },
+            properties: {
+            title: 'Mapbox',
+            description: 'Washington, D.C.',
+            JVM: 'Gallo'
+            }
+        },
+        {
+            type: 'Feature',
+            geometry: {
+            type: 'Point',
+            coordinates: [-122.414, 37.776]
+            },
+            properties: {
+            title: 'Mapbox',
+            description: 'San Francisco, California',
+            JVM: 'Pato'
+            }
+        },
+        {
+            type: 'Feature',
+            geometry: {
+            type: 'Point',
+            coordinates: [ -81.581238, 28.417665]
+            },
+            properties: {
+            title: 'Mapbox',
+            description: 'San Francisco, California',
+            JVM: 'Paloma'
+            }
+        },
+        {
+            type: 'Feature',
+            geometry: {
+            type: 'Point',
+            coordinates: [ -82.991635, 39.9844603]
+            },
+            properties: {
+            title: 'Mapbox',
+            description: 'Rogue',
+            JVM: ''
+            }
+        },
+        ]
+    };
 
     const mapContainer = useRef(null);
     const map = useRef(null);
@@ -13,81 +78,90 @@ function Map() {
     const [zoom, setZoom] = useState(1);
 
     useEffect(() => {
-        setTimeout(500)
         if (map.current) return; // initialize map only once
         map.current = new mapboxgl.Map({
-            attributionControl: false,
-            container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v12',
-            center: [lng, lat],
-            zoom: zoom
+        attributionControl: false,
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/outdoors-v12',
+        center: [lng, lat],
+        zoom: zoom
         });
 
-        // const marker = new mapboxgl.Marker()
-        //     .setLngLat([-122.483261, 45.614846]) // Replace with your desired coordinates
-        //     .addTo(map.current);
-
-        // const markerElement = document.createElement('div');
-        // markerElement.className = 'custom-marker'; // Replace 'custom-marker' with your own CSS class for the marker icon
-        
-        // const marker = new mapboxgl.Marker(markerElement)
-        //     .setLngLat([-122.483261, 45.614846]) // Replace with your desired coordinates
-        //     .addTo(map.current);
-
         map.current.addControl(new mapboxgl.AttributionControl({
-            customAttribution: '<a href="https://streetparking.com/"  target="_blank">Street Parking</a>'
+        customAttribution: '<a href="https://streetparking.com/" target="_blank">Street Parking</a>'
         }));
 
         map.current.addControl(new mapboxgl.NavigationControl({
-            showCompass:true,
-            showZoom:true,
+        showCompass: true,
+        showZoom: true,
         }));
 
         map.current.on('load', () => {
-            map.current.flyTo({
-                center: [-122.483261, 45.614846],
-                zoom: 12,
-                speed: 1.2,
-                curve: 1.42,
-                easing(t) {
-                    return t;
-                }
-            }).once('moveend', createMarker);
+        map.current.flyTo({
+            center: [-98.344620, 39.494143],
+            zoom: 3.5,
+            speed: 1.6,
+            curve: 1.42,
+            easing(t) {
+            return t;
+            }
+        })
+
+        for (const feature of geojson.features) {
+            const el = document.createElement('div');
+            if(feature.properties.JVM == "HQ"){
+                el.className = 'Marker HQ';    
+            } 
+            
+            else if(feature.properties.JVM == "Pato"){
+                el.className = 'Marker Pato';
+            }
+            
+            else if (feature.properties.JVM == "Gallo"){
+                el.className = 'Marker Gallo';
+            }
+            
+            else if (feature.properties.JVM == "Paloma"){
+                el.className = 'Marker Paloma';
+            } 
+            
+            else if (feature.properties.JVM == ""){
+                el.className = 'Marker';
+            }
+
+            new mapboxgl.Marker(el)
+            .setLngLat(feature.geometry.coordinates)
+            .addTo(map.current);
+        }
+        
+        
+        // const createMarker = () => {
+        //     const markerElement = document.createElement('div');
+        //     markerElement.className = 'CustomMarker'; // Replace 'custom-marker' with your own CSS class for the marker icon
+            
+        //     const marker = new mapboxgl.Marker(markerElement)
+        //     .setLngLat([-122.483261, 45.614846]) // Replace with your desired coordinates
+        //     .addTo(map.current)
+        //     };
         });
+            
 
         map.current.on('move', () => {
-            setLng(map.current.getCenter().lng.toFixed(4));
-            setLat(map.current.getCenter().lat.toFixed(4));
-            setZoom(map.current.getZoom().toFixed(2));
+        setLng(map.current.getCenter().lng.toFixed(4));
+        setLat(map.current.getCenter().lat.toFixed(4));
+        setZoom(map.current.getZoom().toFixed(2));
         });
-        }, []);
 
-        const createMarker = () => {
-            const markerElement = document.createElement('div');
-            markerElement.className = 'custom-marker'; // Replace 'custom-marker' with your own CSS class for the marker icon
-            
-            const marker = new mapboxgl.Marker(markerElement)
-                .setLngLat([-122.483261, 45.614846]) // Replace with your desired coordinates
-                .addTo(map.current);
-        };
-
-        const createShadow= () => {
-            const shadowElement = document.createElement('div');
-            shadowElement.className = 'custom-shadow'; // Replace 'custom-marker' with your own CSS class for the marker icon
-            
-            const shadow = new mapboxgl.Marker(shadowElement)
-                .setLngLat([-122.483261, 45.614846]) // Replace with your desired coordinates
-                .addTo(map.current);
-        };
+    }, []);
 
     return (
         <div className='MapBox'>
-            {/* <div className="sidebar">
-                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-            </div> */}
-            <div ref={mapContainer} className="map-container" />
+        {/* <div className="Sidebar">
+            Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        </div> */}
+        <div id='map' ref={mapContainer} className="MapContainer" />
         </div>
     );
-}
+    }
 
-export default Map
+export default Map;

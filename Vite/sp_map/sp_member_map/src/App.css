@@ -22,38 +22,50 @@
     padding-top: 15px ;
 }
 
-.Signup a {
-    display:inline-block;
+.Signup span {
     margin-left: 10px;
-    color: goldenrod;
-	transform: scale(1.2, 1.2);
 }
 
-.Signup a:hover {
-	transform: scale(1.4, 1.4);
+.SignupLink, .LoginLink {
+    display:inline-flex;
+    margin-left: 13px;
+    color: #C89211;
+	transform: scale(1.2, 1.2) translateY(-1px);
+}
+
+.SignupLink {
+    margin-left: 13px;
+}
+
+.LoginLink {
+    margin-left: 9px;
+}
+
+.SignupLink:hover, .LoginLink:hover {
+    transform: scale(1.4, 1.4) translateY(-4px);
     transition: 0.2s ;
 }
 
 .Title span {
-    color: goldenrod;
+    color: #C89211;
 }
 
-
-.map-container {
+.MapContainer {
     margin: 20px auto;
     width: 75dvw;
     height:75dvh;
     min-height: 375px;
     min-width: 375px;
-    border: 5px solid goldenrod;
+    border: 5px solid #C89211;
 }
 
 .MapBox {
     background-color: black;
 }
 
-/* .sidebar {
-    background-color: rgb(35 55 75 / 90%);
+/* REMOVE AFTER BUILD */
+/* .Sidebar {             
+    background-color: #C89211;
     color: #fff;
     padding: 6px 12px;
     font-family: monospace;
@@ -70,36 +82,70 @@
 }
 
 .mapboxgl-ctrl-attrib {
-    border-top: 3px solid goldenrod;
-    border-left: 3px solid goldenrod;
+    border-top: 3px solid #C89211;
+    border-left: 3px solid #C89211;
 }
 
 .mapboxgl-ctrl-group {
-    border: 4px double goldenrod
+    border: 4px double #C89211
 }
 
 .mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-attrib-inner a {
     background-color: black;
-    color: goldenrod;
+    color: #C89211;
 }
 
 .mapboxgl-ctrl-icon, button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass {
-    background-color: goldenrod;
+    background-color: #C89211;
 }
 
 .mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
     background-color: whitesmoke;
 }
 
-.custom-marker {
+/* .CustomMarker {
     position: relative;
     top:-50px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid goldenrod;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #C89211;
     border-radius: 350%;
     background-image: url("./assets/Key_Logo_Round.png");
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 50px 10px -15px goldenrod;
+    box-shadow: 0px 30px 10px -15px #000;
+} */
+
+
+.Marker {
+    position: absolute;
+    top:-40px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #C89211;
+    border-radius: 50%;
+    background-image: url("./assets/default_key.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 20px 8px -10px #000;
+}
+
+.HQ {
+    background-image: url("./assets/Key_Logo_Round.png");
+    box-shadow: 0px 20px 8px -10px #C89211;
+}
+
+.Pato {
+    background-image: url("./assets/pato_key.png");
+    box-shadow: 0px 20px 5px -10px #0A5C36;
+}
+
+.Paloma {
+    background-image: url("./assets/paloma_key.png");
+    box-shadow: 0px 20px 5px -10px #5F5D5E;
+}
+
+.Gallo {
+    background-image: url("./assets/gallo_key.png");
+    box-shadow: 0px 20px 5px -10px #C13849;
 }
