@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.MainContainer {
+    background-color: black;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.Title, .SubTitle, .Signup {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.Title {
+    padding: 15px;
+}
+
+.Signup {
+    padding-top: 15px ;
+}
+
+.Signup a {
+    display:inline-block;
+    margin-left: 10px;
+    color: goldenrod;
+	transform: scale(1.2, 1.2);
+}
+
+.Signup a:hover {
+	transform: scale(1.4, 1.4);
+    transition: 0.2s ;
+}
+
+.Title span {
+    color: goldenrod;
+}
+
+
+.map-container {
+    margin: 20px auto;
+    width: 75dvw;
+    height:75dvh;
+    min-height: 375px;
+    min-width: 375px;
+    border: 5px solid goldenrod;
+}
+
+.MapBox {
+    background-color: black;
+}
+
+/* .sidebar {
+    background-color: rgb(35 55 75 / 90%);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: monospace;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    border-radius: 4px;
+} */
+
+.mapbox-improve-map {
+    display: none;
+}
+
+.mapboxgl-ctrl-attrib {
+    border-top: 3px solid goldenrod;
+    border-left: 3px solid goldenrod;
+}
+
+.mapboxgl-ctrl-group {
+    border: 4px double goldenrod
+}
+
+.mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-attrib-inner a {
+    background-color: black;
+    color: goldenrod;
+}
+
+.mapboxgl-ctrl-icon, button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass {
+    background-color: goldenrod;
+}
+
+.mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
+    background-color: whitesmoke;
+}
+
+.custom-marker {
+    position: relative;
+    top:-50px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid goldenrod;
+    border-radius: 350%;
+    background-image: url("./assets/Key_Logo_Round.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 50px 10px -15px goldenrod;
+}
