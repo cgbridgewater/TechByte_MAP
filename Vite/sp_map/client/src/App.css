@@ -99,25 +99,25 @@
     background-image: url("./assets/default_key.png");
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 25px 8px -10px #000000a0;
+    box-shadow: 0px 25px 8px -10px #000000fe;
 }
 
 .HQ {
     background-image: url("./assets/Key_Logo_Round.png");
-    box-shadow: 0px 25px 8px -10px #000000a0;
+    box-shadow: 0px 25px 8px -10px #000000fe;
 }
 
 .Pato {
     background-image: url("./assets/pato_key.png");
-    box-shadow: 0px 25px 5px -10px #0A5C36a0;
+    box-shadow: 0px 25px 5px -10px #0A5C36fe;
 }
 
 .Paloma {
     background-image: url("./assets/paloma_key.png");
-    box-shadow: 0px 25px 5px -10px #5F5D5Ea0;
+    box-shadow: 0px 25px 5px -10px #5F5D5Efe;
 }
 
 .Gallo {
     background-image: url("./assets/gallo_key.png");
-    box-shadow: 0px 25px 5px -10px #c13848a0;
+    box-shadow: 0px 25px 5px -10px #c13848fe;
 }
