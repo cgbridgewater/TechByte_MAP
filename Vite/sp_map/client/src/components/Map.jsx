@@ -133,18 +133,7 @@ function Map() {
             .setLngLat(feature.geometry.coordinates)
             .addTo(map.current);
         }
-        
-        
-        // const createMarker = () => {
-        //     const markerElement = document.createElement('div');
-        //     markerElement.className = 'CustomMarker'; // Replace 'custom-marker' with your own CSS class for the marker icon
-            
-        //     const marker = new mapboxgl.Marker(markerElement)
-        //     .setLngLat([-122.483261, 45.614846]) // Replace with your desired coordinates
-        //     .addTo(map.current)
-        //     };
-        });
-            
+    });
 
         map.current.on('move', () => {
         setLng(map.current.getCenter().lng.toFixed(4));
@@ -156,10 +145,7 @@ function Map() {
 
     return (
         <div className='MapBox'>
-        {/* <div className="Sidebar">
-            Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div> */}
-        <div id='map' ref={mapContainer} className="MapContainer" />
+            <div id='map' ref={mapContainer} className="MapContainer" />
         </div>
     );
     }

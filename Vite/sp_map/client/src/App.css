@@ -63,20 +63,6 @@
     background-color: black;
 }
 
-/* REMOVE AFTER BUILD */
-/* .Sidebar {             
-    background-color: #C89211;
-    color: #fff;
-    padding: 6px 12px;
-    font-family: monospace;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 12px;
-    border-radius: 4px;
-} */
-
 .mapbox-improve-map {
     display: none;
 }
@@ -103,49 +89,35 @@
     background-color: whitesmoke;
 }
 
-/* .CustomMarker {
-    position: relative;
-    top:-50px;
-    width: 35px;
-    height: 35px;
-    border: 2px solid #C89211;
-    border-radius: 350%;
-    background-image: url("./assets/Key_Logo_Round.png");
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0px 30px 10px -15px #000;
-} */
-
-
 .Marker {
     position: absolute;
-    top:-40px;
-    width: 30px;
-    height: 30px;
+    top:-30px;
+    width: 25px;
+    height: 25px;
     border: 2px solid #C89211;
     border-radius: 50%;
     background-image: url("./assets/default_key.png");
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 20px 8px -10px #000;
+    box-shadow: 0px 25px 8px -10px #000000a0;
 }
 
 .HQ {
     background-image: url("./assets/Key_Logo_Round.png");
-    box-shadow: 0px 20px 8px -10px #C89211;
+    box-shadow: 0px 25px 8px -10px #000000a0;
 }
 
 .Pato {
     background-image: url("./assets/pato_key.png");
-    box-shadow: 0px 20px 5px -10px #0A5C36;
+    box-shadow: 0px 25px 5px -10px #0A5C36a0;
 }
 
 .Paloma {
     background-image: url("./assets/paloma_key.png");
-    box-shadow: 0px 20px 5px -10px #5F5D5E;
+    box-shadow: 0px 25px 5px -10px #5F5D5Ea0;
 }
 
 .Gallo {
     background-image: url("./assets/gallo_key.png");
-    box-shadow: 0px 20px 5px -10px #C13849;
+    box-shadow: 0px 25px 5px -10px #c13848a0;
 }
