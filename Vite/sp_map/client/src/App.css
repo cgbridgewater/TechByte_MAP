@@ -26,22 +26,21 @@
     margin-left: 10px;
 }
 
-.SignupLink, .LoginLink {
+.RegisterLink, .LoginLink {
     display:inline-flex;
-    margin-left: 13px;
     color: #C89211;
 	transform: scale(1.2, 1.2) translateY(-1px);
 }
 
-.SignupLink {
+.RegisterLink {
     margin-left: 13px;
 }
 
 .LoginLink {
-    margin-left: 9px;
+    margin-left: 10px;
 }
 
-.SignupLink:hover, .LoginLink:hover {
+.RegisterLink:hover, .LoginLink:hover {
     transform: scale(1.4, 1.4) translateY(-4px);
     transition: 0.2s ;
 }
@@ -81,12 +80,12 @@
     color: #C89211;
 }
 
-.mapboxgl-ctrl-icon, button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass {
+button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out span, .mapboxgl-ctrl-zoom-in span  {
     background-color: #C89211;
 }
 
 .mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
-    background-color: whitesmoke;
+    background-color: transparent;
 }
 
 .Marker {
@@ -100,6 +99,7 @@
     background-size: cover;
     background-position: center;
     box-shadow: 0px 25px 8px -10px #000000fe;
+    cursor: pointer;
 }
 
 .HQ {
@@ -120,4 +120,42 @@
 .Gallo {
     background-image: url("./assets/gallo_key.png");
     box-shadow: 0px 25px 5px -10px #c13848fe;
+}
+
+
+
+/* Bad Link Page */
+.YikesContainer {
+    background-color: black;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* 
+.YikesTitle {
+    padding: 30px;
+    text-align: center;
+    color: #C89211;
+} */
+
+.YikesButton {
+    position: relative;
+    left: 47.5%;
+    top: -70px;
+    width: 160px;
+    height: 30px;
+    background-color: #D7705B;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.Yikes {
+    margin: 0 auto;
+    width: 380px;
 }
