@@ -68,6 +68,18 @@ function Map() {
             JVM: ''
             }
         },
+        {
+            type: 'Feature',
+            geometry: {
+            type: 'Point',
+            coordinates: [ -117.918976, 33.812511]
+            },
+            properties: {
+            title: 'Mapbox',
+            description: 'Rogue',
+            JVM: ''
+            }
+        },
         ]
     };
 
