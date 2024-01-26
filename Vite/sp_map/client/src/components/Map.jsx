@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-const token = import.meta.env.VITE_MB_Token;
+const token = import.meta.env.VITE_MB_Mapbox_Token;
 mapboxgl.accessToken = token;
 
 function Map() {
