@@ -9,6 +9,7 @@
     height: 100dvh;
 }
 
+/* TITLE STYLE */
 .Title, .SubTitle, .Signup {
     text-align: center;
     color: whitesmoke;
@@ -48,7 +49,9 @@
 .Title span {
     color: #C89211;
 }
+/* END TITLE STYLE */
 
+/* MAP STYLE */
 .MapContainer {
     margin: 20px auto;
     width: 75dvw;
@@ -87,7 +90,9 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 .mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
     background-color: transparent;
 }
+/* MAP STYLE */
 
+/* MARKER STYLES */
 .Marker {
     position: absolute;
     top:-30px;
@@ -121,10 +126,11 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     background-image: url("./assets/gallo_key.png");
     box-shadow: 0px 25px 5px -10px #c13848fe;
 }
+/* END MARKER STYLES */
 
 
 
-/* Bad Link Page */
+/* BAD LINK PAGE */
 .YikesContainer {
     background-color: black;
     width: 100dvw;
@@ -133,12 +139,6 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     flex-direction: column;
     justify-content: center;
 }
-/* 
-.YikesTitle {
-    padding: 30px;
-    text-align: center;
-    color: #C89211;
-} */
 
 .YikesButton {
     position: relative;
@@ -158,4 +158,104 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 .Yikes {
     margin: 0 auto;
     width: 380px;
+}
+/* BADLINK PAGE */
+
+/* FORM STYLE */
+.FormWrapper {
+    width: 380px;
+    margin: 0px auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.RegForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px double #C89211;
+    padding: 10px;
+    width: 330px;
+}
+
+.InputContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+label {
+    color: #C89211;
+    font-weight: 800;
+}
+
+input.geoapify-autocomplete-input,
+input#userName,
+input#instagram,
+input#facebook,
+input#spotify,
+input#email,
+input#JVM,
+input#password,
+input#confirm_password
+{
+    width: 200px;
+    padding: 2px 0 2px 5px;
+    line-height: 20px;
+    height: 20px;
+    font-size: 16px;
+    border: 2px solid #C89211;
+    border-radius: 5px;
+    text-align: start;
+}
+
+.geoapify-close-button svg {
+    color: red;
+}
+
+.FormButton {
+    margin-top: 10px;
+    position: relative;
+    padding: 5px 10px;
+    border: 2px solid #C89211;
+    border-radius: 5px;
+    background: white;
+    color: #C89211;
+    font-weight: 800;
+    transition: 0.15s;
+}
+
+.FormButton:hover {
+    border-color: white;
+    background: #C89211;
+    color: white;
+    transition: 0.15s;
+}
+
+.FormButton:active {
+    top: 2px;
+    transform: scale(0.9, 0.9);
+    transition: 0.15s;
+}
+
+.SignIn {
+    color: white;
+    text-align: end;
+}
+
+.Disclaimer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #C89211;
+    text-align: center;
+}
+
+.DisclaimerText {
+    color: white;
+    text-align: center;
 }
