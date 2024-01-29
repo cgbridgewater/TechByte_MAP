@@ -6,22 +6,23 @@ import {
 } from '@geoapify/react-geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 
-function Autocomplete  () {
+function Autocomplete  (props) {
+
+    const { setAddressLine1,setAddressLine2,setCoordinates } = props
 
     function sendPlaceDetailsRequest(feature, geocoder) {
-        // console.log("FEATURE: ",feature);
-        console.log("RESULTS PACKAGE")
-        console.log("coordinates: ","[",feature.properties.lon,", ", feature.properties.lat,"]"); // the selected result
-        console.log("addres line 1: ",feature.properties.address_line1); // the selected result
-        console.log("addres line 2: ",feature.properties.address_line2); // the selected result
+        // console.log("FEATURE: ",feature); // generates all the results
+        setCoordinates(feature.geometry.coordinates) // sets results through props
+        setAddressLine1(feature.properties.address_line1) // sets results through props
+        setAddressLine2(feature.properties.address_line2) // sets results through props
         return geocoder.sendPlaceDetailsRequest(feature);
     }
 
     return (
-        <div >
+        <div>
             <GeoapifyContext apiKey={geoapifyKey}>
                 <GeoapifyGeocoderAutocomplete
-                    placeholder="Enter address here"
+                    placeholder="Enter Address..."
                     addDetails={true} // persists the data out
                     sendPlaceDetailsRequestFunc={sendPlaceDetailsRequest} // function to collect the data
                 />
