@@ -8,12 +8,16 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "A user name is required"]
     },
-    address: {
+    addressLine1: { // street 
+        type: String,
+        required: [true, "An address is required"]
+    },
+    addressLine2: { // city, state, country
         type: String,
         required: [true, "An address is required"]
     },
     coordinates: {
-        type: Number,
+        type: [Number],
         required: [true, "An address is required"]
     },
     JVM: {
@@ -30,7 +34,7 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        // required: [true, "Email is required"],
+        required: [true, "Email is required"],
         validate: {
             validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
             message: "Please enter a valid email"
