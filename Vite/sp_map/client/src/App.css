@@ -19,6 +19,10 @@
     padding: 15px;
 }
 
+.Gold {
+    color:#C89211
+}
+
 .Signup {
     padding-top: 15px ;
 }
@@ -200,18 +204,37 @@ input#instagram,
 input#facebook,
 input#spotify,
 input#email,
-input#JVM,
 input#password,
-input#confirm_password
+input#confirmPassword
 {
     width: 200px;
-    padding: 2px 0 2px 5px;
+    padding: 2px 5px 2px 5px;
     line-height: 20px;
     height: 20px;
     font-size: 16px;
+    background-color: white;
     border: 2px solid #C89211;
     border-radius: 5px;
-    text-align: start;
+    text-align: center;
+    color:#C89211;
+}
+
+select#JVM {
+    width: 213.2px;
+    padding: 2px 5px 2px 5px;
+    line-height: 20px;
+    height: 27.2px;
+    font-size: 16px;
+    border: 2px solid #C89211;
+    border-radius: 5px;
+    text-align: end;
+}
+
+select#JVM option {
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    color: #C89211;
 }
 
 .geoapify-close-button svg {
@@ -244,6 +267,7 @@ input#confirm_password
 }
 
 .SignIn {
+    margin: 20px 0 0 100px;
     color: white;
     text-align: end;
 }
@@ -258,4 +282,9 @@ input#confirm_password
 .DisclaimerText {
     color: white;
     text-align: center;
+}
+
+.MapLink {
+    margin-top: 25px;
+    color: #C89211;
 }
