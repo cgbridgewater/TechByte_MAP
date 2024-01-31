@@ -24,7 +24,10 @@ module.exports = {
         // // Check if email is in use
         const user = await User.findOne({email: req.body.email})
         if (user !== null) {
-            return res.status(400).json({message: "Email already exists!"})
+            // return res.status(400).json({message: "Email already exists!"})
+            return res.status(400).json({
+            errors: { email: "Email already exists!" },
+        });
         }
         // // if email is origional create user
         User.create(req.body)
