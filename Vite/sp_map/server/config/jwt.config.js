@@ -5,7 +5,7 @@ module.exports.secret = secret;
 module.exports.authenticate = (req, res, next) => {
     jwt.verify(req.cookies.usertoken, secret, (err, payload) => {
         if (err) { 
-            return res.status(401).json({message: "Unauthorized, You can't park here!"})
+            return res.status(401).json({message: "Unauthorized, Straight To Jail!"})
         } else {
             next();
         }

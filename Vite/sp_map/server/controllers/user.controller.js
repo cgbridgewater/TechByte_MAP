@@ -4,12 +4,14 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
 
+
     // // // FIND ALL (for future build out use)
-        // findAll : (req,res) => {
-        //     User.find()
-        //         .then(results => res.json(results))
-        //         .catch(err => res.status(400).json(err))
-        // },
+        findAll : (req,res) => {
+            User.find()
+                .then(results => res.json(results))
+                .catch(err => res.status(400).json(err))
+        },
+
 
     // // Check Cookies
     cookieTester : (req,res) => {
@@ -22,13 +24,10 @@ module.exports = {
     // // // REGISTER NEW USER
     register :async (req, res) => {
         // // Check if email is in use
-        const user = await User.findOne({email: req.body.email})
-        if (user !== null) {
-            // return res.status(400).json({message: "Email already exists!"})
-            return res.status(400).json({
-            errors: { email: "Email already exists!" },
-        });
-        }
+        // const user = await User.findOne({email: req.body.email})
+        // if (user !== null) {
+        //     return res.status(400).json({message: "Email already exists!"})
+        // }
         // // if email is origional create user
         User.create(req.body)
             .then(newUser => {
@@ -41,6 +40,7 @@ module.exports = {
             })
             .catch(err => res.status(400).json({message: "Problem with registration",error: err}));
     },
+
 
     // // // LOG-IN USER
     login :async (req, res) => {
@@ -64,35 +64,51 @@ module.exports = {
             .cookie("usertoken", userToken, {
                 httpOnly: true
             })
-            .json({ msg: " Great success!" });
+            .json({ 
+                msg: " Great success!", 
+                user: {
+                    _id: user._id,
+                },
+            });
     },
 
-    // LOG OUT (close cookie session)
+
+    // // // LOG OUT (close cookie session)
     logout: (req,res) => {
         res.clearCookie('usertoken');
         res.sendStatus(200);
     },
 
-    // GET ONE USER BY ID
-    getOne : (req, res) => {
-        User.findOne({_id: req.params.id})
-            .then(results => res.json(results))
-            .catch((err) => res.status(400).json(err))
+
+    // // // GET ONE USER BY LOGIN/REG Cookie
+    getOne: (req, res) => {
+    const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+    const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
+
+
+    User.findOne({ _id: decodedToken.id })  // Use the decoded user id to retrieve the user's profile
+        .then(user => {
+            if (!user) {  // Check if user exists
+            return res.status(404).json({ message: "User not found" });
+            }
+            res.json(user);
+        })
+        .catch(err => res.status(400).json(err));
     },
-    
+
+
     // // // UPDATE USER (for future build out use)
         // update : (req,res) => {
         //     User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators: true})
         //         .then(updatedResults => res.json(updatedResults))
         //         .catch((err) => res.status(400).json(err))
         // },
-    
+
+
     // // // DELETE USER (for future build out use)
         // delete : (req,res) => {
         //     User.deleteOne({ _id: req.params.id})
         //         .then(deleteConfirmation => res.json(deleteConfirmation))
         //         .catch(err => res.json({message: "Something went wrong with Delete",err}))
         // } 
-
-
 }
