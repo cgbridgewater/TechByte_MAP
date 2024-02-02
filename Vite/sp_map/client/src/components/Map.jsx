@@ -14,6 +14,12 @@ function Map() {
     const [lat, setLat] = useState((Math.random() - 0.5) * 100);
     const [zoom, setZoom] = useState(1);
 
+    // scroll to top
+    useEffect(() => {
+        window.scrollTo(0,0)
+    },[])
+    
+
     // Get all users from DB to build pins
     useEffect(() => {
         axios

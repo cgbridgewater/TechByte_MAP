@@ -6,7 +6,9 @@
 .MainContainer {
     background-color: black;
     width: 100dvw;
-    height: 100dvh;
+    min-height: 100dvh;
+    background-attachment: scroll;
+    overflow-x: hidden;
 }
 
 /* TITLE STYLE */
@@ -29,6 +31,12 @@
 
 .Signup span {
     margin-left: 10px;
+}
+
+.Unauthorized {
+    text-align: center;
+    padding-top: 20px;
+    color: red;
 }
 
 .RegisterLink, .LoginLink {
@@ -114,6 +122,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 .HQ {
     background-image: url("./assets/Key_Logo_Round.png");
     box-shadow: 0px 25px 8px -10px #000000fe;
+    z-index: 999;
 }
 
 .Pato {
@@ -131,8 +140,6 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     box-shadow: 0px 25px 5px -10px #c13848fe;
 }
 /* END MARKER STYLES */
-
-
 
 /* BAD LINK PAGE */
 .YikesContainer {
@@ -287,4 +294,123 @@ select#JVM option {
 .MapLink {
     margin-top: 25px;
     color: #C89211;
+}
+/* END FORM STYLES */
+
+
+/* PROFILE PAGE */
+
+.ProfileContainer {
+    width: 345px;
+    margin: 10px auto 0;
+    padding: 15px;
+    border: 5px double #C89211;
+}
+
+.ProfileHeader {
+    width: 380px;
+    text-align: center;
+    padding-top: 20px;
+    margin: 0px auto 20px;
+    Color:white;
+}
+
+.LocationTitle, .SocialsTitle {
+    font-size: 22px;
+    text-align: center;
+    color: #C89211;
+}
+
+.ProfileFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 15px 0;
+}
+
+.ProfileUpdate {
+    width: 115px;
+    padding: 3px 5px;
+    font-weight: 800;
+    color: white;
+    background-color: #C89211;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.ProfileUpdate:hover {
+    color: #C89211;
+    border-color: #C89211;
+    background-color: white;
+}
+
+.ProfileUpdate:active {
+    transform: scale(0.9, 0.9) translateY(2px);
+    transition: 0.1s ;
+}
+
+.ProfileTitle {
+    color: white;
+}
+
+.ProfileText {
+    color: white;
+    text-align: end;
+    font-size: 18px;
+}
+
+.SeperationLine {
+    border: 1px solid #C89211;
+    width: 85%;
+    margin: 15px auto;
+}
+
+.SeperationLineFull {
+    border: 3px solid #C89211;
+    width: 100%;
+    margin: 10px auto 25px;
+}
+
+.ProfileLinks {
+    width: 345px;
+    margin: 0 auto 0px;
+    padding: 15px;
+    border-left: 5px double #C89211;
+    border-right: 5px double #C89211;
+    border-bottom: 5px double #C89211;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProfileToMap {
+    position: relative;
+    padding-left: 7px;
+    color: #C89211;
+    font-size: 18px;
+}
+
+.Logout {
+    position: relative;
+    color:white;
+    font-size: 18px;
+}
+
+.ProfileDelete {
+    position: relative;
+    padding-right: 7px;
+    color: red;
+    font-size: 18px;
+}
+
+.ProfileToMap:hover, .Logout:hover, .ProfileDelete:hover {
+    transform: scale(1.4, 1.4) translateY(-2px);
+    transition: 0.2s ;
+}
+
+.ProfileToMap:active, .Logout:active, .ProfileDelete:active {
+    transform: scale(1.4, 1.4) translateY(1px);
+    transition: 0.1s ;
 }
