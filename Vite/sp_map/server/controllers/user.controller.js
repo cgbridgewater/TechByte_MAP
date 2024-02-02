@@ -13,12 +13,12 @@ module.exports = {
         },
 
 
-    // // Check Cookies
-    cookieTester : (req,res) => {
-        User.find()
-            .then(results => res.json({results}))
-            .catch(err => res.status(400).json(err))
-    },
+    // // Check Cookies    // DO I NEED THIS??
+    // cookieTester : (req,res) => {
+    //     User.find()
+    //         .then(results => res.json({results}))
+    //         .catch(err => res.status(400).json(err))
+    // },
 
 
     // // // REGISTER NEW USER
@@ -29,14 +29,22 @@ module.exports = {
         //     return res.status(400).json({message: "Email already exists!"})
         // }
         // // if email is origional create user
-        User.create(req.body)
+        User.create(req.body) // Create new user
             .then(newUser => {
-                const userToken = jwt.sign({
-                    id: newUser._id
+                const userToken = jwt.sign({ // Create JWT Token
+                    id: newUser._id // Get the new user id
                 }, process.env.SECRET_KEY);
                 res
-                .cookie("usertoken", userToken, {httpOnly:true})
-                .json({ msg: "Great Success, You are registered!", user: newUser });
+                .cookie("usertoken", userToken, { // Create Cookie
+                    httpOnly: true
+                })
+                .json({
+                    msg: "Great Success, You are registered!",   // Send back success message
+                    // user: user,
+                    user: {
+                        _id: newUser._id, // store user_id into cookie
+                    },
+                });
             })
             .catch(err => res.status(400).json({message: "Problem with registration",error: err}));
     },
@@ -44,48 +52,35 @@ module.exports = {
 
     // // // LOG-IN USER
     login :async (req, res) => {
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({email: req.body.email}) // Search for matching email
         if (user === null) {
-            // If user does not match existing user, give error
-            return res.status(400).json({message: "Invalid login"})
+            return res.status(400).json({message: "Invalid login"}) // If user does not exist, give error
         }
-        //User found in database
-        const correctPassword = await bcrypt.compare(req.body.password, user.password)
+        const correctPassword = await bcrypt.compare(req.body.password, user.password) //User found in database
         // If password does not match stored password, give error
         if (!correctPassword) {
-            return res.status(400).json({message: "Invalid login"})
+            return res.status(400).json({message: "Invalid login"}) // If stored password does not match given password give error
         }
-        // create token
-        const userToken = jwt.sign({
+        const userToken = jwt.sign({ // // Create JWT Token if user found and passwords match
             id: user._id
         }, process.env.SECRET_KEY);
-        //create cookie!
         res
-            .cookie("usertoken", userToken, {
+            .cookie("usertoken", userToken, { // Create cookie
                 httpOnly: true
             })
-            .json({ 
-                msg: " Great success!", 
+            .json({
+                msg: " Great success!",  // Send back success message
                 user: {
-                    _id: user._id,
+                    _id: user._id, // store user_id into cookie
                 },
             });
     },
 
 
-    // // // LOG OUT (close cookie session)
-    logout: (req,res) => {
-        res.clearCookie('usertoken');
-        res.sendStatus(200);
-    },
-
-
-    // // // GET ONE USER BY LOGIN/REG Cookie
+    // // // GET ONE USER BY COOKIE/JWT
     getOne: (req, res) => {
     const userToken = req.cookies.usertoken;  // Get the user token from the cookie
     const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-
-
     User.findOne({ _id: decodedToken.id })  // Use the decoded user id to retrieve the user's profile
         .then(user => {
             if (!user) {  // Check if user exists
@@ -93,7 +88,7 @@ module.exports = {
             }
             res.json(user);
         })
-        .catch(err => res.status(400).json(err));
+        .catch(err => res.status(400).json(err)); // Not logged, create error
     },
 
 
@@ -111,4 +106,11 @@ module.exports = {
         //         .then(deleteConfirmation => res.json(deleteConfirmation))
         //         .catch(err => res.json({message: "Something went wrong with Delete",err}))
         // } 
+
+
+    // // // LOG OUT (close cookie session)
+    logout: (req,res) => {
+        res.clearCookie('usertoken'); // End Cookie Session
+        res.sendStatus(200);
+    },
 }
