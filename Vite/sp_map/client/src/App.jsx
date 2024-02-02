@@ -7,23 +7,24 @@ import Login from "./views/Login.jsx";
 import Register from "./views/Register.jsx";
 import Profile from "./views/Profile.jsx";
 import BadLink from "./views/BadLink.jsx";
-import Logout from "./views/Logout.jsx";
+import Logout from "./components/Logout.jsx";
+import DeleteUser from "./components/DeleteUser.jsx";
 
 
 function App() {
   
-  const [authorized, setAuthorized] = useState("");
+  const [ authorized, setAuthorized ] = useState("");
   
   return (
   <BrowserRouter>
           <Routes>
               {/* <> */}
                 <Route path="/" default element={<MapPage/>}/>
-                <Route path="/profile" element={<Navigate to="/login"/>}/>
                 <Route path="/login" element={<Login  authorized={authorized} setAuthorized={setAuthorized}/>} />
                 <Route path="/register" element={<Register  authorized={authorized} setAuthorized={setAuthorized}/> } />
-                <Route path="/profile/:id" element={<Profile  setAuthorized={setAuthorized}/>}  />
+                <Route path="/profile" element={<Profile  setAuthorized={setAuthorized}/>}  />
                 <Route path="/profile/logout" element={<Logout  setAuthorized={setAuthorized}/>}  />
+                <Route path="/profile/delete" element={<DeleteUser  setAuthorized={setAuthorized}/>}  />
 
                 {/* <Route path="/profile/edit/:id" element={<ProfileEdit />}/> */} {/* Create page before activating!! */}
                 <Route path="/:bad/*" element={<Navigate to="/404-not-found"/>}/>
@@ -32,7 +33,6 @@ function App() {
           </Routes>
         </BrowserRouter>
   )
-  
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);

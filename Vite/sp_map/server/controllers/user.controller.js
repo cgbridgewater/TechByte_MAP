@@ -101,11 +101,13 @@ module.exports = {
 
 
     // // // DELETE USER (for future build out use)
-        // delete : (req,res) => {
-        //     User.deleteOne({ _id: req.params.id})
-        //         .then(deleteConfirmation => res.json(deleteConfirmation))
-        //         .catch(err => res.json({message: "Something went wrong with Delete",err}))
-        // } 
+    deleteUser : (req,res) => {
+        const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+        const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
+        User.deleteOne({ _id: decodedToken.id })  // Use the decoded user id to retrieve the user's profile
+            .then(deleteConfirmation => res.json(deleteConfirmation))
+            .catch(err => res.json({message: "Something went wrong with Delete",err}))
+    }, 
 
 
     // // // LOG OUT (close cookie session)

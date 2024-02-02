@@ -9,5 +9,5 @@ module.exports = (app) => {
     app.get('/api/logout', UserController.logout);
     app.get('/api/user/profile', authenticate, UserController.getOne);
     // app.put('/api/user/:id', UserController.update);  // created for expansion
-    // app.delete('/api/user/:id', UserController.delete);  // created for expansion 
+    app.delete('/api/user/delete', authenticate, UserController.deleteUser);  // created for expansion 
 }
