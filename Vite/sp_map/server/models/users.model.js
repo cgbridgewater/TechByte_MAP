@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 
 
 const UserSchema = new mongoose.Schema({
-    // Created in the event name registration is required later
     userName: {
         type: String,
         required: [true, "A user name is required"]
@@ -16,7 +15,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "An address is required"]
     },
-    coordinates: {
+    coordinates: { // coordinate set generated from geocode
         type: [Number],
         required: [true, "An address is required"]
     },
@@ -48,11 +47,10 @@ const UserSchema = new mongoose.Schema({
 
 }, {timestamps: true})
 
-// add this after AdminSchema is defined
+// Virtual (Does not go to DB)
 UserSchema.virtual('confirmPassword')
     .get( () => this._confirmPassword )
     .set( value => this._confirmPassword = value );
-
     UserSchema.pre('validate', function(next) {
     if (this.password !== this.confirmPassword) {
         this.invalidate('confirmPassword', 'Passwords must match!');
@@ -60,7 +58,7 @@ UserSchema.virtual('confirmPassword')
     next();
 });
 
-// add this after the validate function
+// Encryption of password
 UserSchema.pre('save', function(next) {
     bcrypt.hash(this.password, 10)
     .then(hash => 
