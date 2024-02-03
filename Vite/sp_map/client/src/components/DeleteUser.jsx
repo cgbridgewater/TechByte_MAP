@@ -11,7 +11,7 @@ const DeleteUser = () => {
         axios.delete("http://localhost:8000/api/user/delete", {
             withCredentials:true,
             headers: {
-                Authorization: `Bearer ${userToken}`,  // Include the user token in the Authorization header
+                Authorization: `Bearer ${userToken}`,  // Include the User Token
             },
         })
             .then(() => {
@@ -19,7 +19,7 @@ const DeleteUser = () => {
                 navigate("/")
             })
             .catch((err) => {
-                console.log("Unable To Delete User");
+                console.log("No Rep!! Unable To Delete User");
                 navigate("/profile")
             });
     }, [])

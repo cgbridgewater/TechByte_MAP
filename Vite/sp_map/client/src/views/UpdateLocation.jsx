@@ -12,16 +12,15 @@ function UpdateLocation (props) {
     const [ errors, setErrors ] = useState("");
 
     useEffect(() => {
-        // scroll to top
-        window.scrollTo(0,0)
+        window.scrollTo(0,0) // scroll to top
         // check for cookies
         axios.get("http://localhost:8000/api/cookietest"  ,{withCredentials: true})
         .then((res) => {
             console.log("Update Page Loaded.");
         })
         .catch((err) => {
-            console.log("UNAUTHORIZED USER DETECTED!")
-            props.setAuthorized("You must log in to access this page!");  // Sends back to login page with this message
+            props.setAuthorized("Please log in to access profile pages!");
+            console.log("NO REP!");
             navigate("/login")
         })
     },[])
@@ -39,11 +38,10 @@ function UpdateLocation (props) {
                 navigate(`/profile`);
             })
             .catch(err =>  {
-                // setErrors(err.response);
                 setErrors(err.response.data.errors); //Set Errors
                 console.log("errors exist!", errors);
             })
-        }
+    }
 
     return (
         // MAIN CONTAINER

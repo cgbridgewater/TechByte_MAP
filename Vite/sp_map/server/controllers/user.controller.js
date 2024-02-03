@@ -4,8 +4,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
 
-
-    // // // FIND ALL (for future build out use)
+    // // // FIND ALL USERS
         findAll : (req,res) => {
             User.find()
                 .then(results => res.json(results))
@@ -13,7 +12,7 @@ module.exports = {
         },
 
 
-    // // Check Cookies    // DO I NEED THIS??
+    // // CHECK FOR COOKIES
     cookieTester : (req,res) => {
         User.find()
             .then(results => res.json({results}))
@@ -21,7 +20,7 @@ module.exports = {
     },
 
 
-    // // // REGISTER NEW USER
+    // // // REGISTER NEW USER  // // EMAIL CHECK CAUSES ISSUES DUE TO JSON ERROR LEVELS
     register :async (req, res) => {
         // // Check if email is in use
         // const user = await User.findOne({email: req.body.email})
@@ -42,7 +41,7 @@ module.exports = {
                     msg: "Great Success, You are registered!",   // Send back success message
                     // user: user,
                     user: {
-                        _id: newUser._id, // store user_id into cookie
+                        _id: newUser._id, // Store user_id into cookie
                     },
                 });
             })
@@ -50,7 +49,7 @@ module.exports = {
     },
 
 
-    // // // LOG-IN USER
+    // // // LOGIN A REGISTERED USER
     login :async (req, res) => {
         const user = await User.findOne({email: req.body.email}) // Search for matching email
         if (user === null) {
@@ -71,13 +70,13 @@ module.exports = {
             .json({
                 msg: " Great success!",  // Send back success message
                 user: {
-                    _id: user._id, // store user_id into cookie
+                    _id: user._id, // Store user_id into cookie
                 },
             });
     },
 
 
-    // // // GET ONE USER BY COOKIE/JWT
+    // // // GET ONE USER BY JWT
     getOne: (req, res) => {
     const userToken = req.cookies.usertoken;  // Get the user token from the cookie
     const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
@@ -88,22 +87,21 @@ module.exports = {
             }
             res.json(user);
         })
-        .catch(err => res.status(400).json(err)); // Not logged, create error
+        .catch(err => res.status(400).json(err));
     },
 
 
-    // // // UPDATE USER (for future build out use)
+    // // // UPDATE USER BY JWT
         update : (req,res) => {
             const userToken = req.cookies.usertoken;  // Get the user token from the cookie
             const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-
             User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
                 .then(updatedResults => res.json(updatedResults))
                 .catch((err) => res.status(400).json(err))
         },
 
 
-    // // // DELETE USER (for future build out use)
+    // // // DELETE USER BY JWT
     deleteUser : (req,res) => {
         const userToken = req.cookies.usertoken;  // Get the user token from the cookie
         const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
@@ -113,7 +111,7 @@ module.exports = {
     }, 
 
 
-    // // // LOG OUT (close cookie session)
+    // // // LOG OUT (CLEAR ALL COOKIES!)
     logout: (req,res) => {
         res.clearCookie('usertoken'); // End Cookie Session
         res.sendStatus(200);

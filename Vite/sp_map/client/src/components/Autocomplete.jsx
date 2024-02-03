@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 const geoapifyKey = import.meta.env.VITE_MB_Geoapify_Key;
 import { GeoapifyGeocoderAutocomplete, GeoapifyContext } from '@geoapify/react-geocoder-autocomplete';
 import '@geoapify/geocoder-autocomplete/styles/minimal.css';
@@ -21,7 +20,7 @@ function Autocomplete  (props) {
                 <GeoapifyGeocoderAutocomplete
                     placeholder='Enter An Address'
                     addDetails={true} // persists the data out
-                    sendPlaceDetailsRequestFunc={sendPlaceDetailsRequest} // function to collect the data
+                    sendPlaceDetailsRequestFunc={sendPlaceDetailsRequest}
                 />
             </GeoapifyContext>
         </div>

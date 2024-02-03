@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import Autocomplete from "../components/Autocomplete"
 import axios from 'axios';
 
 function Register (props) {
+
+    useEffect(() => {
+        window.scrollTo(0,0) // scroll to top
+    },[])
 
     const navigate = useNavigate()
     const [ addressLine1, setAddressLine1 ] = useState("");
@@ -48,7 +52,6 @@ function Register (props) {
             })
     }
 
-
     return (
         // main container
         <div className='MainContainer'>
@@ -61,7 +64,7 @@ function Register (props) {
                     {/* USER NAME */}
                     { errors.userName ? 
                         <div className='InputContainer'>
-                            <label htmlFor="userName" style={{color:"red"}}>< i className="fas fa-user fa-sm" style={{color: "red"}}></i>&nbsp; User Name:</label>
+                            <label htmlFor="userName" style={{color:"red"}}>< i className="fas fa-user fa-sm" style={{color: "red"}}></i>&nbsp; Name:</label>
                             <input 
                                 type="text" 
                                 name="userName" 
@@ -72,7 +75,7 @@ function Register (props) {
                         </div>
                     :
                         <div className='InputContainer'>
-                            <label htmlFor="userName">< i className="fas fa-user fa-sm" style={{color: "#C89211"}}></i>&nbsp; User Name:</label>
+                            <label htmlFor="userName">< i className="fas fa-user fa-sm" style={{color: "#C89211"}}></i>&nbsp; Name:</label>
                             <input 
                                 type="text" 
                                 name="userName" 
@@ -128,7 +131,7 @@ function Register (props) {
                     }
                     {/* JVM TEAM SELECT */}
                     <div className='InputContainer'>
-                        <label htmlFor="JVM">< i className="fas fa-user-friends fa-sm" style={{color: "#C89211"}}></i>&nbsp; JVM Team:</label>
+                        <label htmlFor="JVM">< i className="fas fa-user-friends fa-sm" style={{color: "#C89211"}}></i>&nbsp; JVM:</label>
                         <select 
                             type="text" 
                             name="JVM" 
@@ -137,7 +140,7 @@ function Register (props) {
                             onChange={(e) => setJVM(e.target.value)}
                             value= {JVM}
                             >
-                                <option value="">No Team Selected</option>
+                                <option value="">No Team</option>
                                 <option value="Gallo">Team Gallo</option>
                                 <option value="Pato">Team Pato</option>
                                 <option value="Paloma">Team Paloma</option>
@@ -170,7 +173,7 @@ function Register (props) {
                     {/* CONFIRM PASSWORD */}
                     { errors.confirmPassword?
                         <div className='InputContainer'>
-                            <label htmlFor="confirmPassword" style={{color:"red"}}>< i className="fas fa-key fa-sm" style={{color: "red"}}></i>&nbsp; Confirm <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
+                            <label htmlFor="confirmPassword" style={{color:"red"}}>< i className="fas fa-key fa-sm" style={{color: "red"}}></i>&nbsp; Confirm <br /> &nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
                             <input 
                                 type="password" 
                                 name='confirmPassword' 
@@ -181,7 +184,7 @@ function Register (props) {
                         </div>
                     :
                         <div className='InputContainer'>
-                            <label htmlFor="password">< i className="fas fa-key fa-sm" style={{color: "#C89211"}}></i>&nbsp; Confirm <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
+                            <label htmlFor="password">< i className="fas fa-key fa-sm" style={{color: "#C89211"}}></i>&nbsp; Confirm <br /> &nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
                             <input 
                                 type="password" 
                                 name='confirmPassword' 
@@ -194,16 +197,21 @@ function Register (props) {
                     {/* SUBMIT BUTTON */}
                     <button type="submit" className='FormButton' >SUBMIT</button>
                     {/* <!-- SIGN IN LINK --> */}
-                    <p className='SignIn'>Already a member?  <Link to="/login" className='Gold'>Login Here!</Link></p>
+                    <div className='FormFlex'>
+                        <p className='SignIn'>Already a member?</p>
+                        <Link to="/login" className='FormGold'>Login Here!</Link>
+                    </div>
                 </form>
                 {/* END FORM */}
                 {/* Disclaimer */}
-                <h6 className='Disclaimer'><b>Disclaimer - </b>This info will be seen by all who view the map.</h6>
-                <h6 className='DisclaimerText'>
-                    The location will show your pin exactly as you enter it. 
+                <p className='Disclaimer'><b>Disclaimer - </b>This info will be seen by all who view the map.</p>
+                <p className='DisclaimerText'>
+                    The location will shown exactly as you enter it. 
                     <br />
-                    The more detailed address you provide, the more accurate it will be.
-                </h6>
+                    The more detailed address you provide, 
+                    <br />
+                    The more accurate it will be.
+                </p>
                 {/* END Disclaimer */}
                 {/* Return To Map */}
                 <Link className="MapLink" to="/">Back To The Map</Link>

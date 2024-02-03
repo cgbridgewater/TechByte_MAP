@@ -14,26 +14,20 @@ function Map() {
     const [lat, setLat] = useState((Math.random() - 0.5) * 100);
     const [zoom, setZoom] = useState(1);
 
-    // scroll to top
-    useEffect(() => {
-        window.scrollTo(0,0)
-    },[])
-    
-
     // Get all users from DB to build pins
     useEffect(() => {
+        window.scrollTo(0,0) // scroll to top
         axios
         .get("http://localhost:8000/api/allusers")
         .then((res) => {
             setUser(res.data);
-            console.log("USER DATA", user);
         })
         .catch((err) => {
             console.log("Something went wrong when gathering pins!");
         });
     }, []);
 
-    // // HQ Pin
+    // // SPHQ Pin
     const geojson = {
         type: 'FeatureCollection',
         features: [
@@ -62,7 +56,6 @@ function Map() {
         center: [lng, lat],
         zoom: zoom,
         });
-
         // // Custom Map Footer Tag
         map.current.addControl(
             new mapboxgl.AttributionControl({
@@ -70,10 +63,8 @@ function Map() {
                 '<a href="https://streetparking.com/" target="_blank">Street Parking</a>',
             })
         );
-
         // // Add in Map Controlls (Zoom and Compass)
         map.current.addControl(new mapboxgl.NavigationControl({ showCompass: true, showZoom: true }));
-
         // // Create On Loading "fly to" Effect
         map.current.on('load', () => {
             map.current.flyTo({
@@ -86,7 +77,6 @@ function Map() {
                 },
             });
         });
-
         // // Mark HQ Location with Custom Pin
         for (const feature of geojson.features) {
             const el = document.createElement('div');

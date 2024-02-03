@@ -1,8 +1,12 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 
 function Login (props) {
+
+    useEffect(() => {
+        window.scrollTo(0,0) // scroll to top
+    },[])
 
     const navigate = useNavigate()
     const [ errors, setErrors ] = useState("");
@@ -12,7 +16,7 @@ function Login (props) {
             password:""
         }
     });;
-
+    
     const { login } = state;
     const handleLoginInputs = (e) => {
         props.setAuthorized("");
@@ -23,16 +27,16 @@ function Login (props) {
         e.preventDefault()
         axios.post("http://localhost:8000/api/login", login, {withCredentials: true})
             .then(res => { 
-                console.log(res)
-                const userId = res.data.user._id
-                console.log("UserID", userId)
+                // console.log(res)
+                // const userId = res.data.user._id
+                // console.log("UserID", userId)
                 navigate(`/profile`);
             })
             .catch(err =>  {
                 setErrors(err.response);
                 console.log("errors exist!", errors);
             })
-        }
+    }
 
     return (
         // MAIN CONTAINER
@@ -50,24 +54,26 @@ function Login (props) {
                         {/* EMAIL */}
                         { errors ? 
                             <div className='InputContainer'>
-                                <label htmlFor="email" style={{color:"red"}}>< i className="fas fa-envelope fa-sm" style={{color: "red"}}></i>&nbsp; User Name:</label>
+                                <label htmlFor="email" style={{color:"red"}}>< i className="fas fa-envelope fa-sm" style={{color: "red"}}></i>&nbsp; Email:</label>
                                 <input 
                                     type="text" 
                                     name="email" 
                                     id='email' 
                                     placeholder='Invalid Login' 
                                     onChange={handleLoginInputs}
+                                    autoComplete="username"
                                 />
                             </div>
                             :
                             <div className='InputContainer'>
-                                <label htmlFor="email">< i className="fas fa-envelope fa-sm" style={{color: "#C89211"}}></i>&nbsp; User Name:</label>
+                                <label htmlFor="email">< i className="fas fa-envelope fa-sm" style={{color: "#C89211"}}></i>&nbsp; Email:</label>
                                 <input 
                                     type="text" 
                                     name="email" 
                                     id='email' 
                                     placeholder='Enter An Email' 
                                     onChange={handleLoginInputs}
+                                    autoComplete="username"
                                 />
                             </div>
                         }
@@ -81,6 +87,7 @@ function Login (props) {
                                     id='password' 
                                     placeholder='Invalid Login' 
                                     onChange={handleLoginInputs}
+                                    autoComplete="current-password"
                                 />
                             </div>
                             :
@@ -92,13 +99,17 @@ function Login (props) {
                                     id='password' 
                                     placeholder='Enter Password' 
                                     onChange={handleLoginInputs}
+                                    autoComplete="current-password"
                                 />
                             </div>
                         }
                         {/* <!-- FORM BUTTON --> */}
                         <button type="submit" className='FormButton' >SUBMIT</button>
                         {/* <!-- SIGN IN LINK --> */}
-                        <p className='SignIn'>Need to sign up?  <Link to="/register" className='Gold'>Register Here!</Link></p>
+                        <div className="FormFlex">
+                            <p className='SignIn'>Need to sign up?</p>
+                            <Link to="/register" className='FormGold'>Register Here!</Link>
+                        </div>
                     </form>
                     {/* <!-- END FORM SECTION --> */}
                     {/* LINK BACK TO MAP */}
