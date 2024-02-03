@@ -11,10 +11,10 @@ function UpdateLocation (props) {
     const [ coordinates, setCoordinates ] = useState([])
     const [ errors, setErrors ] = useState("");
 
-    // scroll to top
     useEffect(() => {
+        // scroll to top
         window.scrollTo(0,0)
-
+        // check for cookies
         axios.get("http://localhost:8000/api/cookietest"  ,{withCredentials: true})
         .then((res) => {
             console.log("Update Page Loaded.");
@@ -24,11 +24,7 @@ function UpdateLocation (props) {
             props.setAuthorized("You must log in to access this page!");  // Sends back to login page with this message
             navigate("/login")
         })
-
     },[])
-
-
-
 
     const handleUpdate = (e) => {
         e.preventDefault()
@@ -39,13 +35,11 @@ function UpdateLocation (props) {
         }
         axios.put("http://localhost:8000/api/user/update", data, {withCredentials: true})
             .then(res => { 
-                // console.log(res)
-                // const userId = res.data.user._id
-                // console.log("UserID", userId)
+                console.log("Profile Updated!")
                 navigate(`/profile`);
             })
             .catch(err =>  {
-                setErrors(err.response);
+                // setErrors(err.response);
                 setErrors(err.response.data.errors); //Set Errors
                 console.log("errors exist!", errors);
             })
@@ -64,7 +58,6 @@ function UpdateLocation (props) {
                     <h1 className="Title">Update Address:</h1>
                     {/* <!-- FORM SECTION  --> */}
                     <form className="RegForm"  onSubmit={handleUpdate}>
-
                         {/* ADDRESS Line 1 */}
                         { errors.addressLine1 ? 
                             <div className='InputContainer'>
@@ -85,10 +78,9 @@ function UpdateLocation (props) {
                                 />
                             </div>
                         }
-
+                        {/* END ADDRESS Line 1 */}
                         {/* SUBMIT BUTTON */}
                         <button type="submit" className='FormButton' >SUBMIT</button>
-
                     </form>
                     {/* <!-- END FORM SECTION --> */}
                     {/* LINK BACK TO PROFILE */}
