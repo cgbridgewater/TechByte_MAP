@@ -14,11 +14,11 @@ module.exports = {
 
 
     // // Check Cookies    // DO I NEED THIS??
-    // cookieTester : (req,res) => {
-    //     User.find()
-    //         .then(results => res.json({results}))
-    //         .catch(err => res.status(400).json(err))
-    // },
+    cookieTester : (req,res) => {
+        User.find()
+            .then(results => res.json({results}))
+            .catch(err => res.status(400).json(err))
+    },
 
 
     // // // REGISTER NEW USER
@@ -93,11 +93,14 @@ module.exports = {
 
 
     // // // UPDATE USER (for future build out use)
-        // update : (req,res) => {
-        //     User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators: true})
-        //         .then(updatedResults => res.json(updatedResults))
-        //         .catch((err) => res.status(400).json(err))
-        // },
+        update : (req,res) => {
+            const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+            const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
+
+            User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
+                .then(updatedResults => res.json(updatedResults))
+                .catch((err) => res.status(400).json(err))
+        },
 
 
     // // // DELETE USER (for future build out use)
