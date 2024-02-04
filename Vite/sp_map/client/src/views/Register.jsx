@@ -112,7 +112,7 @@ function Register (props) {
                     {/* ADDRESS Line 1 */}
                     { errors.addressLine1 ? 
                         <div className='InputContainer'>
-                            <label htmlFor="Autocomplete" style={{color:"red"}}>< i className="fas fa-map-marked-alt fa-sm" style={{color: "red"}}></i>&nbsp;  Address:</label>
+                            <label htmlFor="myAutocomplete" style={{color:"red"}}>< i className="fas fa-map-marked-alt fa-sm" style={{color: "red"}}></i>&nbsp;  Address:</label>
                             <Autocomplete
                                 setAddressLine1={setAddressLine1} 
                                 setAddressLine2={setAddressLine2} 
@@ -121,7 +121,7 @@ function Register (props) {
                         </div>
                     :
                     <div className='InputContainer'>
-                            <label htmlFor="Autocomplete">< i className="fas fa-map-marked-alt fa-sm" style={{color: "#C89211"}}></i>&nbsp;  Address:</label>
+                            <label htmlFor="myAutocomplete">< i className="fas fa-map-marked-alt fa-sm" style={{color: "#C89211"}}></i>&nbsp;  Address:</label>
                             <Autocomplete 
                                 setAddressLine1={setAddressLine1} 
                                 setAddressLine2={setAddressLine2} 

@@ -61,7 +61,7 @@ function Login (props) {
                                     id='email' 
                                     placeholder='Invalid Login' 
                                     onChange={handleLoginInputs}
-                                    autoComplete="username"
+                                    autoComplete="email"
                                 />
                             </div>
                             :
@@ -73,7 +73,7 @@ function Login (props) {
                                     id='email' 
                                     placeholder='Enter An Email' 
                                     onChange={handleLoginInputs}
-                                    autoComplete="username"
+                                    autoComplete="email"
                                 />
                             </div>
                         }
