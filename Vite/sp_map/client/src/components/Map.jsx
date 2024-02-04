@@ -6,66 +6,67 @@ const token = import.meta.env.VITE_MB_Mapbox_Token;
 mapboxgl.accessToken = token;
 
 function Map() {
-
     const [user, setUser] = useState([]);
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng, setLng] = useState((Math.random() - 0.5) * 360);
     const [lat, setLat] = useState((Math.random() - 0.5) * 100);
     const [zoom, setZoom] = useState(1);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const [popupVisible, setPopupVisible] = useState(false);
 
-    // Get all users from DB to build pins
+
     useEffect(() => {
-        window.scrollTo(0,0) // scroll to top
-        axios
-        .get("http://localhost:8000/api/allusers")
-        .then((res) => {
-            setUser(res.data);
-        })
-        .catch((err) => {
-            console.log("Something went wrong when gathering pins!");
-        });
+        window.scrollTo(0, 0);
+        axios.get("http://localhost:8000/api/allusers")
+            .then((res) => {
+                setUser(res.data);
+            })
+            .catch((err) => {
+                console.log("Something went wrong when gathering pins!");
+            });
     }, []);
 
-    // // SPHQ Pin
     const geojson = {
         type: 'FeatureCollection',
         features: [
             {
                 type: 'Feature',
                 geometry: {
-                type: 'Point',
-                coordinates: [-122.483261, 45.614846]
+                    type: 'Point',
+                    coordinates: [-122.483261, 45.614846],
                 },
                 properties: {
-                title: 'Mapbox',
-                description: 'Street Parking HQ',
-                JVM: 'HQ'
-                }
+                    title: 'Mapbox',
+                    description: 'Street Parking HQ',
+                    JVM: 'HQ',
+                },
             },
-        ]
+        ],
     };
 
-    // // Initialize Map
     useEffect(() => {
-        if (map.current) return; // initialize map only once
+        if (map.current) return;
         map.current = new mapboxgl.Map({
-        attributionControl: false,
-        container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/outdoors-v12',
-        center: [lng, lat],
-        zoom: zoom,
+            attributionControl: false,
+            container: mapContainer.current,
+            style: 'mapbox://styles/mapbox/outdoors-v12',
+            center: [lng, lat],
+            zoom: zoom,
         });
-        // // Custom Map Footer Tag
+
         map.current.addControl(
             new mapboxgl.AttributionControl({
-                customAttribution:
-                '<a href="https://streetparking.com/" target="_blank">Street Parking</a>',
+                customAttribution: '<a href="https://streetparking.com/" target="_blank">Street Parking</a>',
             })
         );
-        // // Add in Map Controlls (Zoom and Compass)
-        map.current.addControl(new mapboxgl.NavigationControl({ showCompass: true, showZoom: true }));
-        // // Create On Loading "fly to" Effect
+
+        map.current.addControl(
+            new mapboxgl.NavigationControl({
+                showCompass: true, showZoom: true 
+            })
+        );
+
         map.current.on('load', () => {
             map.current.flyTo({
                 center: [-98.34462, 39.494143],
@@ -73,24 +74,22 @@ function Map() {
                 speed: 1.6,
                 curve: 1.42,
                 easing(t) {
-                return t;
+                    return t;
                 },
             });
         });
-        // // Mark HQ Location with Custom Pin
+
         for (const feature of geojson.features) {
             const el = document.createElement('div');
-            el.className = "Marker HQ"
-            // Add Pins To Map
+            el.className = "Marker HQ";
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
                 .addTo(map.current);
         }
     }, []);
 
-    // Load pins once user data is ready
     useEffect(() => {
-    if (!map.current || user.length === 0) return; // wait until map is loaded and user data is available
+        if (!map.current || user.length === 0) return;
         for (const oneUser of user) {
             const el = document.createElement('div');
             if (oneUser.JVM === 'Pato') {
@@ -102,10 +101,32 @@ function Map() {
             } else if (oneUser.JVM === '') {
                 el.className = 'Marker';
             }
-            // Add Pins To Map
+            const descriptionText = 
+            `
+            <h1>${oneUser.userName}</h1>
+            <br/>
+
+            <p>JVM Team: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ${oneUser.JVM}</span></p>
+            <br/>
+
+            <p>Instagram:  <a className="ProfileText" href={"https://www.instagram.com/${oneUser.instagram}"} target="_blank" rel="noopener noreferrer">${oneUser.instagram}</a></p>
+            <br/>
+
+            <p>Facebook:  <a className="ProfileText" href={"https://www.facebook.com/${oneUser.facebook}"} target="_blank" rel="noopener noreferrer">${oneUser.facebook}</a></p>
+            <br/>
+
+            <p>Spotify:  <a className="ProfileText" href={"http://open.spotify.com/user/${oneUser.spotify}"} target="_blank" rel="noopener noreferrer">${oneUser.spotify}</a></p>
+            `
             new mapboxgl.Marker(el)
                 .setLngLat(oneUser.coordinates)
-                .addTo(map.current);
+                .setPopup(new mapboxgl.Popup().setHTML(
+
+                    descriptionText
+
+                    )) // add popup
+                .addTo(map.current)
+                .getElement()
+
         }
     }, [user]);
 
