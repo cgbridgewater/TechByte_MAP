@@ -1,6 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
+import patoIcon from "../assets/pato_icon.png"
+import galloIcon from "../assets/gallo_icon.png"
+import palomaIcon from "../assets/paloma_icon.png"
+import KeyBanner from "../assets/key_banner.png"
+import KeyLogo from "../assets/Key_Logo_Round.png"
 
 const token = import.meta.env.VITE_MB_Mapbox_Token;
 mapboxgl.accessToken = token;
@@ -12,9 +17,6 @@ function Map() {
     const [lng, setLng] = useState((Math.random() - 0.5) * 360);
     const [lat, setLat] = useState((Math.random() - 0.5) * 100);
     const [zoom, setZoom] = useState(1);
-    const [selectedUser, setSelectedUser] = useState(null);
-    const [popupVisible, setPopupVisible] = useState(false);
-
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -79,11 +81,40 @@ function Map() {
             });
         });
 
+        const SPHQMarkerInfo = `
+        <div>
+            <h1>Street Parking HQ</h1>
+            <br/>
+            
+            <div>
+                <img className="JVMicon" src="${KeyLogo}" alt="Team Icon" />
+            </div>
+            <br/>
+            <div>
+                <p>Instagram:</p>
+                <a href="https://www.instagram.com/streetparking/" target="_blank" rel="noopener noreferrer">Street Parking</a>
+            </div>
+            <br/>
+            <div>
+                <p>Facebook:</p>
+                <a href="https://www.facebook.com/streetparkingfitness" target="_blank" rel="noopener noreferrer">Street Parking Fitness</a>
+            </div>
+            <br/>
+            <div>
+                <p>YouTube:</p>
+                <a href="https://www.youtube.com/streetparking" target="_blank" rel="noopener noreferrer">Street Parking YouTube</a>
+            </div>
+        </div>
+        `
+
+
+
         for (const feature of geojson.features) {
             const el = document.createElement('div');
             el.className = "Marker HQ";
             new mapboxgl.Marker(el)
                 .setLngLat(feature.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup().setHTML(SPHQMarkerInfo))
                 .addTo(map.current);
         }
     }, []);
@@ -101,32 +132,48 @@ function Map() {
             } else if (oneUser.JVM === '') {
                 el.className = 'Marker';
             }
-            const descriptionText = 
-            `
-            <h1>${oneUser.userName}</h1>
-            <br/>
 
-            <p>JVM Team: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ${oneUser.JVM}</span></p>
-            <br/>
+            const JVMTeam = () => {
+                if( oneUser.JVM == "Pato" ) {
+                    return patoIcon
+                } else if ( oneUser.JVM == "Gallo" ){
+                    return galloIcon
+                } else if ( oneUser.JVM == "Paloma" ){
+                    return palomaIcon
+                } else 
+                    return KeyBanner
+            };
 
-            <p>Instagram:  <a className="ProfileText" href={"https://www.instagram.com/${oneUser.instagram}"} target="_blank" rel="noopener noreferrer">${oneUser.instagram}</a></p>
-            <br/>
 
-            <p>Facebook:  <a className="ProfileText" href={"https://www.facebook.com/${oneUser.facebook}"} target="_blank" rel="noopener noreferrer">${oneUser.facebook}</a></p>
-            <br/>
-
-            <p>Spotify:  <a className="ProfileText" href={"http://open.spotify.com/user/${oneUser.spotify}"} target="_blank" rel="noopener noreferrer">${oneUser.spotify}</a></p>
-            `
+            const userMarkerInfo = 
+            `<div>
+                <h1>${oneUser.userName}</h1>
+                <br/>
+                
+                <div>
+                    <img className="JVMicon" src="${JVMTeam()}" alt="Team Icon" />
+                </div>
+                <br/>
+                <div>
+                    <p>Instagram:</p>
+                    <a href="https://www.instagram.com/${oneUser.instagram}" target="_blank" rel="noopener noreferrer">${oneUser.instagram}</a>
+                </div>
+                <br/>
+                <div>
+                    <p>Facebook:</p>
+                    <a href="https://www.facebook.com/${oneUser.facebook}" target="_blank" rel="noopener noreferrer">${oneUser.facebook}</a>
+                </div>
+                <br/>
+                <div>
+                    <p>Spotify:</p>
+                    <a href="http://open.spotify.com/user/${oneUser.spotify}" target="_blank" rel="noopener noreferrer">${oneUser.spotify}</a>
+                </div>
+            </div>`
+            
             new mapboxgl.Marker(el)
                 .setLngLat(oneUser.coordinates)
-                .setPopup(new mapboxgl.Popup().setHTML(
-
-                    descriptionText
-
-                    )) // add popup
+                .setPopup(new mapboxgl.Popup().setHTML(userMarkerInfo))
                 .addTo(map.current)
-                .getElement()
-
         }
     }, [user]);
 
@@ -136,5 +183,7 @@ function Map() {
         </div>
     );
 }
+
+
 
 export default Map;

@@ -15,7 +15,7 @@
 /* TITLE STYLE */
 .Title, .SubTitle, .Signup {
     text-align: center;
-    color: whitesmoke;
+    color: white;
 }
 
 .Title {
@@ -123,7 +123,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 .HQ {
     background-image: url("./assets/Key_Logo_Round.png");
     box-shadow: 0px 25px 8px -10px #000000fe;
-    z-index: 999;
+    z-index: 10;
 }
 
 .Pato {
@@ -141,6 +141,81 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     box-shadow: 0px 25px 5px -10px #c13848fe;
 }
 /* END MARKER STYLES */
+
+/* MAP MARKER POPUP */
+
+.mapboxgl-popup {
+    z-index: 999;
+}
+
+.mapboxgl-popup-content {
+    width: 250px;
+    background-color: black;
+    color: white;
+    border: 3px solid #c89211;
+    padding: 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.9);
+    z-index: 9999;
+}
+
+.mapboxgl-popup-content div div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mapboxgl-popup-content h1 {
+    color: #C89211;
+    text-align: center;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.mapboxgl-popup-content h3 {
+    margin: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mapboxgl-popup-content p {
+    margin: 4px;
+    color: #C89211;
+    font-size: 14px;
+}
+
+.mapboxgl-popup-content a {
+    margin: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mapboxgl-popup-content img {
+    height: 55px;
+    width: 55px;
+    border:2px solid #C89211;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.mapboxgl-popup-close-button {
+    background-color: #C89211;
+    color: white;
+    border: none;
+    margin: 2px 2px 0 0;
+    padding: 5px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.mapboxgl-popup-close-button:hover {
+    background-color: red;
+    color: white;
+}
+
+/* END MAP MARKER POPUP */
+
 
 /* BAD LINK PAGE */
 .YikesContainer {
@@ -226,6 +301,11 @@ input#confirmPassword
     border-radius: 5px;
     text-align: center;
     color:#C89211;
+    outline: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 select#JVM {
@@ -234,16 +314,78 @@ select#JVM {
     line-height: 20px;
     height: 27.2px;
     font-size: 16px;
+    color:#C89211;
     border: 2px solid #C89211;
     border-radius: 5px;
     text-align: end;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 select#JVM option {
     width: 200px;
     text-align: center;
-    background-color: white;
-    color: #C89211;
+    color: black;
+    background: #c0c0c0;
+}
+
+input.geoapify-autocomplete-input:hover,
+input#userName:hover,
+input#instagram:hover,
+input#facebook:hover,
+input#spotify:hover,
+input#email:hover,
+input#password:hover,
+input#confirmPassword:hover,
+select#JVM:hover
+{
+    background: #c0c0c0;
+    color: black;
+}
+
+input.geoapify-autocomplete-input:focus,
+input#userName:focus,
+input#instagram:focus,
+input#facebook:focus,
+input#spotify:focus,
+input#email:focus,
+input#password:focus,
+input#confirmPassword:focus,
+select#JVM:focus
+{
+    -webkit-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
+    -moz-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
+    box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
+    border: 2px solid darkorange;
+    background: #c0c0c0;
+    color: black;
+}
+
+input.geoapify-autocomplete-input:-webkit-autofill,
+input#userName:-webkit-autofill,
+input#instagram:-webkit-autofill,
+input#facebook:-webkit-autofill,
+input#spotify:-webkit-autofill,
+input#email:-webkit-autofill,
+input#password:-webkit-autofill,
+input#confirmPassword:-webkit-autofill,
+select#JVM:-webkit-autofill,
+input.geoapify-autocomplete-input:autofill,
+input#userName:autofill,
+input#instagram:autofill,
+input#facebook:autofill,
+input#spotify:autofill,
+input#email:autofill,
+input#password:autofill,
+input#confirmPassword:autofill,
+select#JVM:autofill
+{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    border: 2px solid #C89211;
 }
 
 .geoapify-close-button svg {
