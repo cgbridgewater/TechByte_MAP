@@ -6,7 +6,7 @@ module.exports = {
 
     // // // FIND ALL USERS
         findAll : (req,res) => {
-            User.find()
+            User.find({}, 'userName coordinates JVM instagram spotify facebook') // only send relative data to client
                 .then(results => res.json(results))
                 .catch(err => res.status(400).json(err))
         },
@@ -80,7 +80,7 @@ module.exports = {
     getOne: (req, res) => {
     const userToken = req.cookies.usertoken;  // Get the user token from the cookie
     const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-    User.findOne({ _id: decodedToken.id })  // Use the decoded user id to retrieve the user's profile
+    User.findOne({ _id: decodedToken.id }, 'userName coordinates addressLine1 addressLine2 email JVM instagram spotify facebook')  // Use the decoded user id to retrieve the user's profile // only send relative data to client
         .then(user => {
             if (!user) {  // Check if user exists
             return res.status(404).json({ message: "User not found" });
