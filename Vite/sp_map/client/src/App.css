@@ -72,6 +72,7 @@
     min-height: 375px;
     min-width: 370px;
     border: 5px solid #C89211;
+    border-radius: 5px;
 }
 
 .MapBox {
@@ -143,7 +144,6 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 /* END MARKER STYLES */
 
 /* MAP MARKER POPUP */
-
 .mapboxgl-popup {
     z-index: 999;
 }
@@ -152,7 +152,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     width: 250px;
     background-color: black;
     color: white;
-    border: 3px solid #c89211;
+    border: 4px solid #c89211;
     padding: 20px 20px;
     border-radius: 5px;
     box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.9);
@@ -205,9 +205,9 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     background-color: #C89211;
     color: white;
     border: none;
-    margin: 2px 2px 0 0;
+    margin: 4px 4px 0 0;
     padding: 5px 10px;
-    border-radius: 2px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -246,7 +246,9 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 
 .Yikes {
     margin: 0 auto;
-    width: 380px;
+    width: 370px;
+    border: 4px solid #D7705B;
+    border-radius: 5px;
 }
 /* BADLINK PAGE */
 
@@ -267,6 +269,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     align-items: center;
     flex-direction: column;
     border: 5px double #C89211;
+    border-radius: 5px;
     padding: 10px;
     width: 330px;
 }
@@ -346,7 +349,7 @@ input#confirmPassword:hover,
 select#JVM:hover
 {
     background: #c0c0c0;
-    color: black;
+    color: #C89211;
 }
 
 input.geoapify-autocomplete-input:focus,
@@ -364,7 +367,7 @@ select#JVM:focus
     box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
     border: 2px solid darkorange;
     background: #c0c0c0;
-    color: black;
+    color: #C89211;
 }
 
 input.geoapify-autocomplete-input:-webkit-autofill,
@@ -388,6 +391,7 @@ select#JVM:autofill
 {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
     border: 2px solid #C89211;
+    -webkit-text-fill-color: #C89211;
 }
 
 .geoapify-close-button svg {
@@ -447,14 +451,16 @@ select#JVM:autofill
 }
 
 .Disclaimer {
-    margin-top: 30px;
+    width: 370px;
+    margin: 30px auto 0;
     font-size: 14px;
     color: #C89211;
     text-align: center;
 }
 
 .DisclaimerText {
-    margin-top: 10px;
+    width: 370px;
+    margin: 10px auto 0;
     font-size: 14px;
     color: white;
     text-align: center;
@@ -524,6 +530,7 @@ select#JVM:autofill
     margin: 10px auto 0;
     padding: 15px;
     border: 5px double #C89211;
+    border-radius: 5px;
 }
 
 .ProfileFlex {
@@ -538,6 +545,13 @@ select#JVM:autofill
     text-align: center;
     padding-top: 20px;
     Color:white;
+}
+
+.ProfileSubTitle {
+    text-align: center;
+    color: #C89211;
+    margin: 10px 0;
+    font-size: 12px;
 }
 
 .JVMicon {
@@ -574,7 +588,7 @@ select#JVM:autofill
     justify-content: center;
     text-decoration: none;
     border: 1px solid white;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .ProfileUpdate:hover {
@@ -626,7 +640,7 @@ select#JVM:autofill
 
 .ProfileToMap {
     position: relative;
-    padding-left: 7px;
+    padding-left: 9px;
     color: #C89211;
     font-size: 18px;
 }
@@ -639,7 +653,7 @@ select#JVM:autofill
 
 .ProfileDelete {
     position: relative;
-    padding-right: 7px;
+    padding-right: 9px;
     color: red;
     font-size: 18px;
 }
