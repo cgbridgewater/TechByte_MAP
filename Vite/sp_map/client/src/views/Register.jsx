@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import Autocomplete from "../components/Autocomplete"
 import axios from 'axios';
+import DisclaimerAddress from '../components/DisclaimerAddress';
 
 function Register (props) {
 
@@ -203,16 +204,8 @@ function Register (props) {
                     </div>
                 </form>
                 {/* END FORM */}
-                {/* Disclaimer */}
-                <p className='Disclaimer'><b>Disclaimer - </b>This info will be seen by all who view the map.</p>
-                <p className='DisclaimerText'>
-                    The location will shown exactly as you enter it. 
-                    <br />
-                    The more detailed address you provide, 
-                    <br />
-                    The more accurate it will be.
-                </p>
-                {/* END Disclaimer */}
+                {/* DISCLAIMER INSERT*/}
+                <DisclaimerAddress />
                 {/* Return To Map */}
                 <Link className="MapLink" to="/">Back To The Map</Link>
             </div>

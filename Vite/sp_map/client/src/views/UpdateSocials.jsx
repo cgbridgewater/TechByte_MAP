@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios';
+import DisclaimerSocials from '../components/DisclaimerSocials';
 
 function UpdateSocials (props) {
 
@@ -61,8 +62,6 @@ function UpdateSocials (props) {
     return (
         // MAIN CONTAINER
         <div className="MainContainer">
-            {/* AUTH ERROR TAG */}
-            <h2 className='Unauthorized'>{props.authorized}</h2>
             {/* LOGIN CONTAINER */}
             <div className="LoginContainer">
                 {/* <!-- FORM WRAPPER --> */}
@@ -140,6 +139,7 @@ function UpdateSocials (props) {
                                 <option value="Paloma">Team Paloma</option>
                             </select>
                         </div>
+                        <p className='ProfileSubTitle'>(Only enter account handles below, not entire links)</p>
                         {/* INSTAGRAM */}
                         { errors.instagram ? 
                             <div className='InputContainer'>
@@ -227,6 +227,8 @@ function UpdateSocials (props) {
                 </div>
                 {/* END FORM CONTAINER */}
             </div>
+            {/* DISCLAIMER INSERT */}
+            <DisclaimerSocials />
             {/* END MAIN CONTAINER */}
         </div>
     )

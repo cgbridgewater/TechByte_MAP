@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import Autocomplete from "../components/Autocomplete"
 import axios from 'axios';
+import DisclaimerAddress from '../components/DisclaimerAddress';
 
 function UpdateLocation (props) {
 
@@ -46,8 +47,6 @@ function UpdateLocation (props) {
     return (
         // MAIN CONTAINER
         <div className="MainContainer">
-            {/* AUTH ERROR TAG */}
-            <h2 className='Unauthorized'>{props.authorized}</h2>
             {/* LOGIN CONTAINER */}
             <div className="LoginContainer">
                 {/* <!-- FORM WRAPPER --> */}
@@ -86,8 +85,10 @@ function UpdateLocation (props) {
                 </div>
                 {/* END FORM CONTAINER */}
             </div>
-            {/* END MAIN CONTAINER */}
+            {/* Disclaimer Insert */}
+            <DisclaimerAddress />
         </div>
+        // END MAIN CONTAINER //
     )
 }
 
