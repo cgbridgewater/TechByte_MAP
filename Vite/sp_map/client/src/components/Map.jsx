@@ -74,7 +74,8 @@ function Map() {
             })
         });
         // SPHQ Pop Up HTML
-        const SPHQMarkerInfo = `
+        const SPHQMarkerInfo =
+        `
         <div>
             <h1>Street Parking HQ</h1>
             <div>
@@ -90,7 +91,7 @@ function Map() {
             </div>
             <div>
                 <p>YouTube:</p>
-                <a href="https://www.youtube.com/streetparking" target="_blank" rel="noopener noreferrer">Street Parking</a>
+                <a href="https://www.youtube.com/streetparking" target="_blank" rel="noopener noreferrer">StreetParking</a>
             </div>
             <div>
                 <p>Spotify:</p>
