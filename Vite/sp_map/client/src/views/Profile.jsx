@@ -13,7 +13,7 @@ function Profile(props) {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true); // Add loading state
     const [showSpinner, setShowSpinner] = useState(true); // State for showing spinner
-    const [ userToken, setUserToken ] = useState("");
+    const [ userToken ] = useState("");
     const [ userName, setUserName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ JVM, setJVM ] = useState("");
@@ -22,7 +22,7 @@ function Profile(props) {
     const [ spotify, setSpotify ] = useState("");
     const [ instagram, setInstagram ] = useState("");
     const [ facebook, setFacebook ] = useState("");
-    const [ getErrors, setGetErrors] = useState("null");
+    // const [ getErrors, setGetErrors] = useState("null");
 
     const JVMTeam = () => {
         if( JVM == "Pato" ) {

@@ -10,32 +10,25 @@ import KeyLogo from "../assets/Key_Logo_Round.png"
 mapboxgl.accessToken = import.meta.env.VITE_MB_Mapbox_Token;
 
 function Map() {
-    const [user, setUser] = useState([]);
-
-    
     const mapContainer = useRef(null);
     const map = useRef(null);
+    const flyToDuration = 2500;
+    const [user, setUser] = useState([]);
     const [lng] = useState((Math.random() - 0.5) * 360);
     const [lat] = useState((Math.random() - 0.5) * 100);
     const [zoom] = useState(1);
 
-
-
-    // GET USERS TO CREATE PINS
     useEffect(() => {
+        // GET USERS TO CREATE PINS
         window.scrollTo(0, 0);
         axios.get("http://localhost:8000/api/allusers")
             .then((res) => {
                 setUser(res.data);
-                console.log("cleaned data: ", res.data);
             })
             .catch((err) => {
-                console.log("ERROR : ", err)
                 console.log("Something went wrong when gathering pins!");
             });
-    }, []);
-
-    useEffect(() => {
+        // Create a new map
         if (map.current) return;
         map.current = new mapboxgl.Map({
             attributionControl: false,
@@ -44,32 +37,35 @@ function Map() {
             center: [lng, lat],
             zoom: zoom,
         });
-
+        // Create Custom Footer In Map For SP Link
         map.current.addControl(
             new mapboxgl.AttributionControl({
                 customAttribution: '<a href="https://streetparking.com/" target="_blank">Street Parking</a>',
             })
         );
-
+        // Add Map Controls
         map.current.addControl(
             new mapboxgl.NavigationControl({
                 showCompass: true, showZoom: true 
             })
         );
-
+        // Create A Fly To Animation To SPHQ From A Randomized Start Point On Map Load And Open SPHQ Pop Up
         map.current.on('load', () => {
             map.current.flyTo({
-                center: [-122.483261, 45.614846], //HQ LOCATION
-                // center: [-98.34462, 39.494143], // CENTER NA
+                center: [-122.483261, 45.267216], //Center For Popup to SPHQ
                 zoom: 8,
-                speed: 1.6,
+                duration: flyToDuration,
                 curve: 1.42,
                 easing(t) {
                     return t;
                 },
             });
+            setTimeout(() => {
+                SPHQMarker.click();
+            }, flyToDuration+250);
         });
 
+        // SPHQ Pop Up HTML
         const SPHQMarkerInfo = `
         <div>
             <h1>Street Parking HQ</h1>
@@ -99,14 +95,13 @@ function Map() {
         </div>
         `
         // CREATE SPHQ MARKER 
-        const el = document.createElement('div');
-        el.className = "Marker HQ";
-        new mapboxgl.Marker(el)
+        const SPHQMarker = document.createElement('div');
+        SPHQMarker.className = "Marker HQ";
+        new mapboxgl.Marker(SPHQMarker)
             .setLngLat([-122.483261, 45.614846])
             .setPopup(new mapboxgl.Popup().setHTML(SPHQMarkerInfo))
             .addTo(map.current);
-
-    }, []);
+        }, []);
 
     // // CREATE USER MARKERS // //
     useEffect(() => {
@@ -135,8 +130,6 @@ function Map() {
                     return `<div><img src="${palomaIcon}" alt="Team Icon" /></div>`
                 } else 
                     return `<div><img src="${KeyBanner}" alt="Team Icon" /></div>`
-                    
-                    
             };
             // Display Facebook if provided
             const facebookInfo = () => {
@@ -174,7 +167,7 @@ function Map() {
                     </div>
                     `
             };
-            // package up user popup info
+            // package up user marker popup info
             const userMarkerInfo = 
             `<div>
                 <h1>${oneUser.userName}</h1>
@@ -184,7 +177,7 @@ function Map() {
                 ${spotifyInfo()}
             </div>`
             
-            // package up user marker, popup and associated it to its location
+            // Add packaged up user marker, popup and associated it to its location THEN add it to the map
             new mapboxgl.Marker(el)
                 .setLngLat(oneUser.coordinates)
                 .setPopup(new mapboxgl.Popup().setHTML(userMarkerInfo))
