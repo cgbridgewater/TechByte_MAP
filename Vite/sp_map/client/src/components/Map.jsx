@@ -18,6 +18,7 @@ function Map() {
     const [lat] = useState((Math.random() - 0.5) * 100);
     const [zoom] = useState(1);
 
+    // CREATE INITIAL MAP AND SP MARKER
     useEffect(() => {
         // GET USERS TO CREATE PINS
         window.scrollTo(0, 0);
@@ -63,8 +64,15 @@ function Map() {
             setTimeout(() => {
                 SPHQMarker.click();
             }, flyToDuration+250);
+            // atmosphere styling //
+            map.current.setFog({
+                color: 'rgb(133, 179, 229)', // Lower atmosphere
+                'high-color': 'rgb(36, 92, 223)', // Upper atmosphere
+                'horizon-blend': 0.04, // Atmosphere thickness (default 0.2 at low zooms)
+                'space-color': 'rgb(11, 11, 25)', // Background color
+                'star-intensity': 0.7 // Background star brightness (default 0.35 at low zoooms )
+            })
         });
-
         // SPHQ Pop Up HTML
         const SPHQMarkerInfo = `
         <div>
