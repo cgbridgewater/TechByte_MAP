@@ -34,7 +34,7 @@ function Map() {
         map.current = new mapboxgl.Map({
             attributionControl: false,
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/outdoors-v12',
+            style: 'mapbox://styles/mapbox/outdoors-v12?optimize=true',
             center: [lng, lat],
             zoom: zoom,
         });
