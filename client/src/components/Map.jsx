@@ -52,9 +52,9 @@ function Map() {
         );
         // Create A Fly To Animation To SPHQ From A Randomized Start Point On Map Load And Open SPHQ Pop Up
         map.current.on('load', () => {
-            map.current.flyTo({
+            map.current.easeTo({
                 center: [-122.483261, 45.267216], //Center For Popup to SPHQ
-                zoom: 8,
+                zoom: 7.75,
                 duration: flyToDuration,
                 curve: 1.42,
                 easing(t) {
