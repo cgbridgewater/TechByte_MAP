@@ -82,23 +82,23 @@ function Map() {
                 <img src="${KeyLogo}" alt="Team Icon" />
             </div>
             <div>
-                <p>Instagram:</p>
+                <p><i class="fab fa-instagram-square"></i>&nbsp;</p>
                 <a href="https://www.instagram.com/streetparking/" target="_blank" rel="noopener noreferrer">StreetParking</a>
             </div>
             <div>
-                <p>Facebook:</p>
+                <p><i class="fab fa-facebook-square"></i>&nbsp;</p>
                 <a href="https://www.facebook.com/streetparkingfitness" target="_blank" rel="noopener noreferrer">StreetParkingFitness</a>
             </div>
             <div>
-                <p>YouTube:</p>
+                <p><i class="fab fa-youtube"></i>&nbsp;</p>
                 <a href="https://www.youtube.com/streetparking" target="_blank" rel="noopener noreferrer">StreetParking</a>
             </div>
             <div>
-                <p>Spotify:</p>
+                <p><i class="fab fa-spotify"></i>&nbsp;</p>
                 <a href="http://open.spotify.com/user/5xm55d6kzn5pwtd3y7qmfjegw?si=7700329fc8e24bf5" target="_blank" rel="noopener noreferrer">Street Parking</a>
             </div>
             <div>
-                <p>Podcast:</p>
+                <p><i class="fas fa-podcast"></i>&nbsp;</p>
                 <a href="https://open.spotify.com/show/1pFbX5YlC9zovLjp5XyImk?si=D0EmQRNSQAKLbdyDo4hnPg" target="_blank" rel="noopener noreferrer">Street Parking Podcast</a>
             </div>
         </div>
@@ -147,7 +147,7 @@ function Map() {
                 } else 
                     return `
                     <div>
-                        <p>Facebook:</p>
+                        <p><i class="fab fa-facebook-square"></i>&nbsp;</p>
                         <a href="https://www.facebook.com/${oneUser.facebook}" target="_blank" rel="noopener noreferrer">${oneUser.facebook}</a>
                     </div>
                     `
@@ -159,7 +159,7 @@ function Map() {
                 } else 
                     return `
                     <div>
-                        <p>Instagram:</p>
+                        <p><i class="fab fa-instagram-square"></i>&nbsp;</p>
                         <a href="https://www.instagram.com/${oneUser.instagram}" target="_blank" rel="noopener noreferrer">${oneUser.instagram}</a>
                     </div>
                     `
@@ -171,7 +171,7 @@ function Map() {
                 } else 
                     return `
                     <div>
-                        <p>Spotify:</p>
+                        <p><i class="fab fa-spotify"></i>&nbsp;</p>
                         <a href="http://open.spotify.com/user/${oneUser.spotify}" target="_blank" rel="noopener noreferrer">${oneUser.spotify}</a>
                     </div>
                     `
