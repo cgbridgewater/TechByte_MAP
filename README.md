@@ -1,3 +1,3 @@
-# Coding Dojo MERN Stack
+# Street Parking Members Map
 
-### This repo contains practice applications, assignments and snippets used during my learning at Coding Dojo during the MERN Full Stack section.
+### This is a application for Street Parking Members to register and share their location and social activities for meeting others in their area.
