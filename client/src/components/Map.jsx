@@ -44,6 +44,7 @@ function Map() {
         map.current.addControl(
             new mapboxgl.AttributionControl({
                 customAttribution: '<a href="https://streetparking.com/" target="_blank">Street Parking</a>',
+                compact: false,
             })
         );
         // Add Map Controls
@@ -156,15 +157,20 @@ function Map() {
             };
             // Display Instagram if provided
             const instagramInfo = () => {
-                if( !oneUser.instagram) {
-                    return "<div></div>"
-                } else 
+                if (!oneUser.instagram) {
+                    return "<div></div>";
+                } else {
+                    let instagramUsername = oneUser.instagram;
+                    if (instagramUsername.startsWith("@")) {
+                        instagramUsername = instagramUsername.substring(1);
+                    }
                     return `
                     <div>
                         <p><i class="fab fa-instagram-square"></i>&nbsp;</p>
-                        <a href="https://www.instagram.com/${oneUser.instagram}" target="_blank" rel="noopener noreferrer">${oneUser.instagram}</a>
+                        <a href="https://www.instagram.com/${instagramUsername}" target="_blank" rel="noopener noreferrer">${instagramUsername}</a>
                     </div>
-                    `
+                    `;
+                }
             };
             // Display Spotify if provided
             const spotifyInfo = () => {
