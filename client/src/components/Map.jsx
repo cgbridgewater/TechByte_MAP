@@ -33,6 +33,8 @@ function Map() {
         if (map.current) return;
         map.current = new mapboxgl.Map({
             attributionControl: false,
+            animation:true,
+            essential:true,
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/outdoors-v12?optimize=true',
             center: [lng, lat],
@@ -54,7 +56,7 @@ function Map() {
         map.current.on('load', () => {
             map.current.easeTo({
                 center: [-122.483261, 45.267216], //Center For Popup to SPHQ
-                zoom: 7.75,
+                zoom: 7.5,
                 duration: flyToDuration,
                 curve: 1.42,
                 easing(t) {
