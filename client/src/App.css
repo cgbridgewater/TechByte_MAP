@@ -1,11 +1,54 @@
+/* FONT IMPORT */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+:root {
+    --background: #010814 ;
+    --black: #0D1F2D;
+    --popup_background: #182445 ;
+    --border: #CBE5EC85;
+    --main_text: #CBE5EC;
+    --text_span: #efd780;
+    --card_text: #CBE5EC;
+    --purple: #261845;
+    --white: #FFF;
+    --font_size_default: 16px;
+    --red: #c40000;
+    --green: #638873;
+    --grey: #c0c0c0;
+    --dark_grey: #858484;
+}
+
 * {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
+#root {
+    overflow-x: hidden;
+}
+
+html, body, * {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    word-spacing: .097rem;
+    font-display: swap;
+}
+
+html {
+    font-size: var(--font_size_default);
+}
+
+body {
+    width: 100%;
+    background: var(--background)
+}
+
+
 .MainContainer {
-    background-color: black;
+    background-color: var(--background);
     width: 100dvw;
     min-height: 100dvh;
     background-attachment: scroll;
@@ -15,7 +58,7 @@
 /* TITLE STYLE */
 .Title, .SubTitle, .Signup {
     text-align: center;
-    color: white;
+    color: var(--main_text);
 }
 
 .Title {
@@ -23,7 +66,7 @@
 }
 
 .Gold {
-    color:#C89211
+    color:var(--text_span)
 }
 
 .Signup {
@@ -37,13 +80,14 @@
 .Unauthorized {
     text-align: center;
     padding-top: 20px;
-    color: red;
+    color: var(--red);
 }
 
 .RegisterLink, .LoginLink {
     display:inline-flex;
-    color: #C89211;
-	transform: scale(1.2, 1.2) translateY(-1px);
+    position: relative;
+    color: var(--text_span);
+	transform: scale(1.2, 1.2) translateY(-5px);
 }
 
 .RegisterLink {
@@ -52,6 +96,7 @@
 
 .LoginLink {
     margin-left: 10px;
+    top: 5px;
 }
 
 .RegisterLink:hover, .LoginLink:hover {
@@ -60,7 +105,7 @@
 }
 
 .Title span {
-    color: #C89211;
+    color: var(--text_span);
 }
 /* END TITLE STYLE */
 
@@ -71,38 +116,38 @@
     height:75dvh;
     min-height: 375px;
     min-width: 370px;
-    border: 5px solid #C89211;
+    border: 5px solid var(--border);
     border-radius: 5px;
 }
 
-.MapBox {
-    background-color: black;
-}
+/* .MapBox {
+    background-color: var(--background);
+} */
 
 .mapbox-improve-map {
     display: none;
 }
 
 .mapboxgl-ctrl-attrib {
-    border-top: 3px solid #C89211;
-    border-left: 3px solid #C89211;
+    border-top: 3px solid var(--border);
+    border-left: 3px solid var(--border);
 }
 
 .mapboxgl-ctrl-group {
-    border: 4px double #C89211
+    border: 4px double var(--text_span)
 }
 
 .mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-attrib-inner a {
-    background-color: black;
-    color: #C89211;
+    background-color: var(--background);
+    color: var(--text_span);
 }
 
 button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out span, .mapboxgl-ctrl-zoom-in span  {
-    background-color: #C89211;
+    background-color: var(--green);
 }
 
 .mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
-    background-color: transparent;
+    background-color: var(--card_text);
 }
 /* MAP STYLE */
 
@@ -112,34 +157,30 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     top:-30px;
     width: 25px;
     height: 25px;
-    border: 2px solid #C89211;
+    border: 2px solid var(--border);
     border-radius: 50%;
     background-image: url("./assets/default_key.png");
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 25px 8px -10px #000000fe;
+    box-shadow: 0px 25px 8px -10px var(--background);
     cursor: pointer;
 }
 
 .HQ {
     background-image: url("./assets/Key_Logo_Round.png");
-    box-shadow: 0px 25px 8px -10px #000000fe;
     z-index: 10;
 }
 
 .Pato {
     background-image: url("./assets/pato_key.png");
-    box-shadow: 0px 25px 5px -10px #0A5C36fe;
 }
 
 .Paloma {
     background-image: url("./assets/paloma_key.png");
-    box-shadow: 0px 25px 5px -10px #5F5D5Efe;
 }
 
 .Gallo {
     background-image: url("./assets/gallo_key.png");
-    box-shadow: 0px 25px 5px -10px #c13848fe;
 }
 /* END MARKER STYLES */
 
@@ -150,13 +191,13 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 
 .mapboxgl-popup-content {
     width: 280px;
-    background-color: black;
-    color: white;
-    border: 4px solid #C89211;
+    background-color: var(--background);
+    border: 4px solid var(--border);
     padding: 17px 5px 10px 5px;
     border-radius: 5px;
     box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.9);
     z-index: 9999;
+    opacity: 87%;
 }
 
 .mapboxgl-popup-content div div{
@@ -165,7 +206,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 }
 
 .mapboxgl-popup-content h1 {
-    color: #C89211;
+    color: var(--text_span);
     text-align: center;
     font-size: 24px;
     padding-top: 5px;
@@ -173,18 +214,25 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     text-transform: capitalize;
 }
 
-.mapboxgl-popup-content p {
+.mapboxgl-popup-content p, .mapboxgl-popup-content svg {
     margin: 4px;
-    color: #C89211;
+    color: var(--card_text);
     font-size: 14px;
+    fill: var(--card_text);
+    height: 18px;
+    filter: drop-shadow(.5px .5px 1px var(--card_text));
 }
 
 .mapboxgl-popup-content a {
     margin: 4px;
-    color: white;
+    color: var(--border);
     font-size: 14px;
     font-weight: 700;
     text-transform: capitalize;
+    
+    &:hover {
+        color: var(--white);
+    }
 }
 
 .mapboxgl-popup-content a:focus {
@@ -194,16 +242,16 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 .mapboxgl-popup-content img {
     height: 75px;
     width: 75px;
-    border:2px solid #C89211;
+    border:2px solid var(--border);
     border-radius: 50%;
     margin: 10px auto;
 }
 
 .mapboxgl-popup-close-button {
-    background-color: #C89211;
-    color: white;
+    background-color: var(--border);
+    color: var(--white);
     font-weight: 800;
-    border: none;
+    border: 2px solid var(--border);
     margin: 4px 4px 0 0;
     padding: 4px 8px;
     border-radius: 5px;
@@ -211,8 +259,8 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 }
 
 .mapboxgl-popup-close-button:hover {
-    background-color: red;
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
 }
 
 /* END MAP MARKER POPUP */
@@ -221,10 +269,10 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 @media (max-width: 430px) {
 	.MapContainer {
         height: 450px;
-        border: 3px solid #C89211;
+        border: 3px solid var(--border);
     }
     .mapboxgl-popup-content {
-        border: 4px solid #C89211;
+        border: 4px solid var(--border);
     }
     .mapboxgl-popup-content h1 {
         font-size: 22px;
@@ -242,7 +290,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 
 /* BAD LINK PAGE */
 .YikesContainer {
-    background-color: black;
+    background-color: var(--background);
     width: 100dvw;
     height: 100dvh;
     display: flex;
@@ -257,7 +305,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     width: 160px;
     height: 30px;
     background-color: #D7705B;
-    color: white;
+    color: var(--white);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -289,7 +337,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 5px double #C89211;
+    border: 5px double var(--border);
     border-radius: 5px;
     padding: 10px;
     width: 330px;
@@ -304,8 +352,13 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 }
 
 label {
-    color: #C89211;
+    color: var(--border);
     font-weight: 800;
+}
+
+label i {
+    color: var(--main_text);
+    filter: drop-shadow(0.5px 0.5px 2px var(--main_text));
 }
 
 input.geoapify-autocomplete-input,
@@ -322,17 +375,24 @@ input#confirmPassword
     line-height: 20px;
     height: 20px;
     font-size: 16px;
-    background-color: white;
-    border: 2px solid #C89211;
+    background-color: var(--grey);
+    border: 2px solid var(--border);
     border-radius: 5px;
     text-align: center;
-    color:#C89211;
+    color: var(--black);
     outline: none;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+
+    &::placeholder {
+        color: var(--purple);
+        opacity: .6;
+    }
 }
+
+
 
 select#JVM {
     width: 193.2px;
@@ -340,8 +400,9 @@ select#JVM {
     line-height: 20px;
     height: 27.2px;
     font-size: 16px;
-    color:#C89211;
-    border: 2px solid #C89211;
+    color: var(--black);
+    border: 2px solid var(--border);
+    background-color: var(--grey);
     border-radius: 5px;
     text-align: end;
     box-sizing: border-box;
@@ -355,8 +416,7 @@ select#JVM {
 select#JVM option {
     width: 200px;
     text-align: center;
-    color: black;
-    background: #c0c0c0;
+    color: var(--black);
 }
 
 input.geoapify-autocomplete-input:hover,
@@ -369,8 +429,8 @@ input#password:hover,
 input#confirmPassword:hover,
 select#JVM:hover
 {
-    background: #c0c0c0;
-    color: #C89211;
+    background: var(--dark_grey);
+    color: var(--black);
 }
 
 input.geoapify-autocomplete-input:focus,
@@ -387,8 +447,8 @@ select#JVM:focus
     -moz-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
     box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
     border: 2px solid darkorange;
-    background: #c0c0c0;
-    color: #C89211;
+    background: var(--dark_grey);
+    color: var(--black);
 }
 
 input.geoapify-autocomplete-input:-webkit-autofill,
@@ -410,33 +470,43 @@ input#password:autofill,
 input#confirmPassword:autofill,
 select#JVM:autofill
 {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    border: 2px solid #C89211;
-    -webkit-text-fill-color: #C89211;
+    -webkit-box-shadow: 0 0 0 30px var(--grey) inset !important;
+    border: 2px solid var(--border);
+    -webkit-text-fill-color: var(--black);
 }
 
 .geoapify-close-button svg {
-    color: red;
+    position: relative;
+    left: 3px;
+    color: var(--red);
+    background-color: var(--white);
+    border: thin solid var(--red);
+    border-radius: 5px;
+}
+.geoapify-close-button svg:hover {
+    color: var(--white);
+    background-color: var(--red);
+    border: thin solid var(--red);
 }
 
 .FormButton {
     margin-top: 10px;
     position: relative;
     padding: 3px 10px;
-    border: 2px solid white;
+    border: 2px solid var(--white);
     border-radius: 5px;
-    background: #C89211;
-    color: white;
+    background: var(--purple);
+    color: var(--white);
     font-weight: 800;
     transition: 0.15s;
 }
 
 .FormButton:hover {
-    border-color: #C89211;
-    background: white;
-    color: #C89211;
+    border-color: var(--purple);
+    background: var(--card_text);
+    color: var(--purple);
     transition: 0.15s;
-    box-shadow: 0px 4px 10px #C89211;
+    box-shadow: 0px 4px 10px var(--card_text);
 }
 
 .FormButton:active {
@@ -454,28 +524,28 @@ select#JVM:autofill
 }
 
 .SignIn {
-    color: white;
+    color: var(--main_text);
     text-align: end;
 }
 
 .FormGold {
     position: relative;
     margin-left: 14px;
-    color:#C89211
+    color: var(--text_span)
 }
 
 .FormGold:hover {
-    color: #C89211;
     top: -2px;
     transform: scale(1.2, 1.2);
     transition: 0.15s;
+    color: var(--white)
 }
 
 .Disclaimer {
     width: 370px;
     margin: 30px auto 0;
     font-size: 14px;
-    color: #C89211;
+    color: var(--text_span);
     text-align: center;
 }
 
@@ -483,25 +553,26 @@ select#JVM:autofill
     width: 370px;
     margin: 10px auto 0;
     font-size: 14px;
-    color: white;
+    color: var(--main_text);
     text-align: center;
 }
 
 .MapLink {
     position: relative;
     margin-top: 25px;
-    color: #C89211;
+    color: var(--text_span);
 }
 
 .MapLink:hover {
     transform: scale(1.2, 1.2);
     transition: 0.15s;
+    color: var(--white);
 }
 /* END FORM STYLES */
 
 /* PROFILE SPINNER */
 .SpinnerBackground {
-    background-color: black;
+    background-color: var(--background);
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -509,7 +580,7 @@ select#JVM:autofill
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: var(--white);
 }
 
 .Spinner{
@@ -550,7 +621,7 @@ select#JVM:autofill
     width: 345px;
     margin: 10px auto 0;
     padding: 15px;
-    border: 5px double #C89211;
+    border: 5px double var(--border);
     border-radius: 5px;
 }
 
@@ -580,7 +651,7 @@ select#JVM:autofill
     top: 12px;
     height: 80px;
     width: 75px;
-    border: 3px solid #C89211;
+    border: 3px solid var(--border);
     border-radius: 50%;
 }
 
@@ -589,7 +660,7 @@ select#JVM:autofill
     top: -2px;
     font-size: 22px;
     text-align: center;
-    color: white;
+    color: var(--text_span);
 }
 
 .ProfileFlex2 {
@@ -601,22 +672,22 @@ select#JVM:autofill
 
 .ProfileUpdate {
     width: 145px;
-    padding: 3px 5px;
+    padding: 8px;
     font-weight: 800;
-    color: white;
-    background-color: #C89211;
+    color: var(--white);
+    background-color: var(--border);
     display: flex;
     justify-content: center;
     text-decoration: none;
-    border: 1px solid white;
+    border: 1px solid var(--white);
     border-radius: 5px;
 }
 
 .ProfileUpdate:hover {
-    color: #C89211;
-    border-color: #C89211;
-    background-color: white;
-    box-shadow: 0px 4px 15px #C89211;
+    color: var(--main_text);
+    border-color: var(--main_text);
+    background-color: var(--purple);
+    box-shadow: 0px 4px 15px var(--main_text);
 }
 
 .ProfileUpdate:active {
@@ -625,24 +696,29 @@ select#JVM:autofill
 }
 
 .ProfileTitle {
-    color: #C89211;
+    color: var(--border);
+
+    i {
+        color: var(--main_text);
+        filter: drop-shadow(0.5px 0.5px 1px var(--main_text));
+    }
 }
 
 .ProfileText {
-    color: white;
+    color: var(--main_text);
     text-align: end;
     text-transform: capitalize;
     font-size: 18px;
 }
 
 .SeperationLine {
-    border: 1px solid #C89211;
+    border: 1px solid var(--border);
     width: 90%;
     margin: 15px auto;
 }
 
 .SeperationLineFull {
-    border: 3px solid #C89211;
+    border: 3px solid var(--border);
     width: 100%;
     margin: 10px auto 25px;
 }
@@ -651,9 +727,9 @@ select#JVM:autofill
     width: 345px;
     margin: 0 auto 0px;
     padding: 15px;
-    border-left: 5px double #C89211;
-    border-right: 5px double #C89211;
-    border-bottom: 5px double #C89211;
+    border-left: 5px double var(--border);
+    border-right: 5px double var(--border);
+    border-bottom: 5px double var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -662,26 +738,30 @@ select#JVM:autofill
 .ProfileToMap {
     position: relative;
     padding-left: 9px;
-    color: #C89211;
+    color: var(--text_span);
     font-size: 18px;
 }
 
 .Logout {
     position: relative;
-    color:white;
+    color:var(--main_text);
     font-size: 18px;
 }
 
 .ProfileDelete {
     position: relative;
     padding-right: 9px;
-    color: red;
+    color: var(--red);
     font-size: 18px;
+}
+
+.ProfileToMap, .Logout, .ProfileDelete {
+    transition: all 0.2s ease;
 }
 
 .ProfileToMap:hover, .Logout:hover, .ProfileDelete:hover {
     transform: scale(1.4, 1.4) translateY(-2px);
-    transition: 0.2s ;
+    transition: all 0.2s ease;
 }
 
 .ProfileToMap:active, .Logout:active, .ProfileDelete:active {

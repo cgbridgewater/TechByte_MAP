@@ -11,14 +11,12 @@ module.exports = {
                 .catch(err => res.status(400).json(err))
         },
 
-
     // // CHECK FOR COOKIES
     cookieTester : (req,res) => {
         User.find()
             .then(results => res.json({results}))
             .catch(err => res.status(400).json(err))
     },
-
 
     // // // REGISTER NEW USER  // // EMAIL CHECK CAUSES ISSUES DUE TO JSON ERROR LEVELS
     register :async (req, res) => {
@@ -48,7 +46,6 @@ module.exports = {
             .catch(err => res.status(400).json({message: "Problem with registration",error: err}));
     },
 
-
     // // // LOGIN A REGISTERED USER
     login :async (req, res) => {
         const user = await User.findOne({email: req.body.email}) // Search for matching email
@@ -75,7 +72,6 @@ module.exports = {
             });
     },
 
-
     // // // GET ONE USER BY JWT
     getOne: (req, res) => {
     const userToken = req.cookies.usertoken;  // Get the user token from the cookie
@@ -90,7 +86,6 @@ module.exports = {
         .catch(err => res.status(400).json(err));
     },
 
-
     // // // UPDATE USER BY JWT
         update : (req,res) => {
             const userToken = req.cookies.usertoken;  // Get the user token from the cookie
@@ -100,7 +95,6 @@ module.exports = {
                 .catch((err) => res.status(400).json(err))
         },
 
-
     // // // DELETE USER BY JWT
     deleteUser : (req,res) => {
         const userToken = req.cookies.usertoken;  // Get the user token from the cookie
@@ -109,7 +103,6 @@ module.exports = {
             .then(deleteConfirmation => res.json(deleteConfirmation))
             .catch(err => res.json({message: "Something went wrong with Delete",err}))
     }, 
-
 
     // // // LOG OUT (CLEAR ALL COOKIES!)
     logout: (req,res) => {
