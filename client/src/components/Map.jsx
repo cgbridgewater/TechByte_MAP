@@ -5,7 +5,7 @@ import patoIcon from "../assets/pato_icon.png"
 import galloIcon from "../assets/gallo_icon.png"
 import palomaIcon from "../assets/paloma_icon.png"
 import KeyBanner from "../assets/key_banner.png"
-import KeyLogo from "../assets/Key_Logo_Round.png"
+import KeyLogo from "../assets/queen_bee.png"
 
 mapboxgl.accessToken = import.meta.env.VITE_MB_Mapbox_Token;
 

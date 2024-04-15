@@ -16,6 +16,7 @@
     --green: #638873;
     --grey: #c0c0c0;
     --dark_grey: #858484;
+    --light_grey: #678092;
 }
 
 * {
@@ -134,7 +135,7 @@ body {
 }
 
 .mapboxgl-ctrl-group {
-    border: 4px double var(--text_span)
+    border: 4px double var(--dark_grey);
 }
 
 .mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-attrib-inner a {
@@ -143,7 +144,7 @@ body {
 }
 
 button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out span, .mapboxgl-ctrl-zoom-in span  {
-    background-color: var(--green);
+    background-color: var(--light_grey);
 }
 
 .mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
@@ -157,17 +158,17 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     top:-30px;
     width: 25px;
     height: 25px;
-    border: 2px solid var(--border);
+    border: thin solid var(--black);
     border-radius: 50%;
     background-image: url("./assets/default_key.png");
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 25px 8px -10px var(--background);
+    box-shadow: 0px 25px 8px -10px var(--black);
     cursor: pointer;
 }
 
 .HQ {
-    background-image: url("./assets/Key_Logo_Round.png");
+    background-image: url("./assets/queen_bee.png");
     z-index: 10;
 }
 
