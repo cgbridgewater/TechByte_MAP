@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import Autocomplete from "../components/Autocomplete"
 import axios from 'axios';
 import DisclaimerAddress from '../components/DisclaimerAddress';
+import FormSubmit from '../components/FormSubmitButton';
 
 function UpdateLocation (props) {
 
@@ -77,7 +78,7 @@ function UpdateLocation (props) {
                         }
                         {/* END ADDRESS Line 1 */}
                         {/* SUBMIT BUTTON */}
-                        <button type="submit" className='FormButton' >SUBMIT</button>
+                        <FormSubmit type="submit" text="SUBMIT" />
                     </form>
                     {/* <!-- END FORM SECTION --> */}
                     {/* LINK BACK TO PROFILE */}

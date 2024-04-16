@@ -156,14 +156,15 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 .Marker {
     position: absolute;
     top:-30px;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border: thin solid var(--black);
     border-radius: 50%;
-    background-image: url("./assets/default_key.png");
+    background-image: url("./assets/guest_bee.jpg");
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 25px 8px -10px var(--black);
+    background-color: var(--text_span);
+    box-shadow: 0px 25px 8px -10px rgba(0,0,0, .35);
     cursor: pointer;
 }
 
@@ -172,16 +173,17 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     z-index: 10;
 }
 
-.Pato {
-    background-image: url("./assets/pato_key.png");
+.Alumni {
+    background-image: url("./assets/alumni_bee.png");
+    background-color: white;
 }
 
-.Paloma {
-    background-image: url("./assets/paloma_key.png");
+.Staff {
+    background-image: url("./assets/bee-icon.jpg");
 }
 
-.Gallo {
-    background-image: url("./assets/gallo_key.png");
+.Student {
+    background-image: url("./assets/student_bee.jpg");
 }
 /* END MARKER STYLES */
 
@@ -221,7 +223,6 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     font-size: 14px;
     fill: var(--card_text);
     height: 18px;
-    filter: drop-shadow(.5px .5px 1px var(--card_text));
 }
 
 .mapboxgl-popup-content a {
@@ -358,8 +359,7 @@ label {
 }
 
 label i {
-    color: var(--main_text);
-    filter: drop-shadow(0.5px 0.5px 2px var(--main_text));
+    color: var(--text_span);
 }
 
 input.geoapify-autocomplete-input,
@@ -369,7 +369,9 @@ input#facebook,
 input#spotify,
 input#email,
 input#password,
-input#confirmPassword
+input#confirmPassword,
+input#github,
+input#linkedin
 {
     width: 180px;
     padding: 2px 5px 2px 5px;
@@ -395,7 +397,7 @@ input#confirmPassword
 
 
 
-select#JVM {
+select#Roll {
     width: 193.2px;
     padding: 2px 5px 2px 5px;
     line-height: 20px;
@@ -414,7 +416,7 @@ select#JVM {
     transition: all 0.2s ease-in-out;
 }
 
-select#JVM option {
+select#Roll option {
     width: 200px;
     text-align: center;
     color: var(--black);
@@ -428,7 +430,9 @@ input#spotify:hover,
 input#email:hover,
 input#password:hover,
 input#confirmPassword:hover,
-select#JVM:hover
+input#github:hover,
+input#linkedin:hover,
+select#Roll:hover
 {
     background: var(--dark_grey);
     color: var(--black);
@@ -442,7 +446,9 @@ input#spotify:focus,
 input#email:focus,
 input#password:focus,
 input#confirmPassword:focus,
-select#JVM:focus
+input#github:focus,
+input#linkedin:focus,
+select#Roll:focus
 {
     -webkit-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
     -moz-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
@@ -460,7 +466,9 @@ input#spotify:-webkit-autofill,
 input#email:-webkit-autofill,
 input#password:-webkit-autofill,
 input#confirmPassword:-webkit-autofill,
-select#JVM:-webkit-autofill,
+input#github:-webkit-autofill,
+input#linkedin:-webkit-autofill,
+select#Roll:-webkit-autofill,
 input.geoapify-autocomplete-input:autofill,
 input#userName:autofill,
 input#instagram:autofill,
@@ -469,7 +477,9 @@ input#spotify:autofill,
 input#email:autofill,
 input#password:autofill,
 input#confirmPassword:autofill,
-select#JVM:autofill
+input#github:autofill,
+input#linkedin:autofill,
+select#Roll:autofill
 {
     -webkit-box-shadow: 0 0 0 30px var(--grey) inset !important;
     border: 2px solid var(--border);
@@ -488,32 +498,6 @@ select#JVM:autofill
     color: var(--white);
     background-color: var(--red);
     border: thin solid var(--red);
-}
-
-.FormButton {
-    margin-top: 10px;
-    position: relative;
-    padding: 3px 10px;
-    border: 2px solid var(--white);
-    border-radius: 5px;
-    background: var(--purple);
-    color: var(--white);
-    font-weight: 800;
-    transition: 0.15s;
-}
-
-.FormButton:hover {
-    border-color: var(--purple);
-    background: var(--card_text);
-    color: var(--purple);
-    transition: 0.15s;
-    box-shadow: 0px 4px 10px var(--card_text);
-}
-
-.FormButton:active {
-    top: 2px;
-    transform: scale(0.9, 0.9);
-    transition: 0.15s;
 }
 
 .FormFlex {
@@ -587,7 +571,6 @@ select#JVM:autofill
 .Spinner{
     height: 300px;
     pointer-events: none;
-    border-radius: 50%;
     z-index: 1;
 }
 
@@ -596,6 +579,7 @@ select#JVM:autofill
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 50%;
     height: 150px;
     pointer-events: none;
     z-index: 999;
@@ -603,7 +587,7 @@ select#JVM:autofill
 
 @media (prefers-reduced-motion: no-preference) {
     .Spinner {
-    animation: Spinner-spin infinite 10s linear;
+    animation: Spinner-spin infinite 1s linear;
     }
 }
 
@@ -642,18 +626,19 @@ select#JVM:autofill
 
 .ProfileSubTitle {
     text-align: center;
-    color: #C89211;
+    color: var(--text_span);
     margin: 10px 0;
     font-size: 12px;
 }
 
-.JVMicon {
+.BeeIcon {
     position: relative;
     top: 12px;
     height: 80px;
     width: 75px;
     border: 3px solid var(--border);
     border-radius: 50%;
+    background-color: var(--text_span);
 }
 
 .LocationTitle, .SocialsTitle {
@@ -671,37 +656,47 @@ select#JVM:autofill
     margin: 10px 0 15px 0;
 }
 
-.ProfileUpdate {
-    width: 145px;
+.ButtonBox {
+    text-decoration: none;
+}
+
+.ButtonBox button, .FormButton {
+    margin: 16px 0;
     padding: 8px;
+    width: 150px;
+    text-decoration: none;
     font-weight: 800;
-    color: var(--white);
-    background-color: var(--border);
     display: flex;
     justify-content: center;
-    text-decoration: none;
+    align-items: center;
+    background-color: var(--border);
     border: 1px solid var(--white);
     border-radius: 5px;
+    box-shadow: 0px 17px 10px -10px  var(--dark_grey);
+    color: var(--white);
+    cursor: pointer;
 }
 
-.ProfileUpdate:hover {
-    color: var(--main_text);
+.ButtonBox button:hover, .FormButton:hover {
     border-color: var(--main_text);
     background-color: var(--purple);
-    box-shadow: 0px 4px 15px var(--main_text);
+    box-shadow: 0px 17px 10px -10px  var(--main_text);
+    color: var(--main_text);
 }
 
-.ProfileUpdate:active {
+.ButtonBox button:active, .FormButton:active {
     transform: scale(0.9, 0.9) translateY(2px);
     transition: 0.1s ;
+    box-shadow: 0px 14px 10px -4px  var(--main_text);
 }
 
 .ProfileTitle {
     color: var(--border);
+    font-size: 18px;
 
     i {
         color: var(--main_text);
-        filter: drop-shadow(0.5px 0.5px 1px var(--main_text));
+        font-size: 18px;
     }
 }
 
@@ -763,6 +758,7 @@ select#JVM:autofill
 .ProfileToMap:hover, .Logout:hover, .ProfileDelete:hover {
     transform: scale(1.4, 1.4) translateY(-2px);
     transition: all 0.2s ease;
+    filter: brightness(120%);
 }
 
 .ProfileToMap:active, .Logout:active, .ProfileDelete:active {

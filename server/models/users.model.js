@@ -19,13 +19,19 @@ const UserSchema = new mongoose.Schema({
         type: [Number],
         required: [true, "An address is required"]
     },
-    JVM: {
+    roll: {
         type: String,
     },
-    instagram: {
+    linkedin: {
+        type: String,
+    },
+    github: {
         type: String,
     },
     facebook: {
+        type: String,
+    },
+    instagram: {
         type: String,
     },
     spotify: {

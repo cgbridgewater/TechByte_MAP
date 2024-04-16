@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
-import patoIcon from "../assets/pato_icon.png"
-import galloIcon from "../assets/gallo_icon.png"
-import palomaIcon from "../assets/paloma_icon.png"
-import KeyBanner from "../assets/key_banner.png"
-import KeyLogo from "../assets/queen_bee.png"
+import AlumIcon from "../assets/alumni_bee.png"
+import StudentIcon from "../assets/student_bee.jpg"
+import StaffIcon from "../assets/bee-icon.jpg"
+import GuestIcon from "../assets/guest_bee.jpg"
+import  BeeLogo  from "../assets/queen_bee.png"
 
 mapboxgl.accessToken = import.meta.env.VITE_MB_Mapbox_Token;
 
@@ -83,33 +83,33 @@ function Map() {
             <h1>TechByte Learning</h1>
             <h1></h1>
             <div>
-                <img src="${KeyLogo}" alt="Team Icon" />
+                <img src="${ BeeLogo }" alt="Team Icon" />
             </div>
             <div>
                 <p><i class="fab fa-linkedin"></i>&nbsp;</p>
-                <a href="https://www.linkedin.com/company/techbyte-learning/" target="_blank" rel="noopener noreferrer">TechByte Learning</a>
+                <a href="https://www.linkedin.com/company/techbyte-learning/" target="_blank" rel="noopener noreferrer">TechByte's LinkedIn'</a>
             </div>
             <div>
                 <p><i class="fab fa-facebook-square"></i>&nbsp;</p>
-                <a href="https://www.facebook.com/techbytelearning" target="_blank" rel="noopener noreferrer">TechByte Learning</a>
+                <a href="https://www.facebook.com/techbytelearning" target="_blank" rel="noopener noreferrer">TechByte's Facebook</a>
             </div>
             <div>
                 <p><i class="fab fa-youtube"></i>&nbsp;</p>
-                <a href="https://www.youtube.com/@BeeDev_TechByte" target="_blank" rel="noopener noreferrer">TechByte Learning</a>
+                <a href="https://www.youtube.com/@BeeDev_TechByte" target="_blank" rel="noopener noreferrer">TechByte's YouTube</a>
             </div>
             <div>
                 <p><i class="fab fa-twitter-square"></i>&nbsp;</p>
-                <a href="https://www.twitter.com/techByteHive" target="_blank" rel="noopener noreferrer">TechByte Learning</a>
+                <a href="https://www.twitter.com/techByteHive" target="_blank" rel="noopener noreferrer">TechByte's Twitter</a>
             </div>
             <div>
                 <p><i class="fab fa-discord"></i>&nbsp;</p>
-                <a href="https://discord.com/channels/1203563873769365584/1205562887427588116" target="_blank" rel="noopener noreferrer">TechByte Learning</a>
+                <a href="https://discord.com/channels/1203563873769365584/1205562887427588116" target="_blank" rel="noopener noreferrer">TechByte's Discord</a>
             </div>
             <div>
                 <svg width="30" height="30" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
                     <path d="M23.58 13.38a.66.66 0 0 0-.28-.14c-.6.61-1.35 1.25-2 1.68-.31.2-.7.3-.95.3-.59 0-.84-.55-.91-1.44a54.8 54.8 0 0 1-.17-4.83c0-2.26-.52-3.8-1.88-3.92l-.18-.01c-.83 0-1.24.43-1.77 1.52-.46.94-1.17 2.3-2.48 4.9a34.72 34.72 0 0 1-3.5 5.58c-.31.38-.55.64-.78.8a.8.8 0 0 1-.44.14c-.43 0-.75-.36-.85-1.21a5.46 5.46 0 0 1-.04-.69c0-1.75.66-4.6 1.8-8.78.83-3.05.48-5.13-1.34-5.13h-.03c-.41 0-.75.16-1.08.42-.33.25-.65.81-.96 1.56-.34.84-2.42 5.03-5.74 7.2-.04.81.42 1.63 1.37 1.73.85.08 1.46-.28 2.24-.81l-.16.73a31.56 31.56 0 0 0-.5 2.6c-.46 4.2 1.47 6.27 3.74 6.27.38 0 .76-.05 1.13-.15 2.5-.63 4.9-3.51 7.75-10.13a18.8 18.8 0 0 0-.01 2.02c.19 3.8 1.68 4.93 3.8 4.93 1.6 0 3.09-.83 3.85-1.87a3.7 3.7 0 0 0 .79-2.19c-.02-.49-.17-.88-.42-1.08z"></path>
                 </svg>
-                <a href="https://discord.com/channels/1203563873769365584/1205562887427588116" target="_blank" rel="noopener noreferrer">TechByte Learning</a>
+                <a href="https://www.udemy.com/user/techbyte-learning/" target="_blank" rel="noopener noreferrer">TechByte's Udemy</a>
             </div>
         </div>
         `
@@ -129,26 +129,26 @@ function Map() {
         for (const oneUser of user) {
             // create user marker element
             const el = document.createElement('div');
-            // select user marker icon based on JVM team
-            if (oneUser.JVM === 'Pato') {
-                el.className = 'Marker Pato';
-            } else if (oneUser.JVM === 'Gallo') {
-                el.className = 'Marker Gallo';
-            } else if (oneUser.JVM === 'Paloma') {
-                el.className = 'Marker Paloma';
-            } else if (oneUser.JVM === '') {
+            // select user marker icon based on roll
+            if (oneUser.roll === 'Alumni') {
+                el.className = 'Marker Alumni';
+            } else if (oneUser.roll === 'Student') {
+                el.className = 'Marker Student';
+            } else if (oneUser.roll === 'Staff') {
+                el.className = 'Marker Staff';
+            } else if (oneUser.roll === '') {
                 el.className = 'Marker';
             }
-            // JVM Icon Selector
-            const JVMTeam = () => {
-                if( oneUser.JVM == "Pato" ) {
-                    return `<div><img src="${patoIcon}" alt="Team Icon" /></div>`
-                } else if ( oneUser.JVM == "Gallo" ){
-                    return `<div><img src="${galloIcon}" alt="Team Icon" /></div>`
-                } else if ( oneUser.JVM == "Paloma" ){
-                    return `<div><img src="${palomaIcon}" alt="Team Icon" /></div>`
+            // Roll Icon Selector
+            const SortRoll = () => {
+                if( oneUser.roll == "Alumni" ) {
+                    return `<div><img src="${ AlumIcon }" alt="Alumni Icon" /></div>`
+                } else if ( oneUser.roll == "Student" ){
+                    return `<div><img src="${ StudentIcon }" alt="Student Icon" /></div>`
+                } else if ( oneUser.roll == "Staff" ){
+                    return `<div><img src="${ StaffIcon }" alt="Staff Icon" /></div>`
                 } else 
-                    return `<div><img src="${KeyBanner}" alt="Team Icon" /></div>`
+                    return `<div><img src="${ GuestIcon }" alt="Guest Icon" /></div>`
             };
             // Display Facebook if provided
             const facebookInfo = () => {
@@ -195,7 +195,7 @@ function Map() {
             const userMarkerInfo = 
             `<div>
                 <h1>${oneUser.userName}</h1>
-                ${JVMTeam()}
+                ${SortRoll()}
                 ${instagramInfo()}
                 ${facebookInfo()}
                 ${spotifyInfo()}

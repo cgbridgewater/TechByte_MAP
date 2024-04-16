@@ -14,7 +14,7 @@ function Register (props) {
     const [ addressLine1, setAddressLine1 ] = useState("");
     const [ addressLine2, setAddressLine2 ] = useState("");
     const [ coordinates, setCoordinates ] = useState([])
-    const [ JVM, setJVM ] = useState("");
+    const [ roll, setRoll ] = useState("");
     const [ errors, setErrors ] = useState("");
     const [ emailErrors, setEmailErrors ] = useState("");
     const [state, setState] = useState ({
@@ -39,7 +39,7 @@ function Register (props) {
             coordinates,
             addressLine1,
             addressLine2,
-            JVM
+            roll
         }
         axios.post("http://localhost:8000/api/register", data, {withCredentials: true})
             .then(res => {
@@ -130,21 +130,21 @@ function Register (props) {
                             />
                         </div>
                     }
-                    {/* JVM TEAM SELECT */}
+                    {/* ROLL SELECT */}
                     <div className='InputContainer'>
-                        <label htmlFor="JVM">< i className="fas fa-user-friends fa-sm"></i>&nbsp; JVM:</label>
+                        <label htmlFor="roll">< i className="fas fa-user-plus fa-sm"></i>&nbsp; Roll:</label>
                         <select 
                             type="text" 
-                            name="JVM" 
-                            id='JVM' 
-                            placeholder='Enter JVM Team' 
-                            onChange={(e) => setJVM(e.target.value)}
-                            value= {JVM}
+                            name="roll" 
+                            id='Roll' 
+                            placeholder='Select Roll' 
+                            onChange={(e) => setRoll(e.target.value)}
+                            value= {roll}
                             >
-                                <option value="">No Team</option>
-                                <option value="Gallo">Team Gallo</option>
-                                <option value="Pato">Team Pato</option>
-                                <option value="Paloma">Team Paloma</option>
+                                <option value="">Guest</option>
+                                <option value="Staff">Staff</option>
+                                <option value="Student">Student</option>
+                                <option value="Alumni">Alumni</option>
                             </select>
                     </div>
                     {/* PASSWORD */}

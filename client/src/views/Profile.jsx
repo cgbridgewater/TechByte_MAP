@@ -2,11 +2,12 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import BadLink from "./BadLink";
-import patoIcon from "../assets/pato_icon.png"
-import galloIcon from "../assets/gallo_icon.png"
-import palomaIcon from "../assets/paloma_icon.png"
-import KeyBanner from "../assets/key_banner.png"
+import AlumIcon from "../assets/alumni_bee.png"
+import StudentIcon from "../assets/student_bee.jpg"
+import StaffIcon from "../assets/bee-icon.jpg"
+import GuestIcon from "../assets/guest_bee.jpg"
 import Spinner from "../components/Spinner";
+import Button from "../components/Button";
 
 function Profile(props) {
 
@@ -16,23 +17,24 @@ function Profile(props) {
     const [ userToken ] = useState("");
     const [ userName, setUserName ] = useState("");
     const [ email, setEmail ] = useState("");
-    const [ JVM, setJVM ] = useState("");
+    const [ roll, setRoll ] = useState("");
     const [ addressLine1, setAddressLine1 ] = useState("");
     const [ addressLine2, setAddressLine2 ] = useState("");
     const [ spotify, setSpotify ] = useState("");
     const [ instagram, setInstagram ] = useState("");
     const [ facebook, setFacebook ] = useState("");
-    // const [ getErrors, setGetErrors] = useState("null");
+    const [ linkedin, setLinkedin ] = useState("");
+    const [ github, setGithub ] = useState("");
 
-    const JVMTeam = () => {
-        if( JVM == "Pato" ) {
-            return <img className="JVMicon" src={patoIcon} alt="Pato" />;
-        } else if ( JVM == "Gallo" ){
-            return <img className="JVMicon" src={galloIcon} alt="Gallo" />;
-        } else if ( JVM == "Paloma" ){
-            return <img className="JVMicon" src={palomaIcon} alt="Paloma" />;
+    const SortRoll = () => {
+        if( roll == "Alumni" ) {
+            return <img className="BeeIcon" src={ AlumIcon } alt="Alumni" />;
+        } else if ( roll == "Student" ){
+            return <img className="BeeIcon" src={ StudentIcon } alt="Student" />;
+        } else if ( roll == "Staff" ){
+            return <img className="BeeIcon" src={ StaffIcon } alt="Staff" />;
         } else 
-            return <img className="JVMicon" src={KeyBanner} alt="No Team" />;
+            return <img className="BeeIcon" src={ GuestIcon } alt="Guest" />;
     };
 
     useEffect(() => {
@@ -49,20 +51,21 @@ function Profile(props) {
             .then((res) => {
             setUserName(res.data.userName);
             setEmail(res.data.email);
-            setJVM(res.data.JVM);
+            setRoll(res.data.roll);
             setAddressLine1(res.data.addressLine1);
             setAddressLine2(res.data.addressLine2);
             setSpotify(res.data.spotify);
             setInstagram(res.data.instagram);
             setFacebook(res.data.facebook);
+            setLinkedin(res.data.linkedin);
+            setGithub(res.data.github);
             setTimeout(() => {
                 setShowSpinner(false); // Turn off the spinner after 2 seconds
                 setIsLoading(false); // Switch Ternary If Load is successful
-            }, 500);
+            }, 1500);
             })
             .catch((err) => {
                 props.setAuthorized("Please log in to access profile pages!");
-                console.log("NO REP!");
             navigate("/login")
             });
         }
@@ -87,7 +90,7 @@ function Profile(props) {
                     {/* PROFILE TITLE AND LOGO */}
                     <div className="ProfileFlex">
                         <h1 className='ProfileHeader'><span className="Gold" style={{textTransform: 'capitalize'}}>{ userName }'s</span><br /> Profile Page</h1>
-                        { JVMTeam() }
+                        { SortRoll() }
                     </div>
                     {/* PROFILE CONTAINER */}
                     <div className="ProfileContainer">
@@ -96,7 +99,7 @@ function Profile(props) {
                             {/* LOCATION TITLE AND UPDATE BUTTON */}
                             <div className="ProfileFlex2">
                                 <h3 className="LocationTitle">Pin Location:</h3>
-                                <Link to="/profile/updateaddress" className="ProfileUpdate">Update Location</Link>
+                                <Button to="/profile/updateaddress" text="Update Location" />
                             </div>
                             {/* ADDRESS DISPLAY */}
                             <h4 className="ProfileTitle">< i className="fas fa-map-marked-alt fa-sm"></i>&nbsp; Address:</h4> 
@@ -109,19 +112,37 @@ function Profile(props) {
                             {/* SOCIAL TITLE AND UPDATE BUTTON */}
                             <div className="ProfileFlex2">
                                 <h3 className="SocialsTitle"> Social Media:</h3>
-                                <Link to="/profile/updatesocials" className="ProfileUpdate">Update Socials</Link>
+                                <Button to="/profile/updatesocials" text="Update Socials" />
                             </div>
                             {/* EMAIL DISPALY */}
                             <h4 className="ProfileTitle">< i className="fas fa-envelope fa-sm"></i>&nbsp; Email:</h4>
                             <h4 className="ProfileText">{email} </h4>
-                            {/* GOLD LINE */}
+                            {/* THICK LINE */}
                             <hr className="SeperationLine" />
-                            {/* JVM DISPLAY */}
-                            <h4 className="ProfileTitle">< i className="fas fa-user-friends fa-sm"></i>&nbsp; JVM Team:</h4>
-                            { !JVM ?
+                            {/* ROLL DISPLAY */}
+                            <h4 className="ProfileTitle">< i className="fas fa-user-friends fa-sm"></i>&nbsp; TechByte Roll:</h4>
+                            { !roll ?
                                 <h4 className="ProfileText">Not Provided</h4>
                             :
-                                <h4 className="ProfileText">{JVM}</h4>
+                                <h4 className="ProfileText">{roll}</h4>
+                            }
+                            {/* GOLD LINE */}
+                            <hr className="SeperationLine" />
+                            {/* ROLL DISPLAY */}
+                            <h4 className="ProfileTitle">< i className="fab fa-github fa-sm"></i>&nbsp; GitHub:</h4>
+                            { !github ?
+                                <h4 className="ProfileText">Not Provided</h4>
+                            :
+                                <h4 className="ProfileText">{github}</h4>
+                            }
+                            {/* GOLD LINE */}
+                            <hr className="SeperationLine" />
+                            {/* ROLL DISPLAY */}
+                            <h4 className="ProfileTitle">< i className="fab fa-linkedin fa-sm"></i>&nbsp; LinkedIn:</h4>
+                            { !linkedin ?
+                                <h4 className="ProfileText">Not Provided</h4>
+                            :
+                                <h4 className="ProfileText">{linkedin}</h4>
                             }
                             {/* GOLD LINE */}
                             <hr className="SeperationLine" />
