@@ -124,6 +124,7 @@ function Register (props) {
                     <div className='InputContainer'>
                             <label htmlFor="myAutocomplete">< i className="fas fa-map-marked-alt fa-sm"></i>&nbsp;  Address:</label>
                             <Autocomplete 
+                                id="myAutocomplete"
                                 setAddressLine1={setAddressLine1} 
                                 setAddressLine2={setAddressLine2} 
                                 setCoordinates={setCoordinates} 
@@ -136,7 +137,7 @@ function Register (props) {
                         <select 
                             type="text" 
                             name="roll" 
-                            id='Roll' 
+                            id='roll' 
                             placeholder='Select Roll' 
                             onChange={(e) => setRoll(e.target.value)}
                             value= {roll}
@@ -185,7 +186,7 @@ function Register (props) {
                         </div>
                     :
                         <div className='InputContainer'>
-                            <label htmlFor="password">< i className="fas fa-key fa-sm"></i>&nbsp; Confirm <br /> &nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
+                            <label htmlFor="confirmPassword">< i className="fas fa-key fa-sm"></i>&nbsp; Confirm <br /> &nbsp;&nbsp;&nbsp;&nbsp;Password:</label>
                             <input 
                                 type="password" 
                                 name='confirmPassword' 

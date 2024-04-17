@@ -6,7 +6,7 @@ module.exports = {
 
     // // // FIND ALL USERS
         findAll : (req,res) => {
-            User.find({}, 'userName coordinates roll instagram spotify facebook') // only send relative data to client
+            User.find({}, 'userName coordinates roll instagram spotify facebook github linkedin') // only send relative data to client
                 .then(results => res.json(results))
                 .catch(err => res.status(400).json(err))
         },
@@ -21,10 +21,11 @@ module.exports = {
     // // // REGISTER NEW USER  // // EMAIL CHECK CAUSES ISSUES DUE TO JSON ERROR LEVELS
     register :async (req, res) => {
         // // Check if email is in use
-        // const user = await User.findOne({email: req.body.email})
-        // if (user !== null) {
-        //     return res.status(400).json({message: "Email already exists!"})
-        // }
+        const user = await User.findOne({ email: req.body.email });
+        console.log(user,"user data")
+        if (user) {
+            return res.status(400).json({ message: "Email already exists!" });
+        }
         // // if email is origional create user
         User.create(req.body) // Create new user
             .then(newUser => {
@@ -87,13 +88,13 @@ module.exports = {
     },
 
     // // // UPDATE USER BY JWT
-        update : (req,res) => {
-            const userToken = req.cookies.usertoken;  // Get the user token from the cookie
-            const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-            User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
-                .then(updatedResults => res.json(updatedResults))
-                .catch((err) => res.status(400).json(err))
-        },
+    update : (req,res) => {
+        const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+        const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
+        User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
+            .then(updatedResults => res.json(updatedResults))
+            .catch((err) => res.status(400).json(err))
+    },
 
     // // // DELETE USER BY JWT
     deleteUser : (req,res) => {

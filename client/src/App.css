@@ -17,6 +17,7 @@
     --grey: #c0c0c0;
     --dark_grey: #858484;
     --light_grey: #678092;
+    --blue: rgb(96, 96, 254);
 }
 
 * {
@@ -121,10 +122,6 @@ body {
     border-radius: 5px;
 }
 
-/* .MapBox {
-    background-color: var(--background);
-} */
-
 .mapbox-improve-map {
     display: none;
 }
@@ -160,10 +157,10 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     height: 30px;
     border: thin solid var(--black);
     border-radius: 50%;
-    background-image: url("./assets/guest_bee.jpg");
+    background-image: url("./assets/stock_bee.png");
     background-size: cover;
     background-position: center;
-    background-color: var(--text_span);
+    background-color: var(--white);
     box-shadow: 0px 25px 8px -10px rgba(0,0,0, .35);
     cursor: pointer;
 }
@@ -174,16 +171,18 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 }
 
 .Alumni {
-    background-image: url("./assets/alumni_bee.png");
-    background-color: white;
+    background-image: url("./assets/stock_bee.png");
+    background-color: var(--blue);
 }
 
 .Staff {
-    background-image: url("./assets/bee-icon.jpg");
+    background-image: url("./assets/stock_bee.png");
+    background-color: var(--text_span);
 }
 
 .Student {
-    background-image: url("./assets/student_bee.jpg");
+    background-image: url("./assets/stock_bee.png");
+    background-color: var(--green);
 }
 /* END MARKER STYLES */
 
@@ -217,6 +216,31 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     text-transform: capitalize;
 }
 
+.mapboxgl-popup-content h2 {
+    color: var(--text_span);
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+#StaffText {
+    color: var(--text_span);
+}
+
+#StudentText {
+    color: var(--green);
+}
+
+#AlumniText {
+    color: var(--blue);
+    
+}
+
+#GuestText {
+    color: var(--white);
+}
+
 .mapboxgl-popup-content p, .mapboxgl-popup-content svg {
     margin: 4px;
     color: var(--card_text);
@@ -247,6 +271,7 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
     border:2px solid var(--border);
     border-radius: 50%;
     margin: 10px auto;
+    background-color: var(--white);
 }
 
 .mapboxgl-popup-close-button {
@@ -397,7 +422,7 @@ input#linkedin
 
 
 
-select#Roll {
+select#roll {
     width: 193.2px;
     padding: 2px 5px 2px 5px;
     line-height: 20px;
@@ -416,7 +441,7 @@ select#Roll {
     transition: all 0.2s ease-in-out;
 }
 
-select#Roll option {
+select#roll option {
     width: 200px;
     text-align: center;
     color: var(--black);
@@ -432,7 +457,7 @@ input#password:hover,
 input#confirmPassword:hover,
 input#github:hover,
 input#linkedin:hover,
-select#Roll:hover
+select#roll:hover
 {
     background: var(--dark_grey);
     color: var(--black);
@@ -448,7 +473,7 @@ input#password:focus,
 input#confirmPassword:focus,
 input#github:focus,
 input#linkedin:focus,
-select#Roll:focus
+select#roll:focus
 {
     -webkit-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
     -moz-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
@@ -468,7 +493,7 @@ input#password:-webkit-autofill,
 input#confirmPassword:-webkit-autofill,
 input#github:-webkit-autofill,
 input#linkedin:-webkit-autofill,
-select#Roll:-webkit-autofill,
+select#roll:-webkit-autofill,
 input.geoapify-autocomplete-input:autofill,
 input#userName:autofill,
 input#instagram:autofill,
@@ -479,7 +504,7 @@ input#password:autofill,
 input#confirmPassword:autofill,
 input#github:autofill,
 input#linkedin:autofill,
-select#Roll:autofill
+select#roll:autofill
 {
     -webkit-box-shadow: 0 0 0 30px var(--grey) inset !important;
     border: 2px solid var(--border);
@@ -635,10 +660,19 @@ select#Roll:autofill
     position: relative;
     top: 12px;
     height: 80px;
-    width: 75px;
+    width: 80px;
     border: 3px solid var(--border);
     border-radius: 50%;
+    background-color: var(--white);
+}
+.StaffBee, #StaffBee {
     background-color: var(--text_span);
+}
+.StudentBee, #StudentBee {
+    background-color: var(--green);
+}
+.AlumniBee, #AlumniBee {
+    background-color: var(--blue);
 }
 
 .LocationTitle, .SocialsTitle {

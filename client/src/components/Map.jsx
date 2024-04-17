@@ -1,10 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
-import AlumIcon from "../assets/alumni_bee.png"
-import StudentIcon from "../assets/student_bee.jpg"
-import StaffIcon from "../assets/bee-icon.jpg"
-import GuestIcon from "../assets/guest_bee.jpg"
+import StockBee from "../assets/stock_bee.png"
 import  BeeLogo  from "../assets/queen_bee.png"
 
 mapboxgl.accessToken = import.meta.env.VITE_MB_Mapbox_Token;
@@ -81,7 +78,7 @@ function Map() {
         `
         <div>
             <h1>TechByte Learning</h1>
-            <h1></h1>
+            <h2>Queen Bee</h2>
             <div>
                 <img src="${ BeeLogo }" alt="Team Icon" />
             </div>
@@ -125,7 +122,6 @@ function Map() {
     // // CREATE USER MARKERS // //
     useEffect(() => {
         // Loop through users
-        if (!map.current || user.length === 0) return;
         for (const oneUser of user) {
             // create user marker element
             const el = document.createElement('div');
@@ -139,73 +135,108 @@ function Map() {
             } else if (oneUser.roll === '') {
                 el.className = 'Marker';
             }
-            // Roll Icon Selector
-            const SortRoll = () => {
-                if( oneUser.roll == "Alumni" ) {
-                    return `<div><img src="${ AlumIcon }" alt="Alumni Icon" /></div>`
-                } else if ( oneUser.roll == "Student" ){
-                    return `<div><img src="${ StudentIcon }" alt="Student Icon" /></div>`
-                } else if ( oneUser.roll == "Staff" ){
-                    return `<div><img src="${ StaffIcon }" alt="Staff Icon" /></div>`
-                } else 
-                    return `<div><img src="${ GuestIcon }" alt="Guest Icon" /></div>`
+            // User Roll Icon Selector
+            const userRoll = () => {
+                let iconText;
+                if (oneUser.roll === 'Alumni') {
+                    iconText = 'Alumni';
+                } else if (oneUser.roll === 'Student') {
+                    iconText = 'Student';
+                } else if (oneUser.roll === 'Staff') {
+                    iconText = 'Staff';
+                } else {
+                    iconText = 'Guest';
+                }
+                return `<h2 id="${iconText}Text">${iconText}</h2>
+                <div><img id="${iconText}Bee" src="${StockBee}" alt="${iconText} Icon" /></div>`;
             };
+
+            // Display Github if provided
+            const githubInfo = () => {
+                if (!oneUser.github) {
+                    return "<div></div>";
+                } else {
+                    return `
+                    <div>
+                        <p><i class="fab fa-github"></i>&nbsp;</p>
+                        <a href="https://github.com/${oneUser.github}" target="_blank" rel="noopener noreferrer">${oneUser.github}</a>
+                    </div>`;
+                }
+            };
+
+            // Display LinkedIn if provided
+            const linkedinInfo = () => {
+                if (!oneUser.linkedin) {
+                    return "<div></div>";
+                } else {
+                    return `
+                    <div>
+                        <p><i class="fab fa-linkedin"></i>&nbsp;</p>
+                        <a href="https://www.linkedin.com/in/${oneUser.linkedin}" target="_blank" rel="noopener noreferrer">${oneUser.linkedin}</a>
+                    </div>`;
+                }
+            };
+
             // Display Facebook if provided
             const facebookInfo = () => {
-                if( !oneUser.facebook) {
-                    return "<div></div>"
-                } else 
+                if (!oneUser.facebook) {
+                    return "<div></div>";
+                } else {
                     return `
                     <div>
                         <p><i class="fab fa-facebook-square"></i>&nbsp;</p>
                         <a href="https://www.facebook.com/${oneUser.facebook}" target="_blank" rel="noopener noreferrer">${oneUser.facebook}</a>
-                    </div>
-                    `
+                    </div>`;
+                }
             };
+
             // Display Instagram if provided
             const instagramInfo = () => {
                 if (!oneUser.instagram) {
                     return "<div></div>";
                 } else {
                     let instagramUsername = oneUser.instagram;
-                    if (instagramUsername.startsWith("@")) {
+                    if (instagramUsername.startsWith('@')) {
                         instagramUsername = instagramUsername.substring(1);
                     }
                     return `
                     <div>
                         <p><i class="fab fa-instagram-square"></i>&nbsp;</p>
                         <a href="https://www.instagram.com/${instagramUsername}" target="_blank" rel="noopener noreferrer">${instagramUsername}</a>
-                    </div>
-                    `;
+                    </div>`;
                 }
             };
+
             // Display Spotify if provided
             const spotifyInfo = () => {
-                if( !oneUser.spotify) {
-                    return "<div></div>"
-                } else 
+                if (!oneUser.spotify) {
+                    return "<div></div>";
+                } else {
                     return `
                     <div>
                         <p><i class="fab fa-spotify"></i>&nbsp;</p>
                         <a href="http://open.spotify.com/user/${oneUser.spotify}" target="_blank" rel="noopener noreferrer">${oneUser.spotify}</a>
-                    </div>
-                    `
+                    </div>`;
+                }
             };
+
             // package up user marker popup info
             const userMarkerInfo = 
             `<div>
                 <h1>${oneUser.userName}</h1>
-                ${SortRoll()}
+                ${userRoll()}
+                ${githubInfo()}
+                ${linkedinInfo()}
                 ${instagramInfo()}
                 ${facebookInfo()}
                 ${spotifyInfo()}
-            </div>`
-            
+            </div>`;
+
             // Add packaged up user marker, popup and associated it to its location THEN add it to the map
             new mapboxgl.Marker(el)
                 .setLngLat(oneUser.coordinates)
                 .setPopup(new mapboxgl.Popup().setHTML(userMarkerInfo))
-                .addTo(map.current)
+                .addTo(map.current);
         }
     }, [user]);
 

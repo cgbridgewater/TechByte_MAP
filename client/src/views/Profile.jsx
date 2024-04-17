@@ -2,10 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import BadLink from "./BadLink";
-import AlumIcon from "../assets/alumni_bee.png"
-import StudentIcon from "../assets/student_bee.jpg"
-import StaffIcon from "../assets/bee-icon.jpg"
-import GuestIcon from "../assets/guest_bee.jpg"
+import StockBee from "../assets/stock_bee.png"
 import Spinner from "../components/Spinner";
 import Button from "../components/Button";
 
@@ -28,13 +25,13 @@ function Profile(props) {
 
     const SortRoll = () => {
         if( roll == "Alumni" ) {
-            return <img className="BeeIcon" src={ AlumIcon } alt="Alumni" />;
+            return <img className="BeeIcon AlumniBee" src={ StockBee } alt="Alumni" />;
         } else if ( roll == "Student" ){
-            return <img className="BeeIcon" src={ StudentIcon } alt="Student" />;
+            return <img className="BeeIcon StudentBee" src={ StockBee } alt="Student" />;
         } else if ( roll == "Staff" ){
-            return <img className="BeeIcon" src={ StaffIcon } alt="Staff" />;
+            return <img className="BeeIcon StaffBee" src={ StockBee } alt="Staff" />;
         } else 
-            return <img className="BeeIcon" src={ GuestIcon } alt="Guest" />;
+            return <img className="BeeIcon" src={ StockBee } alt="Guest" />;
     };
 
     useEffect(() => {
