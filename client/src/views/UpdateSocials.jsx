@@ -60,8 +60,32 @@ function UpdateSocials (props) {
                 navigate(`/profile`);
             })
             .catch(err =>  {
-                setErrors(err.response.data.errors);
-                console.log("errors exist!", errors);
+                if (err.response.data.message === "Email already exists!") {
+                    setErrors({ email: "Email already exists" });
+                    axios.get("http://localhost:8000/api/user/profile", {
+                        withCredentials: true,
+                        headers: {
+                            Authorization: `Bearer ${userToken}`, // Include the User Token
+                        },
+                    })
+                    .then((res) => {
+                        setUserName(res.data.userName);
+                        setEmail(res.data.email);
+                        setRoll(res.data.roll);
+                        setSpotify(res.data.spotify);
+                        setInstagram(res.data.instagram);
+                        setFacebook(res.data.facebook);
+                        setLinkedin(res.data.linkedin);
+                        setGithub(res.data.github);
+                    })
+                    .catch((err) => {
+                        props.setAuthorized("Please log in to access profile pages!");
+                        navigate("/login")
+                    });
+                } else {
+                    setErrors(err.response.data.errors);
+                    console.log("errors exist!", errors);
+                }
             })
     }
 

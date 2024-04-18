@@ -49,7 +49,8 @@ function Register (props) {
             })
             .catch(err =>  {
                 setErrors(err.response.data.error.errors);
-                console.log("errors exist!", errors);
+                console.log("errors exist!");
+                // console.log("errors exist!", err.response.data.error.errors);
             })
     }
 

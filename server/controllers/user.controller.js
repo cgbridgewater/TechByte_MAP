@@ -21,11 +21,11 @@ module.exports = {
     // // // REGISTER NEW USER  // // EMAIL CHECK CAUSES ISSUES DUE TO JSON ERROR LEVELS
     register :async (req, res) => {
         // // Check if email is in use
-        const user = await User.findOne({ email: req.body.email });
-        console.log(user,"user data")
+        const user = await User.findOne({ email: req.body.email.toLowerCase() });// Search for matching email (case-insensitive)
         if (user) {
-            return res.status(400).json({ message: "Email already exists!" });
+            return res.status(400).json({ message: "Email already exists!", error: { errors: { email: { message: "Email already exists" } } }});
         }
+        
         // // if email is origional create user
         User.create(req.body) // Create new user
             .then(newUser => {
@@ -48,25 +48,30 @@ module.exports = {
     },
 
     // // // LOGIN A REGISTERED USER
-    login :async (req, res) => {
-        const user = await User.findOne({email: req.body.email}) // Search for matching email
+    login : async (req, res) => {
+        const email = req.body.email.toLowerCase(); // Convert input email to lowercase
+        const user = await User.findOne({email: email}) // Search for matching email (case-insensitive)
+        
         if (user === null) {
             return res.status(400).json({message: "Invalid login"}) // If user does not exist, give error
         }
-        const correctPassword = await bcrypt.compare(req.body.password, user.password) //User found in database
+        
+        const correctPassword = await bcrypt.compare(req.body.password, user.password) // User found in database
         // If password does not match stored password, give error
         if (!correctPassword) {
             return res.status(400).json({message: "Invalid login"}) // If stored password does not match given password give error
         }
-        const userToken = jwt.sign({ // // Create JWT Token if user found and passwords match
+        
+        const userToken = jwt.sign({ // Create JWT Token if user found and passwords match
             id: user._id
         }, process.env.SECRET_KEY);
+        
         res
             .cookie("usertoken", userToken, { // Create cookie
                 httpOnly: true
             })
             .json({
-                msg: " Great success!",  // Send back success message
+                msg: "Great success!",  // Send back success message
                 user: {
                     _id: user._id, // Store user_id into cookie
                 },
@@ -87,14 +92,33 @@ module.exports = {
         .catch(err => res.status(400).json(err));
     },
 
-    // // // UPDATE USER BY JWT
-    update : (req,res) => {
-        const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+    // UPDATE USER BY JWT
+    update: async (req, res) => {
+        const userToken = req.cookies.usertoken;    // Get the user token from the cookie
         const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-        User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
-            .then(updatedResults => res.json(updatedResults))
-            .catch((err) => res.status(400).json(err))
+        
+        try {
+            const existingEmailUser = await User.findOne({ email: req.body.email.toLowerCase() });  // Search for matching email (case-insensitive)
+            
+            if (existingEmailUser && existingEmailUser._id != decodedToken.id) {  // If match found make error
+                return res.status(400).json({ message: "Email already exists!" });
+            }
+    
+            const updatedUser = await User.findOneAndUpdate({ _id: decodedToken.id }, req.body, { new: true, runValidators: true }); // Update User
+    
+            res.json(updatedUser);
+        } catch (err) {
+            res.status(400).json(err);
+        }
     },
+    // // // UPDATE USER BY JWT
+    // update : (req,res) => {
+    //     const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+    //     const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
+    //     User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
+    //         .then(updatedResults => res.json(updatedResults))
+    //         .catch((err) => res.status(400).json(err))
+    // },
 
     // // // DELETE USER BY JWT
     deleteUser : (req,res) => {
