@@ -43,7 +43,6 @@ function Register (props) {
         }
         axios.post("http://localhost:8000/api/register", data, {withCredentials: true})
             .then(res => {
-                const userId = res.data.user._id
                 console.log("results", res.data.user._id)
                 navigate(`/profile`);
             })
